@@ -1,0 +1,29 @@
+routing_order:
+  - cloudflare
+  - digitalocean
+  - local_free
+  - paid_fallback
+
+cloudflare:
+  roles:
+    - simulation_inference
+    - queue_orchestration
+    - edge_storage
+
+digitalocean:
+  roles:
+    - control_plane
+    - metadata_database
+    - observability
+  gpu_usage_allowed: false
+
+local_free:
+  roles:
+    - smoke_test
+    - fallback_extraction
+
+paid_fallback:
+  roles:
+    - low_confidence_extraction
+    - tie_break_eval
+  requires_manual_unlock: true

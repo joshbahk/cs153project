@@ -1,0 +1,7 @@
+max_total_usd: 250.0
+max_per_study_usd: 25.0
+max_stage_usd:
+  extraction: 50.0
+  simulation: 150.0
+  analysis: 25.0
+  reporting: 25.0

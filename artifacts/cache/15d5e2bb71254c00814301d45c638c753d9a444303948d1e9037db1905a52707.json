@@ -1,0 +1,54 @@
+{
+  "study_spec": {
+    "study_id": "study_prompt_framing_001",
+    "title": "Prompt Framing and Risk Preference",
+    "domain": "social_science",
+    "hypothesis": "Hypothesis: positively framed prompts increase willingness to take a risky option.",
+    "sample_size_target": 240,
+    "inclusion_rules": [
+      "adult participants",
+      "fluent in experiment language"
+    ],
+    "exclusion_rules": [
+      "missing outcomes"
+    ],
+    "independent_variables": [
+      {
+        "name": "arm",
+        "kind": "categorical",
+        "allowed_values": [
+          "control",
+          "treatment"
+        ],
+        "description": ""
+      }
+    ],
+    "dependent_variables": [
+      {
+        "name": "response_score",
+        "kind": "continuous",
+        "allowed_values": [],
+        "description": ""
+      }
+    ],
+    "arms": [
+      {
+        "arm_id": "control",
+        "prompt_template": "Hypothesis: positively framed prompts increase willingness to take a risky option.",
+        "description": "control"
+      },
+      {
+        "arm_id": "treatment",
+        "prompt_template": "Condition A prompt: You have an option with a likely gain and low downside.",
+        "description": "treatment"
+      }
+    ],
+    "outcome_measure": "mean_response_difference",
+    "analysis_plan": "two-group mean comparison with bootstrap CI",
+    "source_uri": "synthetic://pilot/study_prompt_framing_001",
+    "source_sha256": "9f18a57343c2523aa0a0d1364045e86895593b657811f3cd6af6574eea99e682",
+    "extraction_confidence": 0.95
+  },
+  "tier_used": "local_heuristic",
+  "confidence": 0.95
+}

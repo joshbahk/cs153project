@@ -1,0 +1,6 @@
+{
+  "study_id": "study_social_norms_002",
+  "title": "Norm Messaging and Compliance",
+  "source_uri": "synthetic://pilot/study_social_norms_002",
+  "text": "Hypothesis: social norm statements improve compliance intention.\nCondition control prompt: Please complete this task if you can.\nCondition treatment prompt: Most people like you complete this task quickly.\nThe article described 180 participants and p-value below 0.05."
+}

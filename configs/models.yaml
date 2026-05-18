@@ -1,0 +1,19 @@
+tier_1:
+  provider_order:
+    - cloudflare_workers_ai_small
+    - local_open_weight
+  max_input_tokens: 1500
+  max_output_tokens: 350
+  use_for:
+    - extraction
+    - participant_simulation
+
+tier_2:
+  provider_order:
+    - cloudflare_workers_ai_large
+    - paid_api_fallback
+  max_input_tokens: 3000
+  max_output_tokens: 800
+  use_for:
+    - low_confidence_extraction
+    - tie_break_simulation

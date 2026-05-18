@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "study_id": "study_prompt_framing_001",
+      "replication_risk": 0.35359691400977045,
+      "uncertainty": 0.6020111923450253,
+      "rationale": "p=0.0166, effect=3.211, CI=[0.846, 5.662]"
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "replication_risk": 0.30141408577447315,
+      "uncertainty": 0.6738757533316004,
+      "rationale": "p=0.0033, effect=4.006, CI=[1.267, 6.658]"
+    }
+  ]
+}

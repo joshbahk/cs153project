@@ -1,0 +1,20 @@
+{
+  "study_prompt_framing_001": {
+    "n_control": 122,
+    "n_treatment": 128,
+    "effect_size": 3.2113780196214137,
+    "ci_low": 0.8457144647182488,
+    "ci_high": 5.661804003478451,
+    "p_value": 0.016638935108153077,
+    "replicated": true
+  },
+  "study_social_norms_002": {
+    "n_control": 95,
+    "n_treatment": 105,
+    "effect_size": 4.006488682756128,
+    "ci_low": 1.267376947175471,
+    "ci_high": 6.6583829738282745,
+    "p_value": 0.0033277870216306157,
+    "replicated": true
+  }
+}

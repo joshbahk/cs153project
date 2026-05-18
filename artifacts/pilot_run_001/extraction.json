@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "study_id": "study_prompt_framing_001",
+      "tier_used": "local_heuristic",
+      "confidence": 0.95
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "tier_used": "local_heuristic",
+      "confidence": 0.95
+    }
+  ]
+}

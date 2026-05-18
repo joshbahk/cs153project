@@ -1,0 +1,6 @@
+{
+  "study_id": "study_prompt_framing_001",
+  "title": "Prompt Framing and Risk Preference",
+  "source_uri": "synthetic://pilot/study_prompt_framing_001",
+  "text": "Hypothesis: positively framed prompts increase willingness to take a risky option.\nCondition A prompt: You have an option with a likely gain and low downside.\nCondition B prompt: You have an option with uncertain gain and explicit downside.\nOriginal paper reported N = 240 participants and a statistically significant difference."
+}

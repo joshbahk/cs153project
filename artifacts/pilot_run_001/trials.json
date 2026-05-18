@@ -1,0 +1,2706 @@
+{
+  "study_prompt_framing_001": [
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00052",
+      "response_score": 60.37557159753938
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00210",
+      "response_score": 51.51893028767311
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00236",
+      "response_score": 52.86471928100516
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00202",
+      "response_score": 59.034583761664805
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00096",
+      "response_score": 47.84899776524362
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00124",
+      "response_score": 52.09813122728924
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00212",
+      "response_score": 27.664264181262553
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00053",
+      "response_score": 44.5415272257056
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00113",
+      "response_score": 65.22455630115599
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00130",
+      "response_score": 41.527859669402375
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00001",
+      "response_score": 28.4858059524526
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00226",
+      "response_score": 50.90108404478546
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00115",
+      "response_score": 49.298677623092054
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00066",
+      "response_score": 43.21361955397237
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00201",
+      "response_score": 48.41809820614473
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00101",
+      "response_score": 46.70750133767339
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00109",
+      "response_score": 54.22103744538694
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00166",
+      "response_score": 58.582195654240465
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00163",
+      "response_score": 54.17233879507842
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00149",
+      "response_score": 44.99062930117772
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00176",
+      "response_score": 71.85031045572157
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00012",
+      "response_score": 66.59909368814657
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00181",
+      "response_score": 55.98641886600155
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00195",
+      "response_score": 60.388670594148394
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00216",
+      "response_score": 70.78856388031562
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00114",
+      "response_score": 59.36153896625893
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00134",
+      "response_score": 56.871659630868976
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00206",
+      "response_score": 49.478797789232516
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00015",
+      "response_score": 54.378621559013354
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00194",
+      "response_score": 58.41399064382567
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00099",
+      "response_score": 58.39837742010591
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00189",
+      "response_score": 62.06324509531707
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00138",
+      "response_score": 65.4056091808991
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00104",
+      "response_score": 47.01200503309172
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00182",
+      "response_score": 40.71386638721004
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00227",
+      "response_score": 43.987440800958844
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00119",
+      "response_score": 52.814647681063555
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00152",
+      "response_score": 59.2469255190506
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00018",
+      "response_score": 47.84803891209254
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00067",
+      "response_score": 35.953998823149256
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00075",
+      "response_score": 41.37701737688936
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00042",
+      "response_score": 54.231043091358785
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00193",
+      "response_score": 49.66368268313567
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00008",
+      "response_score": 51.2214553353441
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00090",
+      "response_score": 44.01328183027978
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00172",
+      "response_score": 65.60230465296611
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00190",
+      "response_score": 54.89142060949594
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00077",
+      "response_score": 51.10348945769141
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00027",
+      "response_score": 42.165806515308724
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00238",
+      "response_score": 65.21797626833717
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00027",
+      "response_score": 37.318248516479656
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00031",
+      "response_score": 55.98527745794353
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00193",
+      "response_score": 52.53946338375296
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00122",
+      "response_score": 57.58266535929104
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00200",
+      "response_score": 54.64756317070098
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00059",
+      "response_score": 26.178357164560353
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00110",
+      "response_score": 46.216484882052356
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00006",
+      "response_score": 29.0490175912618
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00164",
+      "response_score": 56.39043206483908
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00101",
+      "response_score": 48.15048156189952
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00100",
+      "response_score": 42.72467614031601
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00187",
+      "response_score": 41.42844611303244
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00140",
+      "response_score": 59.94235772518307
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00225",
+      "response_score": 51.05487531141848
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00159",
+      "response_score": 69.38175236095734
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00197",
+      "response_score": 28.393793465635436
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00181",
+      "response_score": 45.661087292503986
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00104",
+      "response_score": 55.603860617938025
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00230",
+      "response_score": 45.9167798973605
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00226",
+      "response_score": 51.06594138048887
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00038",
+      "response_score": 63.15562216374301
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00052",
+      "response_score": 52.44728477373415
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00079",
+      "response_score": 45.024610081305056
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00092",
+      "response_score": 49.787250781167934
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00116",
+      "response_score": 43.057773860704195
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00087",
+      "response_score": 41.01320574973924
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00096",
+      "response_score": 51.77846671398251
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00015",
+      "response_score": 51.86862602451178
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00189",
+      "response_score": 57.94985586490739
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00085",
+      "response_score": 58.273315622903034
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00057",
+      "response_score": 42.13235421501596
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00195",
+      "response_score": 49.286117799507146
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00157",
+      "response_score": 61.01677688791436
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00234",
+      "response_score": 49.19601073551352
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00188",
+      "response_score": 43.31948908657125
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00086",
+      "response_score": 51.62623165038204
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00032",
+      "response_score": 61.71695032765263
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00071",
+      "response_score": 53.93951123166904
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00160",
+      "response_score": 57.81095630263238
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00099",
+      "response_score": 52.50081902536343
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00058",
+      "response_score": 42.930868956852365
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00152",
+      "response_score": 55.73158097256127
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00077",
+      "response_score": 66.83494052853085
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00131",
+      "response_score": 57.20839395326833
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00165",
+      "response_score": 52.34304878967088
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00209",
+      "response_score": 48.19416034573074
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00020",
+      "response_score": 37.694531578784456
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00003",
+      "response_score": 42.76897480779892
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00024",
+      "response_score": 40.765640248468586
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00009",
+      "response_score": 49.62421091413427
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00116",
+      "response_score": 43.26354660124931
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00029",
+      "response_score": 45.693843633383935
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00221",
+      "response_score": 67.29429461955391
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00199",
+      "response_score": 61.16389778169343
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00239",
+      "response_score": 64.42343336184739
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00017",
+      "response_score": 54.83576130578355
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00211",
+      "response_score": 43.747990557790075
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00032",
+      "response_score": 57.876605691131836
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00173",
+      "response_score": 51.786442086524744
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00228",
+      "response_score": 42.915588980071554
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00047",
+      "response_score": 54.78153775095964
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00135",
+      "response_score": 54.18780929436765
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00160",
+      "response_score": 41.81430445196071
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00024",
+      "response_score": 39.25779379845385
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00164",
+      "response_score": 52.21473239617942
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00131",
+      "response_score": 47.9309016117898
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00089",
+      "response_score": 34.71368281200939
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00216",
+      "response_score": 55.259547230045705
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00132",
+      "response_score": 69.81745647902908
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00230",
+      "response_score": 46.77206085787942
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00148",
+      "response_score": 50.07386594024612
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00062",
+      "response_score": 49.839290630651014
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00081",
+      "response_score": 60.394052720304515
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00182",
+      "response_score": 38.70829155032082
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00150",
+      "response_score": 60.816861933015794
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00013",
+      "response_score": 53.97923088275077
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00064",
+      "response_score": 50.01437502042831
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00176",
+      "response_score": 57.328408863688054
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00100",
+      "response_score": 49.03840423777641
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00168",
+      "response_score": 68.2446313965444
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00126",
+      "response_score": 54.130082504574744
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00213",
+      "response_score": 64.55661961253394
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00161",
+      "response_score": 63.199398345710904
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00054",
+      "response_score": 44.09091122770688
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00122",
+      "response_score": 61.898549880124456
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00185",
+      "response_score": 49.26050533813795
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00007",
+      "response_score": 39.34896512081354
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00234",
+      "response_score": 47.47642330847567
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00205",
+      "response_score": 19.253940234914825
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00083",
+      "response_score": 61.75156879812127
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00000",
+      "response_score": 57.76911809550651
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00194",
+      "response_score": 54.59558909824698
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00178",
+      "response_score": 38.86026496125105
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00225",
+      "response_score": 49.6685918255336
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00079",
+      "response_score": 57.759184881272546
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00120",
+      "response_score": 49.28527027292777
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00158",
+      "response_score": 64.81015080515519
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00149",
+      "response_score": 48.15330946556538
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00165",
+      "response_score": 52.87108996594584
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00092",
+      "response_score": 32.90467806554699
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00213",
+      "response_score": 59.69897688453279
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00025",
+      "response_score": 54.16175466446005
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00109",
+      "response_score": 57.43356966890679
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00147",
+      "response_score": 70.27074022653119
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00228",
+      "response_score": 29.52494168853957
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00220",
+      "response_score": 26.460856383407346
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00122",
+      "response_score": 64.61950212787887
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00133",
+      "response_score": 52.749977881602646
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00183",
+      "response_score": 59.13664955717243
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00040",
+      "response_score": 50.38839585663962
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00139",
+      "response_score": 65.0564726438729
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00008",
+      "response_score": 63.94249276912088
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00239",
+      "response_score": 51.38215744139415
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00217",
+      "response_score": 49.210768727722574
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00026",
+      "response_score": 49.20239184618243
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00045",
+      "response_score": 42.491093929095065
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00031",
+      "response_score": 55.231564655745316
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00226",
+      "response_score": 46.26442968959077
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00175",
+      "response_score": 50.2115431864433
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00088",
+      "response_score": 42.02364614501976
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00140",
+      "response_score": 61.57923095416377
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00199",
+      "response_score": 47.90122884826285
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00154",
+      "response_score": 68.30679786257288
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00134",
+      "response_score": 37.11450241938478
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00034",
+      "response_score": 63.74529720563354
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00038",
+      "response_score": 63.8539916903082
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00176",
+      "response_score": 64.57142856251467
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00096",
+      "response_score": 55.76625404356677
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00093",
+      "response_score": 55.97350320833601
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00017",
+      "response_score": 59.89434559550973
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00029",
+      "response_score": 40.72511877235502
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00164",
+      "response_score": 52.465226850306756
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00191",
+      "response_score": 48.47397712606058
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00219",
+      "response_score": 65.20526038555485
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00099",
+      "response_score": 49.148574418367886
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00237",
+      "response_score": 55.68341330405215
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00012",
+      "response_score": 56.69550540231312
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00047",
+      "response_score": 57.62917232915957
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00097",
+      "response_score": 33.4322159314536
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00014",
+      "response_score": 30.65667064711719
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00118",
+      "response_score": 44.74130956241411
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00230",
+      "response_score": 54.2026096315207
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00229",
+      "response_score": 41.02334408205705
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00106",
+      "response_score": 35.32007090512349
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00000",
+      "response_score": 56.56537999737917
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00207",
+      "response_score": 60.914205305873125
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00058",
+      "response_score": 47.56706415204442
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00076",
+      "response_score": 60.57698109111071
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00016",
+      "response_score": 43.043278606294166
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00211",
+      "response_score": 43.505936257585304
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00232",
+      "response_score": 72.10977057720443
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00006",
+      "response_score": 39.13321728449436
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00086",
+      "response_score": 51.22891750190317
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00045",
+      "response_score": 37.03129917313074
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00032",
+      "response_score": 61.06732939937592
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00138",
+      "response_score": 70.80102738648019
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00023",
+      "response_score": 61.11450591765755
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00055",
+      "response_score": 42.98849076409063
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00233",
+      "response_score": 67.81462152930581
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00068",
+      "response_score": 47.408449125807174
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00171",
+      "response_score": 65.47487845135727
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00022",
+      "response_score": 44.32407794360239
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00073",
+      "response_score": 41.43020864943404
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00161",
+      "response_score": 63.76719650671374
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00078",
+      "response_score": 35.97359653454404
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00092",
+      "response_score": 54.10938107904968
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00007",
+      "response_score": 57.99356715974815
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00231",
+      "response_score": 52.10313791496195
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00162",
+      "response_score": 52.718922404536144
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00236",
+      "response_score": 49.193174124958354
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00101",
+      "response_score": 31.57637724610142
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00165",
+      "response_score": 52.089814080881844
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00182",
+      "response_score": 44.98942872693452
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00001",
+      "response_score": 53.274906697627216
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00084",
+      "response_score": 47.26011409963185
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00036",
+      "response_score": 32.642159927160876
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00131",
+      "response_score": 54.004140834731174
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00139",
+      "response_score": 64.32889190291648
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00016",
+      "response_score": 31.350948770294202
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00098",
+      "response_score": 43.45716127356271
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00222",
+      "response_score": 50.74256962131128
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00094",
+      "response_score": 47.86391904442463
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00126",
+      "response_score": 45.91833150027103
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00054",
+      "response_score": 43.08757719459577
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00114",
+      "response_score": 50.992264026210556
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00169",
+      "response_score": 67.59513164337687
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00127",
+      "response_score": 64.15582096579845
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00157",
+      "response_score": 56.53184633276431
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00221",
+      "response_score": 72.40272793084192
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00100",
+      "response_score": 42.10139716931772
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00142",
+      "response_score": 53.54723659324317
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00070",
+      "response_score": 47.58813038072315
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00166",
+      "response_score": 47.08624667682829
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00025",
+      "response_score": 50.55352915029262
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00082",
+      "response_score": 36.86642863755667
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "control",
+      "agent_id": "agent_00033",
+      "response_score": 29.87183003770638
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00195",
+      "response_score": 45.56490121567524
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00237",
+      "response_score": 56.598683489607815
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00204",
+      "response_score": 40.14709467343939
+    },
+    {
+      "study_id": "study_prompt_framing_001",
+      "arm": "treatment",
+      "agent_id": "agent_00163",
+      "response_score": 49.86558124572412
+    }
+  ],
+  "study_social_norms_002": [
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00133",
+      "response_score": 46.44435738568175
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00104",
+      "response_score": 64.58081050527548
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00083",
+      "response_score": 65.81002866054772
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00160",
+      "response_score": 47.79827178116554
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00006",
+      "response_score": 52.23065087314427
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00116",
+      "response_score": 67.94439112462791
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00092",
+      "response_score": 44.702701620480774
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00174",
+      "response_score": 75.29671446670953
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00094",
+      "response_score": 44.91875372818443
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00151",
+      "response_score": 49.340202304013076
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00165",
+      "response_score": 78.26904025783061
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00042",
+      "response_score": 44.005296363472006
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00079",
+      "response_score": 51.21326836233023
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00154",
+      "response_score": 69.84432887588541
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00169",
+      "response_score": 51.05033249132006
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00076",
+      "response_score": 39.86766887921354
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00157",
+      "response_score": 49.36727975208975
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00030",
+      "response_score": 51.62041482329454
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00062",
+      "response_score": 33.765616076624326
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00036",
+      "response_score": 59.734669669538334
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00031",
+      "response_score": 48.25000328441266
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00149",
+      "response_score": 40.263161581981485
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00126",
+      "response_score": 46.75417037616981
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00007",
+      "response_score": 46.598637376376956
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00046",
+      "response_score": 54.87653778137383
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00146",
+      "response_score": 48.92012554558872
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00171",
+      "response_score": 60.041877772570345
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00009",
+      "response_score": 39.79319507128653
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00089",
+      "response_score": 37.26682396203181
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00038",
+      "response_score": 31.893607570178943
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00063",
+      "response_score": 45.70688216996684
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00109",
+      "response_score": 55.12958230074602
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00105",
+      "response_score": 52.51322865340431
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00057",
+      "response_score": 50.984486470063885
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00037",
+      "response_score": 41.687305215210515
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00021",
+      "response_score": 46.38141361193888
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00129",
+      "response_score": 60.71419534370837
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00061",
+      "response_score": 56.73891207363562
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00163",
+      "response_score": 48.67081128887434
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00114",
+      "response_score": 43.77167092440425
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00123",
+      "response_score": 41.04955444213133
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00113",
+      "response_score": 40.82992456955309
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00178",
+      "response_score": 43.19677807968148
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00066",
+      "response_score": 57.0368509652144
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00078",
+      "response_score": 36.405481376621225
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00010",
+      "response_score": 49.188533074492554
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00131",
+      "response_score": 59.830439764956736
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00097",
+      "response_score": 61.16453377457376
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00120",
+      "response_score": 50.774929227324954
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00167",
+      "response_score": 77.11490852368496
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00023",
+      "response_score": 57.64974330821617
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00077",
+      "response_score": 61.67280867597999
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00043",
+      "response_score": 57.612038143818424
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00005",
+      "response_score": 55.534989030092696
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00130",
+      "response_score": 48.406745497887634
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00082",
+      "response_score": 54.93127101084044
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00139",
+      "response_score": 48.85913654527406
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00167",
+      "response_score": 68.34074247141682
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00065",
+      "response_score": 49.57320910219084
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00132",
+      "response_score": 51.68316690546366
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00064",
+      "response_score": 59.02712086628503
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00143",
+      "response_score": 53.439523702791604
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00060",
+      "response_score": 65.48950959933856
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00020",
+      "response_score": 65.17231657926594
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00138",
+      "response_score": 25.51289581895005
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00151",
+      "response_score": 55.80194103412795
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00114",
+      "response_score": 50.7305970147736
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00038",
+      "response_score": 42.526758551051714
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00054",
+      "response_score": 67.82527616607518
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00004",
+      "response_score": 48.460157298941155
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00101",
+      "response_score": 63.52105230760189
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00160",
+      "response_score": 61.63900858605
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00093",
+      "response_score": 47.92073847147831
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00062",
+      "response_score": 51.386755464942496
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00075",
+      "response_score": 62.65958059668758
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00169",
+      "response_score": 49.914935248583724
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00003",
+      "response_score": 34.221432070176604
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00086",
+      "response_score": 52.272463698930984
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00059",
+      "response_score": 34.21092788439031
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00078",
+      "response_score": 31.389791147627683
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00129",
+      "response_score": 57.350646355630325
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00008",
+      "response_score": 46.226040490347884
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00102",
+      "response_score": 58.79799349497362
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00103",
+      "response_score": 49.43576926217779
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00019",
+      "response_score": 42.92470325970322
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00137",
+      "response_score": 40.109553417076285
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00042",
+      "response_score": 41.11934809749904
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00141",
+      "response_score": 61.687901609064674
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00128",
+      "response_score": 49.48687050370942
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00110",
+      "response_score": 39.90505287466896
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00001",
+      "response_score": 48.22080917912435
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00145",
+      "response_score": 46.62622756172484
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00088",
+      "response_score": 38.91998492133344
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00061",
+      "response_score": 60.771186390078796
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00027",
+      "response_score": 68.5279030164227
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00100",
+      "response_score": 48.08746818739214
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00175",
+      "response_score": 59.02355818624717
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00046",
+      "response_score": 59.88762810124268
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00049",
+      "response_score": 37.04162825419574
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00066",
+      "response_score": 60.36266408344628
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00058",
+      "response_score": 37.410883353996155
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00088",
+      "response_score": 66.78064731333066
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00075",
+      "response_score": 56.894042185957495
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00011",
+      "response_score": 65.98948240638195
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00059",
+      "response_score": 28.16479512538388
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00070",
+      "response_score": 40.108275450017
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00148",
+      "response_score": 39.313100468583905
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00022",
+      "response_score": 48.49594816320525
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00087",
+      "response_score": 42.611178264673626
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00017",
+      "response_score": 47.93320285569196
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00044",
+      "response_score": 40.049474872166925
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00178",
+      "response_score": 50.8319360837995
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00019",
+      "response_score": 42.92797328568976
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00002",
+      "response_score": 41.63021028885493
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00008",
+      "response_score": 48.16655235520309
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00173",
+      "response_score": 52.853188404598605
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00162",
+      "response_score": 38.14356892113451
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00149",
+      "response_score": 36.50185846414356
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00126",
+      "response_score": 54.48858783256157
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00082",
+      "response_score": 48.75513982619704
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00023",
+      "response_score": 55.3191063446052
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00081",
+      "response_score": 57.12556317612719
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00079",
+      "response_score": 48.04531890615815
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00122",
+      "response_score": 51.653243151462185
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00141",
+      "response_score": 59.10432813172724
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00051",
+      "response_score": 40.76110634197978
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00042",
+      "response_score": 46.068821299411965
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00064",
+      "response_score": 54.9595937892266
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00043",
+      "response_score": 70.44359591091212
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00048",
+      "response_score": 61.08979155634099
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00158",
+      "response_score": 53.01764306652298
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00036",
+      "response_score": 55.245838849151056
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00050",
+      "response_score": 56.78372196446078
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00004",
+      "response_score": 48.9525048054484
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00086",
+      "response_score": 41.24007168135081
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00118",
+      "response_score": 56.29602692325024
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00021",
+      "response_score": 57.79943402463472
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00077",
+      "response_score": 58.105040033248365
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00026",
+      "response_score": 56.483483309925525
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00110",
+      "response_score": 41.92200405700113
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00083",
+      "response_score": 47.29888489724101
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00107",
+      "response_score": 58.02689777341899
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00132",
+      "response_score": 46.301401995262694
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00114",
+      "response_score": 53.658152374308756
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00062",
+      "response_score": 43.20812369345204
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00015",
+      "response_score": 57.25326136943245
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00067",
+      "response_score": 50.573941888494815
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00168",
+      "response_score": 51.53413720564804
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00152",
+      "response_score": 56.855703477163274
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00038",
+      "response_score": 46.96910718133472
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00038",
+      "response_score": 39.56835030443372
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00149",
+      "response_score": 46.04806731051255
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00052",
+      "response_score": 40.037669050113415
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00048",
+      "response_score": 57.50163080073307
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00172",
+      "response_score": 43.29533183704771
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00129",
+      "response_score": 53.071994948680356
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00042",
+      "response_score": 48.96689024916445
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00166",
+      "response_score": 77.2627331463798
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00022",
+      "response_score": 57.38129847746045
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00010",
+      "response_score": 55.55701214543473
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00035",
+      "response_score": 71.47237681331887
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00178",
+      "response_score": 47.322422171535216
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00050",
+      "response_score": 45.65128428351823
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00114",
+      "response_score": 60.99358109479864
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00118",
+      "response_score": 54.34726897577103
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00009",
+      "response_score": 48.680453103805824
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00028",
+      "response_score": 30.911466705228158
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00153",
+      "response_score": 74.25935026967034
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00034",
+      "response_score": 52.53882349899922
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00124",
+      "response_score": 42.82990306994041
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00043",
+      "response_score": 54.14257772840608
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00007",
+      "response_score": 45.61699372726524
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00135",
+      "response_score": 34.65513273791982
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00074",
+      "response_score": 79.4659121005261
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00151",
+      "response_score": 54.34594338085469
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00096",
+      "response_score": 68.9976244502558
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00157",
+      "response_score": 52.65067259619883
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00100",
+      "response_score": 49.2644888895682
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00030",
+      "response_score": 34.85292344858108
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00174",
+      "response_score": 69.1507449704344
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00069",
+      "response_score": 68.079951267432
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00099",
+      "response_score": 41.78086763016012
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00068",
+      "response_score": 49.82685080727926
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00128",
+      "response_score": 48.578967664176815
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00156",
+      "response_score": 55.291633994633166
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00017",
+      "response_score": 58.45408046177296
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00084",
+      "response_score": 64.39719046825056
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00112",
+      "response_score": 55.44760781302418
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00078",
+      "response_score": 44.2870898455094
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00126",
+      "response_score": 55.64145605033974
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00016",
+      "response_score": 54.72512768891664
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00136",
+      "response_score": 57.35663233567051
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00152",
+      "response_score": 64.13189302215842
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00045",
+      "response_score": 54.78440153293131
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00081",
+      "response_score": 64.77198284035391
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00165",
+      "response_score": 61.15959765217521
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00105",
+      "response_score": 59.52175214095575
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00158",
+      "response_score": 62.221620042793894
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "control",
+      "agent_id": "agent_00077",
+      "response_score": 54.91131453799178
+    },
+    {
+      "study_id": "study_social_norms_002",
+      "arm": "treatment",
+      "agent_id": "agent_00106",
+      "response_score": 65.38261623673512
+    }
+  ]
+}
