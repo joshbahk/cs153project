@@ -5,11 +5,16 @@ Simulation-based triage for text-first behavioral studies. The app helps priorit
 ## What This Builds
 - FastAPI dashboard for uploading PDFs or pasting paper text.
 - Batch importer for up to 50 open-access papers via OpenAlex search or pasted URL/DOI lists.
+- Projected budget reservations before queueing so batches cannot silently exceed the DigitalOcean credit cap.
+- Live run monitor with stage, progress percentage, elapsed time, ETA, and one-click skip for queued/running papers.
 - SQLite locally, PostgreSQL on DigitalOcean App Platform.
 - DB-backed run queue with a worker process.
 - Deterministic synthetic-participant simulator with unique agents per run.
+- Stratified synthetic demographic profiles stored in `agents.json`.
+- Methodology extraction with feasibility flags, original-test detection, warnings, and exact-replication caveats.
+- Matched-method analysis when the original statistical test is supported, plus standardized triage analysis otherwise.
 - Bootstrap confidence intervals, permutation p-values, risk ranking, and sensitivity scenarios.
-- JSON artifacts for every run: extraction, analysis, ranking, trials, and budget ledger.
+- JSON artifacts for every run: extraction, analysis, ranking, trials, agents, and budget ledger.
 
 ## Quick Start
 ```bash
@@ -58,7 +63,20 @@ The dashboard can queue large batches with very little manual work:
 3. Set **Max papers** to `50`.
 4. Click **Queue Batch**.
 
-The importer uses OpenAlex open-access metadata, tries to extract full text from OA links/PDFs, and falls back to title/abstract metadata when full text is blocked. You can also paste one DOI, article URL, or PDF URL per line.
+The web request queues OpenAlex metadata or pasted URL/DOI sources immediately. The worker then fetches full text from OA links/PDFs under the same upload-size cap before simulation. If full text cannot be fetched and only metadata/abstract text is available, the run fails with a clear “paste methods/conditions text” message instead of producing a misleading simulation. You can also paste one DOI, article URL, or PDF URL per line.
+
+## Monitoring And Skipping
+The dashboard and run detail pages auto-refresh while work is queued or running. Each paper shows its current stage, progress bar, elapsed time, and ETA. ETA is estimated from the current run’s progress and, when available, recent completed-run durations.
+
+Use **Skip** on the dashboard or **Skip Paper** on the run detail page to stop work. Queued papers are skipped immediately. Running papers stop at the next worker checkpoint, including hydration, extraction, methodology checks, and each simulation batch.
+
+## Scientific Rigor Notes
+- The extractor now records participant population, recruitment context, randomization unit, condition stimuli, outcome scale, original statistical test, reported p-value/effect when detected, and extraction warnings.
+- Runs refuse to simulate when the extractor cannot identify actual study arms and would otherwise fall back to generic control/treatment prompts.
+- Synthetic agents are fixed for each seed and stratified against transparent demographic priors. Agent profiles include age, gender, education, income bucket, political orientation, region, baseline compliance, prosociality, risk preference, and latent trait.
+- Sensitivity scenarios reuse the same generated agents, assignment stream, and noise stream so scenario differences reflect the configured treatment shift rather than a resampled population.
+- If the original statistical method is recognized (`mean_difference`, `t_test`, `linear_regression`, or `anova`), the analysis is marked as a matched approximation. Otherwise the app explicitly reports that it used standardized mean-difference triage instead.
+- The app still does not guarantee exact human replication. It reports when a paper requires review before its methodology can be simulated responsibly.
 
 ## Tests
 ```bash

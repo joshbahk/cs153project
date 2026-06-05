@@ -45,8 +45,9 @@ class Run(Base):
     analysis_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     ranking_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     trials_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    agents_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     budget_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    progress_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
 
     paper: Mapped[Paper] = relationship(back_populates="runs")
-

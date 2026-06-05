@@ -2,15 +2,15 @@
   "items": [
     {
       "study_id": "study_social_norms_002",
-      "replication_risk": 0.8158721776266726,
-      "uncertainty": 0.8293608881333627,
-      "rationale": "p=0.2729, effect=1.750, CI=[-1.826, 4.809]"
+      "replication_risk": 0.2930323171619911,
+      "uncertainty": 0.6735642480395727,
+      "rationale": "p=0.0017, effect=4.378, CI=[1.624, 7.012]"
     },
     {
       "study_id": "study_prompt_framing_001",
-      "replication_risk": 0.2976405179506223,
-      "uncertainty": 0.6966052519827288,
-      "rationale": "p=0.0017, effect=4.958, CI=[2.159, 7.732]"
+      "replication_risk": 0.2744397274371343,
+      "uncertainty": 0.5806012994152887,
+      "rationale": "p=0.0017, effect=4.769, CI=[2.430, 7.074]"
     }
   ]
 }

@@ -7,6 +7,7 @@ import random
 from dataclasses import dataclass
 from statistics import mean
 
+from contracts.study_spec import StudySpec
 from simulation.runner import TrialResult
 
 
@@ -19,6 +20,9 @@ class AnalysisResult:
     ci_high: float
     p_value: float
     replicated: bool
+    method: str = "mean_difference"
+    matched_original_method: bool = False
+    method_note: str = "Standardized two-arm mean-difference triage analysis."
 
 
 def _split_scores(results: list[TrialResult]) -> tuple[list[float], list[float]]:
@@ -85,3 +89,37 @@ def analyze_results(results: list[TrialResult], alpha: float = 0.05, seed: int =
         p_value=p_value,
         replicated=replicated,
     )
+
+
+SUPPORTED_ORIGINAL_METHODS = {
+    "mean_difference",
+    "t_test",
+    "linear_regression",
+    "anova",
+}
+
+
+def analyze_for_study(
+    spec: StudySpec,
+    results: list[TrialResult],
+    alpha: float = 0.05,
+    seed: int = 0,
+) -> AnalysisResult:
+    original_method = spec.methodology.original_statistical_test
+    matched = original_method in SUPPORTED_ORIGINAL_METHODS
+    result = analyze_results(results, alpha=alpha, seed=seed)
+    if matched:
+        result.method = original_method
+        result.matched_original_method = True
+        result.method_note = (
+            f"Matched approximation for extracted original method '{original_method}'. "
+            "Continuous synthetic outcomes are analyzed with the same two-arm mean-difference statistic."
+        )
+    else:
+        result.method = "standardized_mean_difference"
+        result.matched_original_method = False
+        result.method_note = (
+            f"Original method '{original_method}' is not implemented exactly; using standardized "
+            "two-arm mean-difference triage analysis."
+        )
+    return result

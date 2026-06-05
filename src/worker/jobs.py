@@ -6,9 +6,21 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from contracts.study_spec import BudgetState
 from db.models import Run
-from db.repository import claim_next_run, get_run, mark_run_failed, mark_run_running, mark_run_succeeded
+from db.repository import (
+    claim_next_run,
+    get_run,
+    is_skip_requested,
+    mark_run_failed,
+    mark_run_running,
+    mark_run_skipped,
+    mark_run_succeeded,
+    total_recorded_spend,
+    update_run_progress,
+)
+from ingest.batch_importer import extract_url_text
+from ingest.paper_ingest import normalize_paper_text, sha256_text
 from ingest.study_loader import StudyDocument
-from pipeline.service import PipelineConfig, execute_documents, load_budget, load_credits
+from pipeline.service import PipelineCancelled, PipelineConfig, estimate_run_cost, execute_documents, load_budget, load_credits
 from storage.cache import JsonCache
 from web.settings import AppSettings
 
@@ -33,8 +45,79 @@ def _pipeline_config(settings: AppSettings, seed: int) -> PipelineConfig:
     return PipelineConfig(seed=seed, max_sample_size=settings.max_sample_size)
 
 
+def _run_reservation(settings: AppSettings, seed: int) -> float:
+    return estimate_run_cost(settings.max_sample_size, _pipeline_config(settings, seed))
+
+
+def _metadata_only_text(text: str) -> bool:
+    lower = text.lower()
+    return "full text will be fetched by the worker" in lower or (
+        "abstract:" in lower and "condition" not in lower and "method" not in lower
+    )
+
+
+def _hydrate_fetchable_source(session: Session, run: Run, settings: AppSettings) -> None:
+    if run.paper.source_kind not in {"openalex", "url"} or not run.paper.source_uri:
+        return
+    try:
+        extracted = extract_url_text(
+            run.paper.source_uri,
+            max_upload_mb=settings.max_upload_mb,
+            max_chars=settings.max_text_chars,
+        )
+    except Exception as exc:
+        if _metadata_only_text(run.paper.extracted_text):
+            raise ValueError(
+                "Full-text extraction failed and the queued record only has metadata/abstract text. "
+                f"Paste the method/condition text or upload an extractable PDF. Fetch error: {exc}"
+            ) from exc
+        return
+
+    if len(extracted) <= len(run.paper.extracted_text):
+        return
+    text = normalize_paper_text(
+        f"Title: {run.paper.title}\nSource: {run.paper.source_uri}\n\n{extracted}",
+        max_chars=settings.max_text_chars,
+    )
+    run.paper.extracted_text = text
+    run.paper.source_sha256 = sha256_text(text)
+    session.commit()
+
+
 def execute_run(session: Session, run: Run, settings: AppSettings) -> None:
     try:
+        update_run_progress(session, run, stage="starting", message="Starting run.", percent=1.0)
+        reservation = float((run.budget_json or {}).get("reserved_usd") or _run_reservation(settings, run.seed))
+        if total_recorded_spend(session) + reservation > settings.max_total_usd:
+            raise ValueError(
+                f"Budget cap reached before execution. This run reserves up to ${reservation:.2f}, "
+                f"with ${total_recorded_spend(session):.2f} already recorded."
+            )
+        if is_skip_requested(session, run.id):
+            raise PipelineCancelled("Skipped by user request.")
+        update_run_progress(
+            session,
+            run,
+            stage="hydrating_source",
+            message="Fetching full text for URL/OpenAlex sources if available.",
+            percent=4.0,
+        )
+        _hydrate_fetchable_source(session, run, settings)
+        if is_skip_requested(session, run.id):
+            raise PipelineCancelled("Skipped by user request.")
+
+        def report_progress(event: dict) -> None:
+            update_run_progress(
+                session,
+                run,
+                stage=str(event.get("stage", "running")),
+                message=str(event.get("message", "")),
+                percent=float(event.get("percent", 0.0)),
+                current=event.get("current"),
+                total=event.get("total"),
+                extra={k: v for k, v in event.items() if k not in {"stage", "message", "percent", "current", "total"}},
+            )
+
         output = execute_documents(
             docs=[_document_from_run(run)],
             run_id=run.id,
@@ -43,8 +126,12 @@ def execute_run(session: Session, run: Run, settings: AppSettings) -> None:
             cache=JsonCache(settings.cache_dir),
             config=_pipeline_config(settings, run.seed),
             require_credit_validation=settings.require_credit_validation,
+            progress_callback=report_progress,
+            should_cancel=lambda: is_skip_requested(session, run.id),
         )
         mark_run_succeeded(session, run, output.artifacts())
+    except PipelineCancelled as exc:
+        mark_run_skipped(session, run, str(exc))
     except Exception as exc:
         mark_run_failed(session, run, str(exc))
 

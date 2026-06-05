@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if active_runs > 0 %}
+      <meta http-equiv="refresh" content="5">
+    {% endif %}
     <title>Replication Triage</title>
     <link rel="stylesheet" href="/static/styles.css">
   </head>
@@ -14,6 +17,7 @@
       </div>
       <div class="metrics">
         <span><strong>${{ "%.2f"|format(total_spend) }}</strong> recorded</span>
+        <span><strong>${{ "%.2f"|format(projected_spend) }}</strong> projected</span>
         <span><strong>{{ active_runs }}</strong> active</span>
         <span><strong>{{ settings.max_sample_size }}</strong> max n</span>
       </div>
@@ -80,9 +84,12 @@
               <tr>
                 <th>Paper</th>
                 <th>Status</th>
+                <th>Progress</th>
+                <th>ETA</th>
                 <th>Risk</th>
                 <th>p</th>
                 <th>Effect</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -93,13 +100,35 @@
                     <span class="muted">{{ run.source_kind }} · {{ run.created_at[:10] }}</span>
                   </td>
                   <td><span class="badge badge-{{ run.status }}">{{ run.status }}</span></td>
+                  <td>
+                    <div class="progress-cell">
+                      <div class="progress-track"><span style="width: {{ run.progress_percent }}%"></span></div>
+                      <span class="muted">{{ "%.0f"|format(run.progress_percent) }}% · {{ run.progress_stage }}</span>
+                      {% if run.progress_message %}
+                        <span class="muted">{{ run.progress_message }}</span>
+                      {% endif %}
+                    </div>
+                  </td>
+                  <td>
+                    {{ run.eta_seconds|duration }}
+                    <span class="muted">elapsed {{ run.elapsed_seconds|duration }}</span>
+                  </td>
                   <td>{{ "%.3f"|format(run.risk) if run.risk is not none else "pending" }}</td>
                   <td>{{ "%.4f"|format(run.p_value) if run.p_value is not none else "pending" }}</td>
                   <td>{{ "%.3f"|format(run.effect_size) if run.effect_size is not none else "pending" }}</td>
+                  <td>
+                    {% if run.status in ["queued", "running"] %}
+                      <form class="action-form" action="/runs/{{ run.id }}/skip" method="post">
+                        <button class="danger-button" type="submit">{{ "Requested" if run.skip_requested else "Skip" }}</button>
+                      </form>
+                    {% else %}
+                      <span class="muted">-</span>
+                    {% endif %}
+                  </td>
                 </tr>
               {% else %}
                 <tr>
-                  <td colspan="5" class="empty">No runs yet.</td>
+                  <td colspan="8" class="empty">No runs yet.</td>
                 </tr>
               {% endfor %}
             </tbody>

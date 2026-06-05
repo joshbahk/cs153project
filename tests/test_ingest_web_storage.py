@@ -18,10 +18,10 @@ from pypdf import PdfWriter
 from contracts.study_spec import BudgetState, CreditStatus
 from db.repository import create_paper_run, get_run
 from db.session import create_app_engine, create_session_factory, init_database
-from ingest.batch_importer import ImportCandidate, candidates_to_paper_inputs, discover_openalex
+from ingest.batch_importer import ImportCandidate, _request_bytes, candidates_to_paper_inputs, discover_openalex
 from ingest.paper_ingest import PaperIngestError, build_paper_input, extract_pdf_text
 from ingest.study_loader import StudyDocument
-from pipeline.service import PipelineConfig, execute_documents
+from pipeline.service import PipelineCancelled, PipelineConfig, execute_documents
 from web.app import create_app
 from web.settings import AppSettings
 from worker.jobs import process_next_run
@@ -67,6 +67,23 @@ class IngestWebStorageTest(unittest.TestCase):
             with self.assertRaises(PaperIngestError):
                 extract_pdf_text(tmp.read(), max_upload_mb=15, max_chars=120_000)
 
+    def test_remote_download_is_capped_before_reading_body(self) -> None:
+        class FakeResponse:
+            headers = {"content-length": str(2 * 1024 * 1024)}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self, size=-1):
+                return b""
+
+        with patch("urllib.request.urlopen", return_value=FakeResponse()):
+            with self.assertRaises(PaperIngestError):
+                _request_bytes("https://example.org/large.pdf", max_bytes=1024 * 1024)
+
     def test_pipeline_is_deterministic_and_uses_unique_agents(self) -> None:
         doc = StudyDocument(
             study_id="study_a",
@@ -89,6 +106,40 @@ class IngestWebStorageTest(unittest.TestCase):
         rows = first.trials["study_a"]
         ids = [row["agent_id"] for row in rows]
         self.assertEqual(len(ids), len(set(ids)))
+        self.assertIn("study_a", first.agents)
+        self.assertEqual(len(first.agents["study_a"]), 120)
+        self.assertIn("income_bucket", first.agents["study_a"][0])
+        self.assertIn("methodology", first.analysis["study_a"])
+        self.assertIn("matched_original_method", first.analysis["study_a"]["primary"])
+
+    def test_pipeline_reports_progress_and_can_cancel(self) -> None:
+        doc = StudyDocument(
+            study_id="study_cancel",
+            title="Study Cancel",
+            source_uri="test://cancel",
+            text=PAPER_TEXT,
+            source_sha256="hash-cancel",
+        )
+        events = []
+        should_stop = {"value": False}
+
+        def progress(event):
+            events.append(event)
+            if event.get("stage") == "simulating" and int(event.get("current", 0)) >= 50:
+                should_stop["value"] = True
+
+        with self.assertRaises(PipelineCancelled):
+            execute_documents(
+                docs=[doc],
+                run_id="run_cancel",
+                budget_state=BudgetState(250.0, 25.0, {"extraction": 50.0, "simulation": 150.0, "analysis": 25.0, "reporting": 25.0}),
+                credits=[_credit()],
+                config=PipelineConfig(seed=10, max_sample_size=120),
+                progress_callback=progress,
+                should_cancel=lambda: should_stop["value"],
+            )
+        self.assertTrue(any(event.get("stage") == "extracting_protocol" for event in events))
+        self.assertTrue(any(event.get("stage") == "simulating" for event in events))
 
     def test_storage_and_worker_status_transition(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -110,6 +161,37 @@ class IngestWebStorageTest(unittest.TestCase):
                 self.assertIsNotNone(out)
                 self.assertEqual(out.status, "succeeded")
                 self.assertIsNotNone(out.analysis_json)
+                self.assertIsNotNone(out.agents_json)
+                self.assertEqual(out.progress_json["stage"], "succeeded")
+                self.assertEqual(out.progress_json["percent"], 100.0)
+
+    def test_worker_hydrates_batch_source_before_running(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            db_url = f"sqlite:///{tmpdir}/hydrate.db"
+            engine = create_app_engine(db_url)
+            init_database(engine)
+            sessions = create_session_factory(engine)
+            settings = AppSettings(database_url=db_url, max_sample_size=120, require_credit_validation=True)
+            fallback = build_paper_input(
+                "Source Study",
+                "Title: Source Study\nSource: https://example.org/paper\nImport note: Full text will be fetched by the worker before simulation.",
+                None,
+                "",
+            )
+            fallback.source_kind = "url"
+            fallback.source_uri = "https://example.org/paper"
+
+            with sessions() as session:
+                run = create_paper_run(session, fallback, seed=153, budget_reservation_usd=1.26)
+
+            with patch("worker.jobs.extract_url_text", return_value=PAPER_TEXT):
+                self.assertTrue(process_next_run(sessions, settings))
+
+            with sessions() as session:
+                out = get_run(session, run.id)
+                self.assertIsNotNone(out)
+                self.assertEqual(out.status, "succeeded")
+                self.assertIn("Condition treatment prompt", out.paper.extracted_text)
 
     def test_fastapi_routes_and_queue_cap(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -120,31 +202,63 @@ class IngestWebStorageTest(unittest.TestCase):
                 auto_process_on_submit=False,
             )
             app = create_app(settings)
-            client = TestClient(app)
+            with TestClient(app) as client:
+                home = client.get("/")
+                self.assertEqual(home.status_code, 200)
+                self.assertIn("Replication Triage", home.text)
 
-            home = client.get("/")
-            self.assertEqual(home.status_code, 200)
-            self.assertIn("Replication Triage", home.text)
+                created = client.post(
+                    "/runs",
+                    data={"title": "Norm Study", "paper_text": PAPER_TEXT},
+                    follow_redirects=False,
+                )
+                self.assertEqual(created.status_code, 303)
+                run_path = created.headers["location"]
 
-            created = client.post(
-                "/runs",
-                data={"title": "Norm Study", "paper_text": PAPER_TEXT},
-                follow_redirects=False,
+                capped = client.post("/runs", data={"title": "Second", "paper_text": PAPER_TEXT})
+                self.assertEqual(capped.status_code, 200)
+                self.assertIn("Queue limit reached", capped.text)
+
+                detail = client.get(run_path)
+                self.assertEqual(detail.status_code, 200)
+                self.assertIn("queued", detail.text)
+
+                api = client.get("/api/runs")
+                self.assertEqual(api.status_code, 200)
+                self.assertEqual(len(api.json()["items"]), 1)
+                self.assertIn("progress_stage", api.json()["items"][0])
+
+                run_id = run_path.rsplit("/", 1)[-1]
+                skipped = client.post(f"/runs/{run_id}/skip", follow_redirects=False)
+                self.assertEqual(skipped.status_code, 303)
+                skipped_api = client.get(f"/api/runs/{run_id}")
+                self.assertEqual(skipped_api.json()["status"], "skipped")
+                self.assertEqual(skipped_api.json()["progress"]["progress_stage"], "skipped")
+
+    def test_fastapi_upload_and_budget_caps(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            settings = AppSettings(
+                database_url=f"sqlite:///{tmpdir}/caps.db",
+                max_upload_mb=1,
+                max_total_usd=1.0,
+                max_sample_size=500,
+                auto_process_on_submit=False,
             )
-            self.assertEqual(created.status_code, 303)
-            run_path = created.headers["location"]
+            app = create_app(settings)
+            with TestClient(app) as client:
+                too_expensive = client.post("/runs", data={"title": "Norm Study", "paper_text": PAPER_TEXT})
+                self.assertEqual(too_expensive.status_code, 200)
+                self.assertIn("Budget cap reached", too_expensive.text)
 
-            capped = client.post("/runs", data={"title": "Second", "paper_text": PAPER_TEXT})
-            self.assertEqual(capped.status_code, 200)
-            self.assertIn("Queue limit reached", capped.text)
-
-            detail = client.get(run_path)
-            self.assertEqual(detail.status_code, 200)
-            self.assertIn("queued", detail.text)
-
-            api = client.get("/api/runs")
-            self.assertEqual(api.status_code, 200)
-            self.assertEqual(len(api.json()["items"]), 1)
+                settings.max_total_usd = 250.0
+                large_pdf = b"%PDF-" + (b"x" * (1024 * 1024 + 1))
+                too_large = client.post(
+                    "/runs",
+                    data={"title": "Large PDF", "paper_text": ""},
+                    files={"paper_pdf": ("large.pdf", large_pdf, "application/pdf")},
+                )
+                self.assertEqual(too_large.status_code, 200)
+                self.assertIn("upload limit", too_large.text)
 
     def test_openalex_discovery_reconstructs_candidates(self) -> None:
         payload = {
@@ -182,7 +296,6 @@ class IngestWebStorageTest(unittest.TestCase):
                 auto_process_on_submit=False,
             )
             app = create_app(settings)
-            client = TestClient(app)
             candidate = ImportCandidate(
                 title="Batch Norm Study",
                 source_uri="https://example.org/batch",
@@ -190,17 +303,16 @@ class IngestWebStorageTest(unittest.TestCase):
                 source_kind="openalex",
             )
 
-            with patch("web.app.discover_openalex", return_value=[candidate, candidate]), patch(
-                "web.app.hydrate_candidates", side_effect=lambda candidates, **_: candidates
-            ):
-                response = client.post(
-                    "/batch",
-                    data={"batch_query": "social norms", "batch_limit": "2", "batch_sources": ""},
-                    follow_redirects=False,
-                )
-            self.assertEqual(response.status_code, 303)
-            api = client.get("/api/runs")
-            self.assertEqual(len(api.json()["items"]), 2)
+            with TestClient(app) as client:
+                with patch("web.app.discover_openalex", return_value=[candidate, candidate]):
+                    response = client.post(
+                        "/batch",
+                        data={"batch_query": "social norms", "batch_limit": "2", "batch_sources": ""},
+                        follow_redirects=False,
+                    )
+                self.assertEqual(response.status_code, 303)
+                api = client.get("/api/runs")
+                self.assertEqual(len(api.json()["items"]), 2)
 
 
 if __name__ == "__main__":

@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if auto_refresh %}
+      <meta http-equiv="refresh" content="5">
+    {% endif %}
     <title>{{ run.paper.title }} · Replication Triage</title>
     <link rel="stylesheet" href="/static/styles.css">
   </head>
@@ -13,17 +16,43 @@
         <h1>{{ run.paper.title }}</h1>
         <p>{{ run.paper.source_kind }} · {{ run.id }}</p>
       </div>
+      {% set budget = run.budget_json or {} %}
+      {% set display_cost = budget.get("spent_total_usd", 0) if run.status == "succeeded" else budget.get("reserved_usd", budget.get("spent_total_usd", 0)) %}
       <div class="metrics">
         <span><strong>{{ run.status }}</strong> status</span>
         <span><strong>{{ run.sample_size_target or "pending" }}</strong> target n</span>
-        <span><strong>${{ "%.2f"|format((run.budget_json or {}).get("spent_total_usd", 0)) }}</strong> run cost</span>
+        <span><strong>${{ "%.2f"|format(display_cost) }}</strong> cost cap</span>
+        <span><strong>{{ summary.eta_seconds|duration }}</strong> ETA</span>
       </div>
     </header>
 
     <main class="detail-grid">
+      <section class="wide-panel monitor-panel">
+        <div class="panel-heading">
+          <h2>Run Monitor</h2>
+          {% if run.status in ["queued", "running"] %}
+            <form class="action-form" action="/runs/{{ run.id }}/skip" method="post">
+              <button class="danger-button" type="submit">{{ "Skip Requested" if summary.skip_requested else "Skip Paper" }}</button>
+            </form>
+          {% endif %}
+        </div>
+        <div class="progress-track progress-track-large"><span style="width: {{ summary.progress_percent }}%"></span></div>
+        <dl class="stats-grid">
+          <div><dt>Stage</dt><dd>{{ summary.progress_stage }}</dd></div>
+          <div><dt>Progress</dt><dd>{{ "%.0f"|format(summary.progress_percent) }}%</dd></div>
+          <div><dt>Elapsed</dt><dd>{{ summary.elapsed_seconds|duration }}</dd></div>
+          <div><dt>ETA</dt><dd>{{ summary.eta_seconds|duration }}</dd></div>
+          <div><dt>Skip</dt><dd>{{ "requested" if summary.skip_requested else "not requested" }}</dd></div>
+          <div><dt>Batch</dt><dd>{{ (run.progress_json or {}).get("current", 0) }} / {{ (run.progress_json or {}).get("total", 1) }}</dd></div>
+        </dl>
+        {% if summary.progress_message %}
+          <p class="callout">{{ summary.progress_message }}</p>
+        {% endif %}
+      </section>
+
       <section class="tool-panel">
         <h2>Primary Result</h2>
-        {% if run.status == "failed" %}
+        {% if run.status in ["failed", "skipped"] %}
           <div class="alert alert-error">{{ run.error_message }}</div>
         {% elif run.status != "succeeded" %}
           <div class="alert alert-ok">Run is {{ run.status }}.</div>
@@ -37,6 +66,7 @@
             <div><dt>Treatment n</dt><dd>{{ primary.get("n_treatment", 0) }}</dd></div>
           </dl>
           <p class="callout">CI {{ "%.3f"|format(primary.get("ci_low", 0)) }} to {{ "%.3f"|format(primary.get("ci_high", 0)) }}. This is triage evidence, not a human replication.</p>
+          <p class="callout">{{ primary.get("method_note", "Standardized triage analysis.") }}</p>
         {% endif %}
       </section>
 
@@ -53,6 +83,49 @@
           <a href="/api/runs/{{ run.id }}/artifacts/analysis">Analysis JSON</a>
           <a href="/api/runs/{{ run.id }}/artifacts/ranking">Ranking JSON</a>
           <a href="/api/runs/{{ run.id }}/artifacts/trials">Trials JSON</a>
+          <a href="/api/runs/{{ run.id }}/artifacts/agents">Agents JSON</a>
+        </div>
+      </section>
+
+      <section class="wide-panel">
+        <h2>Methodology Match</h2>
+        <dl class="stats-grid">
+          <div><dt>Feasibility</dt><dd>{{ methodology.get("exact_replication_feasibility", "pending") }}</dd></div>
+          <div><dt>Original test</dt><dd>{{ methodology.get("original_statistical_test", "pending") }}</dd></div>
+          <div><dt>Matched method</dt><dd>{{ primary.get("matched_original_method", false) }}</dd></div>
+          <div><dt>Population</dt><dd>{{ methodology.get("participant_population", "pending")[:60] }}</dd></div>
+          <div><dt>Randomization</dt><dd>{{ methodology.get("randomization_unit", "pending") }}</dd></div>
+          <div><dt>Outcome scale</dt><dd>{{ methodology.get("outcome_scale", "pending") }}</dd></div>
+        </dl>
+        {% if methodology.get("extraction_warnings") %}
+          <p class="callout">{{ methodology.get("extraction_warnings")|join(", ") }}</p>
+        {% endif %}
+      </section>
+
+      <section class="wide-panel">
+        <h2>Synthetic Population</h2>
+        <p>{{ agent_summary["count"] }} fixed stratified agents generated from the extracted participant population.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Distribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for field, counts in agent_summary["fields"].items() %}
+                <tr>
+                  <td>{{ field }}</td>
+                  <td>
+                    {% for value, count in counts.items() %}
+                      <span class="chip">{{ value }}: {{ count }}</span>
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </section>
 

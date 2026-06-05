@@ -37,6 +37,8 @@
 - `study_prompt_framing_001`: `240` trial rows, `240` unique agent IDs.
 - `study_social_norms_002`: `180` trial rows, `180` unique agent IDs.
 - Sensitivity scenarios are included in `analysis.json`.
+- Stratified synthetic population profiles are included in `agents.json`.
+- Methodology extraction and matched-method flags are included in `analysis.json`.
 - Credit status is DigitalOcean-only.
 
 ## Interpretation

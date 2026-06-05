@@ -7,6 +7,7 @@ from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
+from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session, sessionmaker
 
 from db.models import Base
@@ -36,8 +37,20 @@ def create_app_engine(database_url: str | None = None) -> Engine:
 
 def init_database(engine: Engine) -> None:
     Base.metadata.create_all(engine)
+    _ensure_lightweight_migrations(engine)
+
+
+def _ensure_lightweight_migrations(engine: Engine) -> None:
+    inspector = inspect(engine)
+    if "runs" not in inspector.get_table_names():
+        return
+    columns = {column["name"] for column in inspector.get_columns("runs")}
+    with engine.begin() as connection:
+        if "agents_json" not in columns:
+            connection.execute(text("ALTER TABLE runs ADD COLUMN agents_json JSON"))
+        if "progress_json" not in columns:
+            connection.execute(text("ALTER TABLE runs ADD COLUMN progress_json JSON"))
 
 
 def create_session_factory(engine: Engine) -> sessionmaker[Session]:
     return sessionmaker(bind=engine, expire_on_commit=False)
-

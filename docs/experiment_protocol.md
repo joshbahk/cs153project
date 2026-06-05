@@ -13,10 +13,13 @@
 - Each participant ID appears at most once in the primary trial output for a study.
 
 ## Statistical Workflow
-- Extract a `StudySpec` from paper text with confidence and fallback notes.
+- Extract a `StudySpec` from paper text with methodology fields, confidence, fallback notes, and exact-replication warnings.
+- Generate fixed, seed-reproducible stratified agent profiles from the extracted participant population.
 - Run the primary simulation with a treatment shift of `3.0`.
 - Run sensitivity scenarios with treatment shifts of `1.0` and `0.0`.
-- Compute mean effect, bootstrap confidence interval, permutation p-value, and replicated-in-simulation flag.
+- Compute a matched-method approximation when the extracted original test is supported.
+- Always compute standardized mean-difference triage outputs for cross-paper comparison.
+- Store full agent profiles in `agents.json`.
 - Rank studies by p-value, effect magnitude, and uncertainty.
 
 ## Budget Workflow
@@ -30,4 +33,3 @@
 - The response model is transparent but simplified.
 - Training-data leakage is avoided by not using external LLM agents in v1, but the simulator is also less realistic.
 - Results should guide follow-up human replication, not replace it.
-

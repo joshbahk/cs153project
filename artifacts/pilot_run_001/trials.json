@@ -4,1680 +4,1680 @@
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00052",
-      "response_score": 60.37557159753938,
+      "response_score": 60.696985882477065,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00210",
-      "response_score": 51.51893028767311,
+      "response_score": 78.74924993792854,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00236",
-      "response_score": 52.86471928100516,
+      "response_score": 53.153639595609626,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00202",
-      "response_score": 59.034583761664805,
+      "response_score": 54.18288413717228,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00096",
-      "response_score": 47.84899776524362,
+      "response_score": 43.24203379607467,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00124",
-      "response_score": 52.09813122728924,
+      "response_score": 57.13743587444162,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00212",
-      "response_score": 27.664264181262553,
+      "response_score": 36.26737923631087,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00053",
-      "response_score": 44.5415272257056,
+      "response_score": 49.5058891109236,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00113",
-      "response_score": 65.22455630115599,
+      "response_score": 69.76264808347383,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00130",
-      "response_score": 41.527859669402375,
+      "response_score": 42.28412318295702,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00001",
-      "response_score": 28.4858059524526,
+      "response_score": 46.342389963524504,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00226",
-      "response_score": 50.90108404478546,
+      "response_score": 52.13387164696882,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00115",
-      "response_score": 49.298677623092054,
+      "response_score": 41.40718404627254,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00066",
-      "response_score": 43.21361955397237,
+      "response_score": 27.782737352946334,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00201",
-      "response_score": 48.41809820614473,
+      "response_score": 54.87836739053611,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00101",
-      "response_score": 46.70750133767339,
+      "response_score": 33.09051474880612,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00109",
-      "response_score": 54.22103744538694,
+      "response_score": 60.46257070453012,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00166",
-      "response_score": 58.582195654240465,
+      "response_score": 58.68676466795884,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00163",
-      "response_score": 54.17233879507842,
+      "response_score": 62.04812940266171,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00149",
-      "response_score": 44.99062930117772,
+      "response_score": 57.14881569278175,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00176",
-      "response_score": 71.85031045572157,
+      "response_score": 66.62108943392224,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00012",
-      "response_score": 66.59909368814657,
+      "response_score": 57.73612156847092,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00181",
-      "response_score": 55.98641886600155,
+      "response_score": 52.12477678392972,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00195",
-      "response_score": 60.388670594148394,
+      "response_score": 71.4350446663602,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00216",
-      "response_score": 70.78856388031562,
+      "response_score": 63.262113724844134,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00114",
-      "response_score": 59.36153896625893,
+      "response_score": 68.90834872979741,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00134",
-      "response_score": 56.871659630868976,
+      "response_score": 76.45325235291457,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00206",
-      "response_score": 49.478797789232516,
+      "response_score": 45.891955467341226,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00015",
-      "response_score": 54.378621559013354,
+      "response_score": 59.140311255765724,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00194",
-      "response_score": 58.41399064382567,
+      "response_score": 56.45056979953331,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00099",
-      "response_score": 58.39837742010591,
+      "response_score": 50.473675400869624,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00189",
-      "response_score": 62.06324509531707,
+      "response_score": 51.04614222496684,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00138",
-      "response_score": 65.4056091808991,
+      "response_score": 56.82911787894359,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00104",
-      "response_score": 47.01200503309172,
+      "response_score": 54.41691330598242,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00182",
-      "response_score": 40.71386638721004,
+      "response_score": 48.38959189508051,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00227",
-      "response_score": 43.987440800958844,
+      "response_score": 56.99779778361204,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00119",
-      "response_score": 52.814647681063555,
+      "response_score": 57.195648651107014,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00152",
-      "response_score": 59.2469255190506,
+      "response_score": 63.69956978958636,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00018",
-      "response_score": 47.84803891209254,
+      "response_score": 46.098120392456956,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00067",
-      "response_score": 35.953998823149256,
+      "response_score": 49.187598486102,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00075",
-      "response_score": 41.37701737688936,
+      "response_score": 39.96582690717609,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00042",
-      "response_score": 54.231043091358785,
+      "response_score": 50.165575024415624,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00193",
-      "response_score": 49.66368268313567,
+      "response_score": 44.43905026805551,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00008",
-      "response_score": 51.2214553353441,
+      "response_score": 50.95334937840395,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00090",
-      "response_score": 44.01328183027978,
+      "response_score": 43.701404652360175,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00172",
-      "response_score": 65.60230465296611,
+      "response_score": 59.95973767309719,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00190",
-      "response_score": 54.89142060949594,
+      "response_score": 46.752815552892855,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00077",
-      "response_score": 51.10348945769141,
+      "response_score": 37.46023313297755,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00027",
-      "response_score": 42.165806515308724,
+      "response_score": 52.66276776462369,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00238",
-      "response_score": 65.21797626833717,
+      "response_score": 47.528684167581524,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00033",
-      "response_score": 40.67469155337003,
+      "response_score": 52.720764792812,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00037",
-      "response_score": 29.474299661612697,
+      "response_score": 33.51223296120649,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00150",
-      "response_score": 53.156182526834435,
+      "response_score": 51.395034113213505,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00070",
-      "response_score": 40.91986242858325,
+      "response_score": 55.37298986025546,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00136",
-      "response_score": 48.3056008371812,
+      "response_score": 49.177951894821156,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00007",
-      "response_score": 40.44698192081761,
+      "response_score": 39.70999483262429,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00207",
-      "response_score": 56.10761017066666,
+      "response_score": 50.800405343048645,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00125",
-      "response_score": 55.79718860518303,
+      "response_score": 52.32562620587836,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00123",
-      "response_score": 47.64919505193471,
+      "response_score": 61.820824172940235,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00171",
-      "response_score": 56.16328337595361,
+      "response_score": 46.37651972190715,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00199",
-      "response_score": 49.50857596833602,
+      "response_score": 48.03769318162403,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00128",
-      "response_score": 44.439606064689414,
+      "response_score": 59.830777281676916,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00230",
-      "response_score": 45.9167798973605,
+      "response_score": 53.38699225580948,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00225",
-      "response_score": 45.782263946988664,
+      "response_score": 50.78279477580092,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00045",
-      "response_score": 34.55811215722624,
+      "response_score": 58.64702208990674,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00061",
-      "response_score": 51.47280149883911,
+      "response_score": 56.18804257304517,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00093",
-      "response_score": 48.57005761117277,
+      "response_score": 52.67622786429004,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00111",
-      "response_score": 68.44786198249325,
+      "response_score": 60.36666439543822,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00143",
-      "response_score": 59.19463871731446,
+      "response_score": 49.90722931960592,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00105",
-      "response_score": 33.52388056003253,
+      "response_score": 33.650522736437516,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00118",
-      "response_score": 55.238343953919326,
+      "response_score": 62.58644920014117,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00020",
-      "response_score": 47.279734796993765,
+      "response_score": 57.32749848209635,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00102",
-      "response_score": 37.81528947757801,
+      "response_score": 51.15216464426799,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00068",
-      "response_score": 54.191968934678584,
+      "response_score": 54.79150896754626,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00197",
-      "response_score": 29.475229185289205,
+      "response_score": 49.953134201151514,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00234",
-      "response_score": 49.547884266608214,
+      "response_score": 52.59571662011542,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00103",
-      "response_score": 37.110080126316305,
+      "response_score": 56.43819900210718,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00038",
-      "response_score": 64.39157618301108,
+      "response_score": 38.615419567125116,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00084",
-      "response_score": 58.338890187972865,
+      "response_score": 50.2871739774766,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00200",
-      "response_score": 44.04590831954691,
+      "response_score": 46.97913180424808,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00122",
-      "response_score": 65.40236365025471,
+      "response_score": 58.61826174906602,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00069",
-      "response_score": 46.70134369915017,
+      "response_score": 52.399924795372144,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00187",
-      "response_score": 50.66650399949468,
+      "response_score": 60.619806394855146,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00091",
-      "response_score": 49.57587472232806,
+      "response_score": 48.59963129810183,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00160",
-      "response_score": 48.973153807019074,
+      "response_score": 48.30947214009399,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00209",
-      "response_score": 40.65854435103761,
+      "response_score": 68.30900954308774,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00025",
-      "response_score": 63.702872323944135,
+      "response_score": 67.15327924923768,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00004",
-      "response_score": 45.864150163677124,
+      "response_score": 57.88712377667369,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00030",
-      "response_score": 58.91428823689899,
+      "response_score": 64.7662860824332,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00011",
-      "response_score": 74.52177690553387,
+      "response_score": 53.76442178849493,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00196",
-      "response_score": 45.69802555285405,
+      "response_score": 46.9885327054048,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00133",
-      "response_score": 49.75880457968884,
+      "response_score": 62.64471755131856,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00198",
-      "response_score": 54.29106512920865,
+      "response_score": 50.516918695668984,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00050",
-      "response_score": 42.89027598762742,
+      "response_score": 49.03388328172729,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00005",
-      "response_score": 75.0001515569241,
+      "response_score": 65.10070795896456,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00186",
-      "response_score": 60.943517945299384,
+      "response_score": 54.82311315957213,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00097",
-      "response_score": 50.27424766632999,
+      "response_score": 70.02243460077807,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00058",
-      "response_score": 42.772179823008024,
+      "response_score": 49.03042827896144,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00167",
-      "response_score": 60.922657750131435,
+      "response_score": 59.24202487122166,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00073",
-      "response_score": 38.99105642485794,
+      "response_score": 41.738242706965124,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00141",
-      "response_score": 51.57565900738886,
+      "response_score": 49.24788214945445,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00023",
-      "response_score": 51.7002975542783,
+      "response_score": 45.31923492063945,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00107",
-      "response_score": 55.760542634059206,
+      "response_score": 42.02810301394178,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00168",
-      "response_score": 72.77366176493638,
+      "response_score": 51.21601042018152,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00219",
-      "response_score": 56.44454634887796,
+      "response_score": 57.1557782816601,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00235",
-      "response_score": 55.25854121501242,
+      "response_score": 50.650002835134885,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00086",
-      "response_score": 38.330015183702265,
+      "response_score": 41.111652710538245,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00214",
-      "response_score": 44.17303097461531,
+      "response_score": 39.285816439355415,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00014",
-      "response_score": 35.49410501603686,
+      "response_score": 49.89311835469606,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00029",
-      "response_score": 34.975531658436026,
+      "response_score": 43.97046042100914,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00228",
-      "response_score": 39.05423090268741,
+      "response_score": 62.99450936150717,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00144",
-      "response_score": 49.439587051123745,
+      "response_score": 42.75737162801448,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00000",
-      "response_score": 61.346796875611304,
+      "response_score": 67.61930209689291,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00162",
-      "response_score": 53.84340973475373,
+      "response_score": 41.862193604328446,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00153",
-      "response_score": 32.05720743438301,
+      "response_score": 46.18599810950815,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00222",
-      "response_score": 39.89036545655882,
+      "response_score": 49.37988959539865,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00142",
-      "response_score": 50.01073204379715,
+      "response_score": 71.45515660840289,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00062",
-      "response_score": 49.88925557099095,
+      "response_score": 59.984532669085,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00095",
-      "response_score": 66.61769509351755,
+      "response_score": 62.18046310363132,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00139",
-      "response_score": 64.00376705915514,
+      "response_score": 52.79110862811682,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00129",
-      "response_score": 56.04954587484046,
+      "response_score": 59.41775706763799,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00215",
-      "response_score": 51.81550105409005,
+      "response_score": 39.02623882625501,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00076",
-      "response_score": 45.05689340137011,
+      "response_score": 55.216788853487394,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00154",
-      "response_score": 47.66141276297405,
+      "response_score": 55.00886526719408,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00148",
-      "response_score": 61.1931478362238,
+      "response_score": 64.72479176498419,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00223",
-      "response_score": 54.101467912758,
+      "response_score": 56.60564439283789,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00056",
-      "response_score": 58.73104149034097,
+      "response_score": 53.34804083814838,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00080",
-      "response_score": 53.42425166012035,
+      "response_score": 56.624860065344265,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00039",
-      "response_score": 49.038205902916445,
+      "response_score": 53.18094259222839,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00051",
-      "response_score": 58.3027718346494,
+      "response_score": 54.42014012434952,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00079",
-      "response_score": 44.291044783258464,
+      "response_score": 37.99462634347651,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00031",
-      "response_score": 47.36703006520222,
+      "response_score": 48.61906063776274,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00010",
-      "response_score": 47.158641515578246,
+      "response_score": 40.49551871883742,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00179",
-      "response_score": 58.92139753694566,
+      "response_score": 66.68805475395027,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00157",
-      "response_score": 53.56463105452339,
+      "response_score": 44.348519891267706,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00127",
-      "response_score": 53.244945894003465,
+      "response_score": 46.15661304765485,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00155",
-      "response_score": 40.89283676527495,
+      "response_score": 53.72079321253183,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00175",
-      "response_score": 61.73790428212441,
+      "response_score": 47.33360346619575,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00239",
-      "response_score": 71.69114787570622,
+      "response_score": 65.97538599182404,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00156",
-      "response_score": 55.14022351756643,
+      "response_score": 61.614988085429765,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00071",
-      "response_score": 55.080369895612925,
+      "response_score": 53.468785961515835,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00117",
-      "response_score": 54.17478212096346,
+      "response_score": 46.55089147819438,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00088",
-      "response_score": 50.528143571035564,
+      "response_score": 79.45901693430757,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00170",
-      "response_score": 45.69931294750092,
+      "response_score": 53.39582054920268,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00054",
-      "response_score": 24.77809040759091,
+      "response_score": 53.97238390760273,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00135",
-      "response_score": 60.30601031127282,
+      "response_score": 63.26638839512985,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00048",
-      "response_score": 43.84002620561211,
+      "response_score": 33.84152227564355,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00147",
-      "response_score": 62.14762379881404,
+      "response_score": 48.66867561129532,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00089",
-      "response_score": 39.150215423456835,
+      "response_score": 66.84210333468194,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00035",
-      "response_score": 58.14023520935533,
+      "response_score": 56.678492999967034,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00044",
-      "response_score": 68.19706650519989,
+      "response_score": 55.41497114244807,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00233",
-      "response_score": 65.07620528930771,
+      "response_score": 50.88964641102144,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00121",
-      "response_score": 50.48349927811936,
+      "response_score": 49.84341361163989,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00116",
-      "response_score": 53.99750227506581,
+      "response_score": 69.62464362393538,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00021",
-      "response_score": 28.820289593425933,
+      "response_score": 51.45743430873939,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00034",
-      "response_score": 44.82569182838414,
+      "response_score": 32.17495552069259,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00220",
-      "response_score": 30.498782913984478,
+      "response_score": 52.123663408358844,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00185",
-      "response_score": 56.829866044607726,
+      "response_score": 50.3724207765996,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00126",
-      "response_score": 53.4193825327228,
+      "response_score": 57.5252040067995,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00145",
-      "response_score": 40.86147350953809,
+      "response_score": 46.80341540492069,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00017",
-      "response_score": 54.2963017944955,
+      "response_score": 53.327409988811496,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00055",
-      "response_score": 46.22301065630537,
+      "response_score": 50.09849407156999,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00232",
-      "response_score": 64.81370785353,
+      "response_score": 57.19029739806675,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00019",
-      "response_score": 37.77400169145264,
+      "response_score": 40.39498532651637,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00161",
-      "response_score": 85.05552161655088,
+      "response_score": 76.80401225806146,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00046",
-      "response_score": 51.03322054039091,
+      "response_score": 42.77863181745595,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00184",
-      "response_score": 60.17282028153746,
+      "response_score": 58.21427421990159,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00140",
-      "response_score": 60.736440434618224,
+      "response_score": 50.89878381949651,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00002",
-      "response_score": 59.32088200551233,
+      "response_score": 58.086310197206785,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00065",
-      "response_score": 48.596583884510224,
+      "response_score": 58.941900639520675,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00092",
-      "response_score": 47.47052077591092,
+      "response_score": 55.330430860377,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00229",
-      "response_score": 47.0049612097483,
+      "response_score": 44.33435196840516,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00231",
-      "response_score": 53.69032541049794,
+      "response_score": 53.181068134480476,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00032",
-      "response_score": 50.478571862240216,
+      "response_score": 60.34726430742021,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00063",
-      "response_score": 47.75674948808785,
+      "response_score": 50.56397110339501,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00060",
-      "response_score": 57.43156363347374,
+      "response_score": 64.36430578064045,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00026",
-      "response_score": 43.30554078082933,
+      "response_score": 53.75795799258994,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00049",
-      "response_score": 60.358253601779126,
+      "response_score": 54.16719305898988,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00003",
-      "response_score": 46.71897434592218,
+      "response_score": 57.06627658303146,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00064",
-      "response_score": 52.62938899644297,
+      "response_score": 53.55676796219879,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00028",
-      "response_score": 41.70892891386589,
+      "response_score": 39.42019618477243,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00224",
-      "response_score": 33.41445412793111,
+      "response_score": 51.78158379900194,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00074",
-      "response_score": 43.61222663334572,
+      "response_score": 27.217688691794322,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00237",
-      "response_score": 60.057260008761396,
+      "response_score": 52.732373439553626,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00112",
-      "response_score": 43.29131294345631,
+      "response_score": 47.83969032661051,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00208",
-      "response_score": 49.74143480324341,
+      "response_score": 40.402718864331845,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00083",
-      "response_score": 49.44177213644718,
+      "response_score": 41.902273644873915,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00106",
-      "response_score": 48.96952327368769,
+      "response_score": 58.165584728849424,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00057",
-      "response_score": 47.19210403109688,
+      "response_score": 47.24010981298036,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00087",
-      "response_score": 71.9992707570515,
+      "response_score": 77.6655019043867,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00180",
-      "response_score": 50.268433414917546,
+      "response_score": 51.88927839447047,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00165",
-      "response_score": 46.53447297069129,
+      "response_score": 51.03902705910484,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00164",
-      "response_score": 55.01504277858192,
+      "response_score": 49.63404174449331,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00078",
-      "response_score": 40.83444559675985,
+      "response_score": 52.497563982491116,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00098",
-      "response_score": 48.339781194670984,
+      "response_score": 50.643973724407516,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00178",
-      "response_score": 51.45634608188057,
+      "response_score": 59.168814563863684,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00016",
-      "response_score": 45.13389373082535,
+      "response_score": 62.11279912512342,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00132",
-      "response_score": 64.56628311351308,
+      "response_score": 40.6748029383382,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00221",
-      "response_score": 53.950982847596045,
+      "response_score": 55.40463285420255,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00108",
-      "response_score": 35.52477712497978,
+      "response_score": 46.10904878502567,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00047",
-      "response_score": 64.21310268973275,
+      "response_score": 59.24724693025006,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00192",
-      "response_score": 49.24155032972506,
+      "response_score": 43.69043125674338,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00204",
-      "response_score": 53.237533009511154,
+      "response_score": 73.55559658781988,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00024",
-      "response_score": 39.65089657252294,
+      "response_score": 48.18689289886906,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00159",
-      "response_score": 75.6135670909659,
+      "response_score": 73.71773686139704,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00036",
-      "response_score": 27.329362461486333,
+      "response_score": 54.467390958727556,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00158",
-      "response_score": 62.97337035475714,
+      "response_score": 51.82542691273066,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00191",
-      "response_score": 49.436113893810884,
+      "response_score": 57.359512034401625,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00082",
-      "response_score": 46.085019416016166,
+      "response_score": 49.34069922183143,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00085",
-      "response_score": 63.31504950102375,
+      "response_score": 69.89918226438182,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00146",
-      "response_score": 73.51257353002639,
+      "response_score": 71.37889968776953,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00094",
-      "response_score": 47.97649482906871,
+      "response_score": 49.1452228207711,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00131",
-      "response_score": 48.93543297218606,
+      "response_score": 39.05517229278279,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00137",
-      "response_score": 39.20604040797526,
+      "response_score": 42.18186399945304,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00081",
-      "response_score": 36.71601480976689,
+      "response_score": 34.60534171697957,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00110",
-      "response_score": 49.787928576595995,
+      "response_score": 62.44830518043768,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00043",
-      "response_score": 57.26402636215354,
+      "response_score": 56.69831962376029,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00173",
-      "response_score": 67.24881620668903,
+      "response_score": 64.76626534318441,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00022",
-      "response_score": 36.85628538182496,
+      "response_score": 36.22354417196933,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00059",
-      "response_score": 43.07934983207656,
+      "response_score": 60.59230997883047,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00211",
-      "response_score": 44.88150718420604,
+      "response_score": 63.3259703195442,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00151",
-      "response_score": 48.20465425669922,
+      "response_score": 55.70016213710588,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00120",
-      "response_score": 38.235338789587466,
+      "response_score": 55.05792851954184,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00217",
-      "response_score": 65.36022595783271,
+      "response_score": 65.55023207998025,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00218",
-      "response_score": 45.58134583841398,
+      "response_score": 60.376124211500546,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00213",
-      "response_score": 59.49291699219231,
+      "response_score": 59.5987483221527,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00177",
-      "response_score": 56.713931579258265,
+      "response_score": 46.086666085073354,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00174",
-      "response_score": 69.60960804126293,
+      "response_score": 53.837924470243955,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00041",
-      "response_score": 66.82031813077698,
+      "response_score": 43.402307971790385,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00183",
-      "response_score": 65.14418618348085,
+      "response_score": 58.867734260893414,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00006",
-      "response_score": 50.04307475996726,
+      "response_score": 67.22638637850712,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00072",
-      "response_score": 36.76471365558121,
+      "response_score": 51.75180457658779,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00203",
-      "response_score": 63.199780092349826,
+      "response_score": 76.72154638544121,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00009",
-      "response_score": 45.421001060428914,
+      "response_score": 49.59035442930888,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00013",
-      "response_score": 63.832425739187514,
+      "response_score": 66.75158097549271,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00169",
-      "response_score": 64.63275974276354,
+      "response_score": 56.165070461972526,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00040",
-      "response_score": 40.36946247103163,
+      "response_score": 43.027072032737195,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00188",
-      "response_score": 37.74044349147414,
+      "response_score": 63.82629430217763,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "treatment",
       "agent_id": "agent_00205",
-      "response_score": 11.598437044994261,
+      "response_score": 52.546312576182814,
       "scenario": "primary"
     },
     {
       "study_id": "study_prompt_framing_001",
       "arm": "control",
       "agent_id": "agent_00100",
-      "response_score": 38.16809977549949,
+      "response_score": 52.91670359748893,
       "scenario": "primary"
     }
   ],
@@ -1686,1260 +1686,1260 @@
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00137",
-      "response_score": 64.50850067364549,
+      "response_score": 63.08241900291485,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00006",
-      "response_score": 52.94542068363217,
+      "response_score": 62.1400194772631,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00027",
-      "response_score": 59.60555394928247,
+      "response_score": 63.15742800908616,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00166",
-      "response_score": 22.501829895293533,
+      "response_score": 34.21917969590234,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00104",
-      "response_score": 47.50646574329088,
+      "response_score": 56.53382353121674,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00132",
-      "response_score": 52.41516769047671,
+      "response_score": 50.13861556696833,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00176",
-      "response_score": 63.08606232840979,
+      "response_score": 65.54236408819808,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00159",
-      "response_score": 52.657379897906054,
+      "response_score": 63.498007843775156,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00178",
-      "response_score": 72.12508300518363,
+      "response_score": 60.42880364813916,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00145",
-      "response_score": 43.847917637016636,
+      "response_score": 39.33730027172465,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00065",
-      "response_score": 65.32848407946526,
+      "response_score": 50.02139217715227,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00110",
-      "response_score": 73.23056507951111,
+      "response_score": 67.13644106831953,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00063",
-      "response_score": 54.15401715091265,
+      "response_score": 49.59079164568687,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00037",
-      "response_score": 41.360150519013935,
+      "response_score": 42.517102431908135,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00161",
-      "response_score": 49.37052525966263,
+      "response_score": 49.409794812832565,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00162",
-      "response_score": 62.237620219229655,
+      "response_score": 37.29300577434898,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00155",
-      "response_score": 66.60467436318143,
+      "response_score": 55.297164125539155,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00152",
-      "response_score": 50.891527858184745,
+      "response_score": 47.68559617005413,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00019",
-      "response_score": 54.71055004197216,
+      "response_score": 61.32920525592903,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00138",
-      "response_score": 18.115895255210532,
+      "response_score": 29.74014929730395,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00038",
-      "response_score": 60.44377440285235,
+      "response_score": 55.59017539628833,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00169",
-      "response_score": 67.17813796534978,
+      "response_score": 63.55537047410738,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00108",
-      "response_score": 53.053430881839596,
+      "response_score": 51.07177614575332,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00168",
-      "response_score": 39.55365172104933,
+      "response_score": 44.20189797250196,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00112",
-      "response_score": 49.739505853151584,
+      "response_score": 48.63181664336212,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00016",
-      "response_score": 40.341400774219956,
+      "response_score": 50.398341169137765,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00057",
-      "response_score": 61.27683556973732,
+      "response_score": 55.76319942643849,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00121",
-      "response_score": 68.82832083823443,
+      "response_score": 61.60507516019215,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00174",
-      "response_score": 43.67756737726731,
+      "response_score": 56.70469061986462,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00032",
-      "response_score": 28.084589631303814,
+      "response_score": 67.47982648671747,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00089",
-      "response_score": 49.86026365994834,
+      "response_score": 48.53285565077351,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00141",
-      "response_score": 54.04732577438772,
+      "response_score": 46.512248620648776,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00140",
-      "response_score": 49.65951112860069,
+      "response_score": 60.82683267193703,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00160",
-      "response_score": 40.25985212954959,
+      "response_score": 48.397245604729484,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00109",
-      "response_score": 46.44091524960088,
+      "response_score": 57.68670366154875,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00116",
-      "response_score": 61.75957879741043,
+      "response_score": 58.195399521009115,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00117",
-      "response_score": 30.62085373103136,
+      "response_score": 44.83248413361583,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00119",
-      "response_score": 44.23054180433404,
+      "response_score": 61.89665338757736,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00009",
-      "response_score": 59.21250241131087,
+      "response_score": 55.56121765046868,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00171",
-      "response_score": 42.65073021002286,
+      "response_score": 45.91510116554135,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00054",
-      "response_score": 50.98933336657948,
+      "response_score": 58.8746650644838,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00087",
-      "response_score": 50.766861454463935,
+      "response_score": 41.92413172569052,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00026",
-      "response_score": 40.47191824864483,
+      "response_score": 42.05972867932627,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00074",
-      "response_score": 51.8706749461018,
+      "response_score": 65.87345613146285,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00144",
-      "response_score": 40.12440224504787,
+      "response_score": 40.93943267276022,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00148",
-      "response_score": 28.446633928645277,
+      "response_score": 35.4006887003667,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00062",
-      "response_score": 63.899658272288356,
+      "response_score": 68.744057610186,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00101",
-      "response_score": 61.05798019560188,
+      "response_score": 57.508873804509776,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00064",
-      "response_score": 55.431206175089294,
+      "response_score": 62.91101916192953,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00022",
-      "response_score": 55.41645366540453,
+      "response_score": 44.71795364707533,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00122",
-      "response_score": 63.63251644714871,
+      "response_score": 69.30923602243256,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00070",
-      "response_score": 66.81373890996463,
+      "response_score": 40.66446442166118,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00024",
-      "response_score": 45.88851708996991,
+      "response_score": 48.19677625589755,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00111",
-      "response_score": 55.36547919242679,
+      "response_score": 52.197078855451586,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00017",
-      "response_score": 53.54353990497678,
+      "response_score": 58.111063693254046,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00066",
-      "response_score": 44.46746646600446,
+      "response_score": 38.76022298159154,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00099",
-      "response_score": 46.39629818216268,
+      "response_score": 45.674719470361495,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00000",
-      "response_score": 64.433056571674,
+      "response_score": 59.81346444825683,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00126",
-      "response_score": 41.21354245715308,
+      "response_score": 51.349097802865884,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00102",
-      "response_score": 30.473880999377982,
+      "response_score": 47.37262612720553,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00067",
-      "response_score": 45.21109867358403,
+      "response_score": 38.3915192141164,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00150",
-      "response_score": 44.773004666362716,
+      "response_score": 35.33553306278736,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00053",
-      "response_score": 58.345402464380165,
+      "response_score": 57.33019658439053,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00167",
-      "response_score": 60.20504268938449,
+      "response_score": 52.66233800480986,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00077",
-      "response_score": 66.60947875346992,
+      "response_score": 65.9765211804135,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00164",
-      "response_score": 67.40297147519104,
+      "response_score": 51.71471634831449,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00151",
-      "response_score": 55.67004576409863,
+      "response_score": 30.690002873341253,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00139",
-      "response_score": 48.98080668375027,
+      "response_score": 53.32844139314366,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00049",
-      "response_score": 44.95819527200097,
+      "response_score": 44.919074364648296,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00093",
-      "response_score": 39.291582467076516,
+      "response_score": 41.76647521387223,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00103",
-      "response_score": 53.709001365287705,
+      "response_score": 60.51745005064849,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00096",
-      "response_score": 54.09369494270494,
+      "response_score": 61.45302657105729,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00156",
-      "response_score": 65.71378796716157,
+      "response_score": 58.1425845624441,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00098",
-      "response_score": 47.284651919978565,
+      "response_score": 46.29693138813863,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00158",
-      "response_score": 48.77608452272985,
+      "response_score": 52.45325480638484,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00088",
-      "response_score": 56.15914953990532,
+      "response_score": 54.51703102108121,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00133",
-      "response_score": 47.382193100840084,
+      "response_score": 43.87637861783963,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00031",
-      "response_score": 29.6801025255222,
+      "response_score": 36.81433047901278,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00090",
-      "response_score": 61.279752537793264,
+      "response_score": 43.866858663354044,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00034",
-      "response_score": 53.67374777036987,
+      "response_score": 48.980708506716354,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00091",
-      "response_score": 63.25478593212243,
+      "response_score": 61.0124706209007,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00036",
-      "response_score": 66.61172570390893,
+      "response_score": 49.73667808191932,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00173",
-      "response_score": 50.59370560951556,
+      "response_score": 55.68054372802538,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00120",
-      "response_score": 49.35800805896839,
+      "response_score": 66.55365329679614,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00051",
-      "response_score": 56.82230516908376,
+      "response_score": 41.39116144909759,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00046",
-      "response_score": 47.98813667702541,
+      "response_score": 58.81027765152169,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00179",
-      "response_score": 39.05711499078248,
+      "response_score": 52.846310117733594,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00129",
-      "response_score": 52.55339015921921,
+      "response_score": 54.03683117560548,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00118",
-      "response_score": 54.35911331299935,
+      "response_score": 56.53592495876166,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00003",
-      "response_score": 68.78360112052758,
+      "response_score": 70.63933890885176,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00149",
-      "response_score": 52.090062845129744,
+      "response_score": 55.28453308306837,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00092",
-      "response_score": 59.151470952436654,
+      "response_score": 68.8151229958602,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00035",
-      "response_score": 35.384862429219716,
+      "response_score": 51.94836238789505,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00047",
-      "response_score": 52.21812900973248,
+      "response_score": 61.242030209655994,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00012",
-      "response_score": 51.011956155476184,
+      "response_score": 54.45118790716218,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00045",
-      "response_score": 42.413838425488876,
+      "response_score": 47.4314396128333,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00013",
-      "response_score": 45.99185062240605,
+      "response_score": 61.28110637431675,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00157",
-      "response_score": 67.10941116697063,
+      "response_score": 55.19745378043945,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00028",
-      "response_score": 59.40413727618933,
+      "response_score": 63.24689300556071,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00050",
-      "response_score": 25.705377474285655,
+      "response_score": 35.667603259775724,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00056",
-      "response_score": 61.90209094411399,
+      "response_score": 63.05883425130112,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00004",
-      "response_score": 47.124360691622876,
+      "response_score": 51.642178328330765,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00058",
-      "response_score": 34.71952905483203,
+      "response_score": 36.826931189169244,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00068",
-      "response_score": 41.28550827363797,
+      "response_score": 65.9717409384822,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00055",
-      "response_score": 41.881127155804194,
+      "response_score": 38.75479737625107,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00135",
-      "response_score": 52.7684145299696,
+      "response_score": 65.54090972226811,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00018",
-      "response_score": 49.727998759212454,
+      "response_score": 46.519280283132936,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00082",
-      "response_score": 31.897992796929547,
+      "response_score": 66.024507468727,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00106",
-      "response_score": 78.84387647604376,
+      "response_score": 61.304557610759844,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00078",
-      "response_score": 49.47569444066361,
+      "response_score": 57.615504064612246,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00083",
-      "response_score": 50.896314861954835,
+      "response_score": 48.25270442708126,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00131",
-      "response_score": 51.61720510446901,
+      "response_score": 61.39910302146542,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00154",
-      "response_score": 44.09241572361731,
+      "response_score": 59.81373577027055,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00147",
-      "response_score": 53.83101313051817,
+      "response_score": 45.67096877269507,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00014",
-      "response_score": 43.582442633419376,
+      "response_score": 51.17394499346394,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00125",
-      "response_score": 43.79107751662031,
+      "response_score": 37.5871087900258,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00081",
-      "response_score": 49.39444239697491,
+      "response_score": 65.29381435407198,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00165",
-      "response_score": 65.29871254918571,
+      "response_score": 58.38163416470456,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00061",
-      "response_score": 31.75513689297563,
+      "response_score": 50.393872193147615,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00048",
-      "response_score": 57.59551528876273,
+      "response_score": 47.31440951400647,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00075",
-      "response_score": 55.1649307511325,
+      "response_score": 60.10037404356937,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00044",
-      "response_score": 50.25027384134,
+      "response_score": 52.99231381643584,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00001",
-      "response_score": 40.55115239275272,
+      "response_score": 48.311660862427196,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00105",
-      "response_score": 50.92725090884827,
+      "response_score": 56.71023229505327,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00043",
-      "response_score": 44.68867290225028,
+      "response_score": 52.502408661524036,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00136",
-      "response_score": 60.01031263422854,
+      "response_score": 53.97547767631083,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00079",
-      "response_score": 54.55330203559471,
+      "response_score": 38.62373402174853,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00039",
-      "response_score": 63.85252575425227,
+      "response_score": 72.25738035002013,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00123",
-      "response_score": 52.87547073597801,
+      "response_score": 47.88841293496637,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00115",
-      "response_score": 65.29154018656631,
+      "response_score": 64.90511439690688,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00042",
-      "response_score": 65.81364048325948,
+      "response_score": 59.40511883682346,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00086",
-      "response_score": 59.15757754040738,
+      "response_score": 59.79509729288464,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00114",
-      "response_score": 30.29157461768809,
+      "response_score": 39.88540533811855,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00041",
-      "response_score": 60.492913248812414,
+      "response_score": 63.304000264494135,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00072",
-      "response_score": 56.58899858561309,
+      "response_score": 39.14496683201092,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00153",
-      "response_score": 41.148432464542644,
+      "response_score": 43.91865602114191,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00143",
-      "response_score": 52.88092648145408,
+      "response_score": 39.70894282224737,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00005",
-      "response_score": 36.72115603949394,
+      "response_score": 43.53244109592156,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00170",
-      "response_score": 56.037823664762676,
+      "response_score": 67.00728501040486,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00073",
-      "response_score": 62.59290679202119,
+      "response_score": 66.7350769559339,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00015",
-      "response_score": 60.80888907470663,
+      "response_score": 64.93446463967992,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00071",
-      "response_score": 32.724012004432545,
+      "response_score": 38.71565833217583,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00097",
-      "response_score": 35.8458702442191,
+      "response_score": 31.42940408529437,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00175",
-      "response_score": 43.34194826076546,
+      "response_score": 44.256875884290494,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00172",
-      "response_score": 42.45882555520907,
+      "response_score": 45.800298192071665,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00146",
-      "response_score": 49.584819211218054,
+      "response_score": 72.85106148440413,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00076",
-      "response_score": 39.111411833576085,
+      "response_score": 56.7488397622995,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00059",
-      "response_score": 64.21291320099377,
+      "response_score": 65.76624353855397,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00007",
-      "response_score": 46.62556926295512,
+      "response_score": 43.66002755944943,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00094",
-      "response_score": 41.54422949287128,
+      "response_score": 59.39275979346931,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00008",
-      "response_score": 57.413372401719435,
+      "response_score": 61.301598434319814,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00128",
-      "response_score": 57.4276515067828,
+      "response_score": 58.551506132859465,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00084",
-      "response_score": 55.225866211694175,
+      "response_score": 64.88787046639378,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00029",
-      "response_score": 33.48185298392525,
+      "response_score": 57.30973833972689,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00030",
-      "response_score": 33.83381184978606,
+      "response_score": 48.6442851052857,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00100",
-      "response_score": 47.39673634899645,
+      "response_score": 54.7025995873071,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00177",
-      "response_score": 47.80394779199161,
+      "response_score": 41.07035116223912,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00095",
-      "response_score": 45.51911945988459,
+      "response_score": 52.13044441152212,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00080",
-      "response_score": 51.95427542629572,
+      "response_score": 39.49589773283832,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00124",
-      "response_score": 36.233362393916835,
+      "response_score": 39.76151856109879,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00020",
-      "response_score": 52.66341669396289,
+      "response_score": 49.93865653585609,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00113",
-      "response_score": 68.14255529025701,
+      "response_score": 65.23434791102261,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00011",
-      "response_score": 63.72837214856707,
+      "response_score": 56.2362924360556,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00033",
-      "response_score": 53.027094135769815,
+      "response_score": 54.945190963264615,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00069",
-      "response_score": 60.22532419360626,
+      "response_score": 52.80169281142978,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00134",
-      "response_score": 42.16225274922515,
+      "response_score": 37.228639963142,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00127",
-      "response_score": 47.60029747383682,
+      "response_score": 47.4305317785137,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00025",
-      "response_score": 53.99145120359215,
+      "response_score": 49.33822347823583,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00052",
-      "response_score": 68.7684141703025,
+      "response_score": 60.57898116272319,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00142",
-      "response_score": 56.13879799735751,
+      "response_score": 47.132971676666266,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00107",
-      "response_score": 63.30808531970268,
+      "response_score": 61.07310730648901,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00163",
-      "response_score": 44.4017570803026,
+      "response_score": 64.75861985078583,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00040",
-      "response_score": 46.341655454126176,
+      "response_score": 50.07891617026002,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00060",
-      "response_score": 56.747886215225954,
+      "response_score": 70.01445669752773,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00010",
-      "response_score": 48.84925715941082,
+      "response_score": 48.07611692847413,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00023",
-      "response_score": 49.6071201020031,
+      "response_score": 58.79628822275086,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00085",
-      "response_score": 25.13817570487664,
+      "response_score": 47.17964791896368,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00002",
-      "response_score": 50.944564489395816,
+      "response_score": 55.31988550648522,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "treatment",
       "agent_id": "agent_00130",
-      "response_score": 55.48400315369913,
+      "response_score": 42.49858657623626,
       "scenario": "primary"
     },
     {
       "study_id": "study_social_norms_002",
       "arm": "control",
       "agent_id": "agent_00021",
-      "response_score": 66.46162889976748,
+      "response_score": 62.18696401179465,
       "scenario": "primary"
     }
   ]

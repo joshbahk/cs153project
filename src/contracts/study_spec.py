@@ -27,6 +27,22 @@ class ArmSpec:
 
 
 @dataclass(slots=True)
+class MethodologySpec:
+    participant_population: str = "unspecified"
+    recruitment_context: str = "unspecified"
+    randomization_unit: str = "participant"
+    assignment_procedure: str = "random assignment to study arm"
+    procedure_summary: str = ""
+    stimuli: list[str] = field(default_factory=list)
+    outcome_scale: str = "continuous"
+    original_statistical_test: str = "unspecified"
+    reported_effect: str = ""
+    reported_p_value: str = ""
+    exact_replication_feasibility: str = "requires_review"
+    extraction_warnings: list[str] = field(default_factory=list)
+
+
+@dataclass(slots=True)
 class StudySpec:
     """Executable representation of one text-based study."""
 
@@ -42,6 +58,7 @@ class StudySpec:
     arms: list[ArmSpec]
     outcome_measure: str
     analysis_plan: str
+    methodology: MethodologySpec = field(default_factory=MethodologySpec)
     source_uri: str = ""
     source_sha256: str = ""
     extraction_confidence: float = 0.0
@@ -55,6 +72,8 @@ class StudySpec:
             raise ValueError("at least one arm is required")
         if not 0.0 <= self.extraction_confidence <= 1.0:
             raise ValueError("extraction_confidence must be within [0, 1]")
+        if self.methodology.exact_replication_feasibility not in {"high", "medium", "low", "requires_review"}:
+            raise ValueError("exact_replication_feasibility has an invalid value")
 
     def to_dict(self) -> dict[str, Any]:
         self.validate()
@@ -65,6 +84,7 @@ class StudySpec:
         ivs = [VariableSpec(**item) for item in raw.get("independent_variables", [])]
         dvs = [VariableSpec(**item) for item in raw.get("dependent_variables", [])]
         arms = [ArmSpec(**item) for item in raw.get("arms", [])]
+        methodology = MethodologySpec(**raw.get("methodology", {}))
         spec = cls(
             study_id=raw["study_id"],
             title=raw["title"],
@@ -78,6 +98,7 @@ class StudySpec:
             arms=arms,
             outcome_measure=raw["outcome_measure"],
             analysis_plan=raw["analysis_plan"],
+            methodology=methodology,
             source_uri=raw.get("source_uri", ""),
             source_sha256=raw.get("source_sha256", ""),
             extraction_confidence=float(raw.get("extraction_confidence", 0.0)),

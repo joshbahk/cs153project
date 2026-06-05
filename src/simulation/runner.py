@@ -5,6 +5,7 @@ from __future__ import annotations
 import random
 from dataclasses import dataclass
 from statistics import mean
+from typing import Callable
 
 from contracts.study_spec import StudySpec
 from simulation.agent_factory import SyntheticAgent
@@ -43,8 +44,18 @@ class SimulationRunner:
             "college": 0.0,
             "graduate": 1.0,
         }.get(agent.education, 0.0)
+        context_shift = (
+            3.0 * (agent.baseline_compliance - 0.5)
+            + 2.0 * (agent.prosociality - 0.5)
+            - 1.5 * (agent.risk_preference - 0.5)
+        )
+        orientation_shift = {
+            "left": 0.4,
+            "center": 0.0,
+            "right": -0.2,
+        }.get(agent.political_orientation, 0.0)
         noise = self._rng.gauss(0.0, 6.5)
-        return base + treatment_shift + demographic_shift + noise
+        return base + treatment_shift + demographic_shift + context_shift + orientation_shift + noise
 
     def run_batch(self, spec: StudySpec, agents: list[SyntheticAgent], batch_size: int) -> SimulationBatch:
         picked = self._rng.sample(agents, k=min(batch_size, len(agents)))
@@ -81,10 +92,13 @@ class SimulationRunner:
         max_n: int,
         stop_width_threshold: float,
         ci_fn,
+        progress_callback: Callable[[int, int], None] | None = None,
     ) -> list[TrialResult]:
         all_results: list[TrialResult] = []
         consumed = 0
         remaining = list(agents)
+        if progress_callback is not None:
+            progress_callback(consumed, max_n)
         while consumed < max_n and remaining:
             batch_n = min(batch_size, max_n - consumed, len(remaining))
             batch = self.run_batch(spec, remaining, batch_size=batch_n)
@@ -92,6 +106,8 @@ class SimulationRunner:
             remaining = [agent for agent in remaining if agent.agent_id not in used_agent_ids]
             all_results.extend(batch.results)
             consumed += batch.sampled_n
+            if progress_callback is not None:
+                progress_callback(consumed, max_n)
             if consumed >= batch_size * 2:
                 low, high = ci_fn(all_results)
                 if (high - low) <= stop_width_threshold:

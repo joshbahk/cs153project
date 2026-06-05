@@ -62,11 +62,25 @@ def _request_json(url: str, timeout: int = 20) -> dict[str, Any]:
         return json.loads(response.read().decode("utf-8"))
 
 
-def _request_bytes(url: str, timeout: int = 25) -> tuple[bytes, str]:
+def _request_bytes(url: str, max_bytes: int, timeout: int = 25) -> tuple[bytes, str]:
     req = urllib.request.Request(url, headers={"User-Agent": "replication-triage/0.1"})
     with urllib.request.urlopen(req, timeout=timeout) as response:
         content_type = response.headers.get("content-type", "")
-        return response.read(), content_type
+        content_length = response.headers.get("content-length")
+        if content_length and int(content_length) > max_bytes:
+            raise PaperIngestError(f"Remote file is larger than the {max_bytes // (1024 * 1024)} MB limit.")
+
+        chunks: list[bytes] = []
+        total = 0
+        while True:
+            chunk = response.read(1024 * 1024)
+            if not chunk:
+                break
+            total += len(chunk)
+            if total > max_bytes:
+                raise PaperIngestError(f"Remote file is larger than the {max_bytes // (1024 * 1024)} MB limit.")
+            chunks.append(chunk)
+        return b"".join(chunks), content_type
 
 
 def _abstract_from_inverted_index(index: dict[str, list[int]] | None) -> str:
@@ -159,7 +173,7 @@ def _html_to_text(html: bytes) -> str:
 
 
 def extract_url_text(url: str, max_upload_mb: int, max_chars: int) -> str:
-    raw, content_type = _request_bytes(url)
+    raw, content_type = _request_bytes(url, max_bytes=max_upload_mb * 1024 * 1024)
     looks_pdf = "pdf" in content_type.lower() or urllib.parse.urlparse(url).path.lower().endswith(".pdf")
     if looks_pdf:
         return extract_pdf_text(raw, max_upload_mb=max_upload_mb, max_chars=max_chars)
@@ -210,6 +224,28 @@ def _line_to_url(line: str) -> str:
     if doi_match:
         return "https://doi.org/" + doi_match.group(0).rstrip(".,)")
     return ""
+
+
+def source_candidates_from_lines(source_lines: str) -> list[ImportCandidate]:
+    candidates: list[ImportCandidate] = []
+    for idx, line in enumerate(source_lines.splitlines(), start=1):
+        url = _line_to_url(line)
+        if not url:
+            continue
+        text = (
+            f"Title: Imported source {idx}\n"
+            f"Source: {url}\n"
+            "Import note: Full text will be fetched by the worker before simulation."
+        )
+        candidates.append(
+            ImportCandidate(
+                title=f"Imported source {idx}",
+                source_uri=url,
+                text=text,
+                source_kind="url",
+            )
+        )
+    return candidates
 
 
 def import_from_sources(source_lines: str, max_upload_mb: int, max_chars: int) -> list[ImportCandidate]:

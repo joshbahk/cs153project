@@ -4,7 +4,9 @@
       "study_id": "study_prompt_framing_001",
       "tier_used": "local_heuristic",
       "confidence": 0.95,
-      "notes": [],
+      "notes": [
+        "original_statistical_test_not_detected"
+      ],
       "sample_size_target": 240,
       "source_sha256": "9f18a57343c2523aa0a0d1364045e86895593b657811f3cd6af6574eea99e682"
     },
