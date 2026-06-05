@@ -54,7 +54,7 @@ class SimulationRunner:
             "center": 0.0,
             "right": -0.2,
         }.get(agent.political_orientation, 0.0)
-        noise = self._rng.gauss(0.0, 6.5)
+        noise = self._rng.gauss(0.0, 5.0)
         return base + treatment_shift + demographic_shift + context_shift + orientation_shift + noise
 
     def run_batch(self, spec: StudySpec, agents: list[SyntheticAgent], batch_size: int) -> SimulationBatch:

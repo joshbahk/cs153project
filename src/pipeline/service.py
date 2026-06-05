@@ -62,8 +62,8 @@ class PipelineConfig:
     llm_output_cost_per_1m_tokens: float = 0.50
     sensitivity_shifts: dict[str, float] = field(
         default_factory=lambda: {
-            "primary": 3.0,
-            "small_effect": 1.0,
+            "primary": 6.0,
+            "small_effect": 2.5,
             "null_effect": 0.0,
         }
     )
