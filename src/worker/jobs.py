@@ -47,7 +47,7 @@ def _run_backend(settings: AppSettings, run: Run | None = None) -> str:
         backend = (run.budget_json or {}).get("simulation_backend")
         if backend in {"llm", "transparent"}:
             return str(backend)
-    return "llm" if settings.llm_simulation_enabled else "transparent"
+    return "transparent"
 
 
 def _pipeline_config(settings: AppSettings, seed: int, run: Run | None = None) -> PipelineConfig:

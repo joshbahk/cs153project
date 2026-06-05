@@ -413,6 +413,30 @@ class IngestWebStorageTest(unittest.TestCase):
                 config = _pipeline_config(settings, settings.seed, llm_run)
                 self.assertEqual(config.simulation_backend, "llm")
 
+    def test_normal_runs_stay_transparent_even_if_llm_flag_is_enabled(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            settings = AppSettings(
+                database_url=f"sqlite:///{tmpdir}/transparent-first.db",
+                auto_process_on_submit=False,
+                llm_simulation_enabled=True,
+                llm_api_key="test-key",
+            )
+            app = create_app(settings)
+            with TestClient(app) as client:
+                created = client.post(
+                    "/runs",
+                    data={"title": "Transparent First", "paper_text": PAPER_TEXT},
+                    follow_redirects=False,
+                )
+                self.assertEqual(created.status_code, 303)
+                run_id = created.headers["location"].rsplit("/", 1)[-1]
+                with app.state.session_factory() as session:
+                    run = get_run(session, run_id)
+                    self.assertIsNotNone(run)
+                    self.assertNotEqual((run.budget_json or {}).get("simulation_backend"), "llm")
+                    config = _pipeline_config(settings, settings.seed, run)
+                    self.assertEqual(config.simulation_backend, "transparent")
+
     def test_fastapi_upload_and_budget_caps(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
             settings = AppSettings(

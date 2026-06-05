@@ -276,7 +276,7 @@ def _llm_pipeline_config(settings: AppSettings) -> PipelineConfig:
 
 
 def _run_reservation(settings: AppSettings, backend: str | None = None) -> float:
-    selected_backend = backend or ("llm" if settings.llm_simulation_enabled else "transparent")
+    selected_backend = backend or "transparent"
     if selected_backend == "llm":
         config = _llm_pipeline_config(settings)
         return estimate_run_cost(config.max_sample_size, config)

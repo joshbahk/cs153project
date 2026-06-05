@@ -21,8 +21,8 @@
         <span><strong>${{ "%.2f"|format(total_spend) }}</strong> recorded</span>
         <span><strong>${{ "%.2f"|format(projected_spend) }}</strong> projected</span>
         <span><strong>{{ active_runs }}</strong> active</span>
-        <span><strong>{{ "LLM" if settings.llm_simulation_enabled else "transparent" }}</strong> backend</span>
-        <span><strong>{{ settings.llm_sample_size if settings.llm_simulation_enabled else settings.max_sample_size }}</strong> max n</span>
+        <span><strong>transparent</strong> default</span>
+        <span><strong>{{ settings.max_sample_size }}</strong> max n</span>
       </div>
     </header>
 
