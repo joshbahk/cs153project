@@ -401,13 +401,12 @@ def resolve_candidates_to_paper_inputs(
     candidates: list[ImportCandidate],
     max_chars: int,
 ) -> tuple[list[PaperInput], ImportReport]:
-    """Full-text-only conversion with a structured report.
+    """Lenient conversion with a structured report.
 
-    A candidate is emitted only if real study conditions can be extracted from
-    its text. Abstract-only candidates are first sent through the full-text
-    resolver chain; if resolution still does not surface method/conditions text
-    the candidate is dropped (never raised), keeping a single bad source from
-    failing the whole batch.
+    The resolver still tries to upgrade abstract/metadata candidates to full
+    text, but unresolved methodology gaps become warnings instead of hard
+    rejections. This keeps batches moving while preserving the caveats in the
+    run artifacts.
     """
 
     config = get_ingest_config()
@@ -421,7 +420,13 @@ def resolve_candidates_to_paper_inputs(
             full_text_source = candidate.full_text_source
             verdict = assess_text(text, title=candidate.title, source_uri=candidate.source_uri)
 
-            if not verdict.suitable and config.resolve_full_text:
+            needs_more_text = (
+                not verdict.suitable
+                or len(text.strip()) < 4000
+                or "Abstract:" in text[:1000]
+                or bool({"study_arms_inferred_from_defaults", "fewer_than_two_conditions_detected"}.intersection(verdict.warnings))
+            )
+            if needs_more_text and config.resolve_full_text:
                 if http is None:
                     http = HttpClient(
                         timeout=config.http_timeout,
@@ -440,6 +445,22 @@ def resolve_candidates_to_paper_inputs(
                     verdict = assess_text(text, title=candidate.title, source_uri=candidate.source_uri)
 
             if not verdict.suitable:
+                if text.strip():
+                    verdict = type(verdict)(True, "queued_with_methodology_warnings", verdict.warnings)
+                else:
+                    status = verdict.reason if text.strip() else "no_full_text"
+                    report.add(
+                        CandidateDisposition(
+                            title=candidate.title,
+                            source_kind=candidate.source_kind,
+                            doi=candidate.doi,
+                            status=status,
+                            detail=",".join(verdict.warnings),
+                        )
+                    )
+                    continue
+
+            if verdict.reason == "queued_with_methodology_warnings":
                 status = verdict.reason if text.strip() else "no_full_text"
                 report.add(
                     CandidateDisposition(
@@ -450,7 +471,6 @@ def resolve_candidates_to_paper_inputs(
                         detail=",".join(verdict.warnings),
                     )
                 )
-                continue
 
             try:
                 normalized = normalize_paper_text(text, max_chars=max_chars)

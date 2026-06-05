@@ -31,7 +31,7 @@ def resolve_full_text(
     http: HttpClient,
     config: IngestConfig,
     *,
-    max_chars: int = 120_000,
+    max_chars: int = 300_000,
 ) -> tuple[str, str] | None:
     """Return ``(full_text, source_label)`` or ``None`` when nothing resolves."""
 

@@ -103,6 +103,35 @@ def create_paper_run(
     return run
 
 
+def create_run_for_existing_paper(
+    session: Session,
+    paper: Paper,
+    seed: int,
+    budget_reservation_usd: float | None = None,
+    metadata: dict[str, Any] | None = None,
+) -> Run:
+    budget_json: dict[str, Any] | None = None
+    if budget_reservation_usd is not None:
+        budget_json = {"reserved_usd": budget_reservation_usd, "spent_total_usd": 0.0}
+    if metadata:
+        budget_json = {**(budget_json or {}), **metadata}
+    progress = _initial_progress()
+    if metadata and metadata.get("simulation_backend") == "llm":
+        progress["message"] = "Waiting for the worker to run the LLM-agent study."
+        progress["simulation_backend"] = "llm"
+    run = Run(
+        id=_new_id("run"),
+        paper=paper,
+        status="queued",
+        seed=seed,
+        budget_json=budget_json,
+        progress_json=progress,
+    )
+    session.add(run)
+    session.commit()
+    return run
+
+
 def get_run(session: Session, run_id: str) -> Run | None:
     stmt = select(Run).options(joinedload(Run.paper)).where(Run.id == run_id)
     return session.scalar(stmt)

@@ -26,7 +26,7 @@ from llm.client import LLMChatResult, LLMUsage
 from pipeline.service import PipelineCancelled, PipelineConfig, execute_documents
 from web.app import create_app
 from web.settings import AppSettings
-from worker.jobs import process_next_run
+from worker.jobs import _pipeline_config, process_next_run
 
 
 PAPER_TEXT = """Hypothesis: social norm statements improve compliance intention.
@@ -367,6 +367,51 @@ class IngestWebStorageTest(unittest.TestCase):
                 self.assertIn("fake-digitalocean-model", detail.text)
                 self.assertIn("Stored LLM response records: 20", detail.text)
                 self.assertIn("Most common response labels", detail.text)
+
+    def test_detail_page_can_queue_llm_study_for_one_paper(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            settings = AppSettings(
+                database_url=f"sqlite:///{tmpdir}/llm-button.db",
+                auto_process_on_submit=False,
+                llm_simulation_enabled=False,
+                llm_api_key="test-key",
+                llm_sample_size=12,
+                max_queued_jobs=5,
+            )
+            app = create_app(settings)
+            with TestClient(app) as client:
+                created = client.post(
+                    "/runs",
+                    data={"title": "Selective LLM Study", "paper_text": PAPER_TEXT},
+                    follow_redirects=False,
+                )
+                self.assertEqual(created.status_code, 303)
+                source_run_id = created.headers["location"].rsplit("/", 1)[-1]
+
+                detail = client.get(f"/runs/{source_run_id}")
+                self.assertEqual(detail.status_code, 200)
+                self.assertIn("Queue LLM Study", detail.text)
+
+                queued = client.post(f"/runs/{source_run_id}/llm", follow_redirects=False)
+                self.assertEqual(queued.status_code, 303)
+                llm_run_id = queued.headers["location"].split("?")[0].rsplit("/", 1)[-1]
+                self.assertNotEqual(source_run_id, llm_run_id)
+
+                with app.state.session_factory() as session:
+                    source_run = get_run(session, source_run_id)
+                    llm_run = get_run(session, llm_run_id)
+                    self.assertIsNotNone(source_run)
+                    self.assertIsNotNone(llm_run)
+                    self.assertEqual(llm_run.paper_id, source_run.paper_id)
+                    self.assertEqual((llm_run.budget_json or {}).get("simulation_backend"), "llm")
+                    self.assertEqual((llm_run.budget_json or {}).get("llm_model"), settings.llm_model)
+
+                llm_detail = client.get(queued.headers["location"])
+                self.assertEqual(llm_detail.status_code, 200)
+                self.assertIn("Queued LLM study for this paper.", llm_detail.text)
+
+                config = _pipeline_config(settings, settings.seed, llm_run)
+                self.assertEqual(config.simulation_backend, "llm")
 
     def test_fastapi_upload_and_budget_caps(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:

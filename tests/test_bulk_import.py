@@ -67,14 +67,14 @@ class CandidateConversionTest(unittest.TestCase):
         self.assertEqual(len(papers), 1)
         self.assertEqual(report.created, 1)
 
-    def test_abstract_dropped_when_resolution_disabled(self) -> None:
+    def test_abstract_is_queued_with_warnings_when_resolution_disabled(self) -> None:
         with patch.dict("os.environ", {"BULK_IMPORT_RESOLVE": "0"}, clear=False):
             papers, report = batch_importer.resolve_candidates_to_paper_inputs(
                 [self._abstract_candidate()], max_chars=120_000
             )
-        self.assertEqual(papers, [])
-        self.assertEqual(report.created, 0)
-        self.assertEqual(report.dispositions[0].status, "unsuitable_methodology")
+        self.assertEqual(len(papers), 1)
+        self.assertEqual(report.created, 1)
+        self.assertEqual(report.dispositions[0].status, "queued_with_methodology_warnings")
 
     def test_abstract_promoted_when_resolver_finds_full_text(self) -> None:
         def fake_resolver(candidate, http, config, *, max_chars):

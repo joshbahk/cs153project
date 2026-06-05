@@ -64,7 +64,7 @@ def build_paper_input(
     upload_bytes: bytes | None,
     upload_filename: str,
     max_upload_mb: int = 15,
-    max_chars: int = 120_000,
+    max_chars: int = 300_000,
 ) -> PaperInput:
     clean_title = title.strip()
     pasted_text = pasted_text.strip()

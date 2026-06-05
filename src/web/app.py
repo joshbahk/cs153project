@@ -17,6 +17,7 @@ from db.repository import (
     average_completed_duration_seconds,
     count_active_runs,
     create_paper_run,
+    create_run_for_existing_paper,
     get_run,
     hide_run_from_view,
     list_runs,
@@ -255,29 +256,56 @@ async def _read_upload_with_cap(upload: UploadFile | None, max_upload_mb: int) -
     return b"".join(chunks), upload.filename
 
 
-def _run_reservation(settings: AppSettings) -> float:
-    if settings.llm_simulation_enabled:
-        config = PipelineConfig(
-            seed=settings.seed,
-            max_sample_size=min(settings.max_sample_size, settings.llm_sample_size),
-            model_tier=f"digitalocean_serverless_llm_agents:{settings.llm_model}",
-            simulation_backend="llm",
-            llm_model=settings.llm_model,
-            llm_sample_size=settings.llm_sample_size,
-            llm_temperature=settings.llm_temperature,
-            llm_max_tokens=settings.llm_max_tokens,
-            llm_max_retries=settings.llm_max_retries,
-            llm_primary_only=settings.llm_primary_only,
-            llm_estimated_input_tokens_per_trial=settings.llm_estimated_input_tokens_per_trial,
-            llm_estimated_output_tokens_per_trial=settings.llm_estimated_output_tokens_per_trial,
-            llm_input_cost_per_1m_tokens=settings.llm_input_cost_per_1m_tokens,
-            llm_output_cost_per_1m_tokens=settings.llm_output_cost_per_1m_tokens,
-        )
+def _llm_pipeline_config(settings: AppSettings) -> PipelineConfig:
+    return PipelineConfig(
+        seed=settings.seed,
+        max_sample_size=min(settings.max_sample_size, settings.llm_sample_size),
+        model_tier=f"digitalocean_serverless_llm_agents:{settings.llm_model}",
+        simulation_backend="llm",
+        llm_model=settings.llm_model,
+        llm_sample_size=settings.llm_sample_size,
+        llm_temperature=settings.llm_temperature,
+        llm_max_tokens=settings.llm_max_tokens,
+        llm_max_retries=settings.llm_max_retries,
+        llm_primary_only=settings.llm_primary_only,
+        llm_estimated_input_tokens_per_trial=settings.llm_estimated_input_tokens_per_trial,
+        llm_estimated_output_tokens_per_trial=settings.llm_estimated_output_tokens_per_trial,
+        llm_input_cost_per_1m_tokens=settings.llm_input_cost_per_1m_tokens,
+        llm_output_cost_per_1m_tokens=settings.llm_output_cost_per_1m_tokens,
+    )
+
+
+def _run_reservation(settings: AppSettings, backend: str | None = None) -> float:
+    selected_backend = backend or ("llm" if settings.llm_simulation_enabled else "transparent")
+    if selected_backend == "llm":
+        config = _llm_pipeline_config(settings)
         return estimate_run_cost(config.max_sample_size, config)
     return estimate_run_cost(
         settings.max_sample_size,
         PipelineConfig(seed=settings.seed, max_sample_size=settings.max_sample_size),
     )
+
+
+def _run_backend(run) -> str:
+    budget = run.budget_json or {}
+    if budget.get("simulation_backend") in {"llm", "transparent"}:
+        return str(budget["simulation_backend"])
+    primary = _primary_analysis(run)
+    if primary.get("simulation_backend") in {"llm", "transparent"}:
+        return str(primary["simulation_backend"])
+    return "transparent"
+
+
+def _llm_error_message(code: str) -> str:
+    if code == "missing_key":
+        return "Add GRADIENT_MODEL_ACCESS_KEY in DigitalOcean environment variables before queueing an LLM study."
+    if code == "queue_full":
+        return "Queue limit reached. Skip or wait for a running paper before queueing the LLM study."
+    if code == "budget":
+        return "Budget cap reached. The LLM study was not queued."
+    if code == "already_llm":
+        return "This run is already an LLM study."
+    return ""
 
 
 def _budget_slots_remaining(session: Session, settings: AppSettings, reservation_usd: float) -> int:
@@ -530,13 +558,19 @@ def create_app(settings: AppSettings | None = None) -> FastAPI:
         )
 
     @app.get("/runs/{run_id}", response_class=HTMLResponse)
-    def run_detail(request: Request, run_id: str) -> HTMLResponse:
+    def run_detail(
+        request: Request,
+        run_id: str,
+        llm_created: int = 0,
+        llm_error: str = "",
+    ) -> HTMLResponse:
         with session_factory() as session:
             run = get_run(session, run_id)
             if run is None or run.hidden_at is not None:
                 raise HTTPException(status_code=404, detail="Run not found")
             ranking_items = (run.ranking_json or {}).get("items", [])
             summary = summarize_run(run, average_completed_seconds=average_completed_duration_seconds(session))
+            run_backend = _run_backend(run)
             return templates.TemplateResponse(
                 request,
                 "run_detail.html",
@@ -551,10 +585,44 @@ def create_app(settings: AppSettings | None = None) -> FastAPI:
                     "agent_summary": _agent_summary(run),
                     "methodology": next(iter((run.analysis_json or {}).values()), {}).get("methodology", {}),
                     "llm_study_summary": _llm_study_summary(run),
+                    "run_backend": run_backend,
+                    "llm_ready": bool(settings.llm_api_key),
+                    "llm_reservation_usd": _run_reservation(settings, backend="llm"),
+                    "page_message": "Queued LLM study for this paper." if llm_created else "",
+                    "page_error": _llm_error_message(llm_error),
                     "artifacts": _artifact_payload(run),
                     "auto_refresh": run.status in {"queued", "running"},
                 },
             )
+
+    @app.post("/runs/{run_id}/llm", response_model=None)
+    def queue_llm_run(request: Request, background_tasks: BackgroundTasks, run_id: str) -> RedirectResponse | HTMLResponse:
+        reservation_usd = _run_reservation(settings, backend="llm")
+        with session_factory() as session:
+            run = get_run(session, run_id)
+            if run is None or run.hidden_at is not None:
+                raise HTTPException(status_code=404, detail="Run not found")
+            if _run_backend(run) == "llm":
+                return RedirectResponse(url=f"/runs/{run_id}?llm_error=already_llm", status_code=303)
+            if not settings.llm_api_key:
+                return RedirectResponse(url=f"/runs/{run_id}?llm_error=missing_key", status_code=303)
+            if count_active_runs(session) >= settings.max_queued_jobs:
+                return RedirectResponse(url=f"/runs/{run_id}?llm_error=queue_full", status_code=303)
+            if total_projected_spend(session) + reservation_usd > settings.max_total_usd:
+                return RedirectResponse(url=f"/runs/{run_id}?llm_error=budget", status_code=303)
+
+            llm_run = create_run_for_existing_paper(
+                session,
+                run.paper,
+                seed=settings.seed,
+                budget_reservation_usd=reservation_usd,
+                metadata={"simulation_backend": "llm", "llm_model": settings.llm_model},
+            )
+            llm_run_id = llm_run.id
+
+        if settings.auto_process_on_submit:
+            background_tasks.add_task(process_run_by_id, session_factory, llm_run_id, settings)
+        return RedirectResponse(url=f"/runs/{llm_run_id}?llm_created=1", status_code=303)
 
     @app.post("/runs/{run_id}/skip", response_model=None)
     def skip_run(run_id: str) -> RedirectResponse:
@@ -682,6 +750,33 @@ def create_app(settings: AppSettings | None = None) -> FastAPI:
             if run is None:
                 raise HTTPException(status_code=404, detail="Run not found")
             return {"id": run.id, "hidden": True}
+
+    @app.post("/api/runs/{run_id}/llm")
+    def api_queue_llm_run(run_id: str, background_tasks: BackgroundTasks) -> dict[str, Any]:
+        if not settings.llm_api_key:
+            raise HTTPException(status_code=400, detail=_llm_error_message("missing_key"))
+        reservation_usd = _run_reservation(settings, backend="llm")
+        with session_factory() as session:
+            run = get_run(session, run_id)
+            if run is None or run.hidden_at is not None:
+                raise HTTPException(status_code=404, detail="Run not found")
+            if _run_backend(run) == "llm":
+                raise HTTPException(status_code=409, detail=_llm_error_message("already_llm"))
+            if count_active_runs(session) >= settings.max_queued_jobs:
+                raise HTTPException(status_code=429, detail=_llm_error_message("queue_full"))
+            if total_projected_spend(session) + reservation_usd > settings.max_total_usd:
+                raise HTTPException(status_code=402, detail=_llm_error_message("budget"))
+            llm_run = create_run_for_existing_paper(
+                session,
+                run.paper,
+                seed=settings.seed,
+                budget_reservation_usd=reservation_usd,
+                metadata={"simulation_backend": "llm", "llm_model": settings.llm_model},
+            )
+            llm_run_id = llm_run.id
+        if settings.auto_process_on_submit:
+            background_tasks.add_task(process_run_by_id, session_factory, llm_run_id, settings)
+        return {"created": True, "run_id": llm_run_id, "reserved_usd": reservation_usd}
 
     @app.get("/api/runs/{run_id}/artifacts")
     def api_artifacts(run_id: str) -> dict[str, Any]:

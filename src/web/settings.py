@@ -23,7 +23,7 @@ class AppSettings:
     max_total_usd: float = field(default_factory=lambda: float(os.getenv("MAX_TOTAL_USD", "250")))
     max_sample_size: int = field(default_factory=lambda: int(os.getenv("MAX_SAMPLE_SIZE", "500")))
     max_upload_mb: int = field(default_factory=lambda: int(os.getenv("MAX_UPLOAD_MB", "15")))
-    max_text_chars: int = field(default_factory=lambda: int(os.getenv("MAX_TEXT_CHARS", "120000")))
+    max_text_chars: int = field(default_factory=lambda: int(os.getenv("MAX_TEXT_CHARS", "300000")))
     max_queued_jobs: int = field(default_factory=lambda: int(os.getenv("MAX_QUEUED_JOBS", "50")))
     max_batch_import: int = field(default_factory=lambda: int(os.getenv("MAX_BATCH_IMPORT", "50")))
     openalex_mailto: str = field(default_factory=lambda: os.getenv("OPENALEX_MAILTO", ""))

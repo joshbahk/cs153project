@@ -23,6 +23,9 @@ services:
       - key: MAX_UPLOAD_MB
         value: "15"
         scope: RUN_TIME
+      - key: MAX_TEXT_CHARS
+        value: "300000"
+        scope: RUN_TIME
       - key: MAX_QUEUED_JOBS
         value: "50"
         scope: RUN_TIME
@@ -40,6 +43,12 @@ services:
         scope: RUN_TIME
       - key: BULK_IMPORT_OVERFETCH_FACTOR
         value: "4"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MIN_FULLTEXT_CHARS
+        value: "600"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MAX_BYTES
+        value: "31457280"
         scope: RUN_TIME
       - key: LLM_SIMULATION_ENABLED
         value: "0"
@@ -85,6 +94,9 @@ workers:
       - key: MAX_UPLOAD_MB
         value: "15"
         scope: RUN_TIME
+      - key: MAX_TEXT_CHARS
+        value: "300000"
+        scope: RUN_TIME
       - key: MAX_QUEUED_JOBS
         value: "50"
         scope: RUN_TIME
@@ -102,6 +114,12 @@ workers:
         scope: RUN_TIME
       - key: BULK_IMPORT_OVERFETCH_FACTOR
         value: "4"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MIN_FULLTEXT_CHARS
+        value: "600"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MAX_BYTES
+        value: "31457280"
         scope: RUN_TIME
       - key: LLM_SIMULATION_ENABLED
         value: "0"

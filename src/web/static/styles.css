@@ -61,29 +61,6 @@ a:hover {
   text-decoration: none;
 }
 
-.brand-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #152238 0%, #176b87 58%, #18a999 100%);
-  color: #ffffff;
-  font-family: ui-rounded, Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 22px;
-  font-weight: 850;
-  line-height: 1;
-  box-shadow: 0 10px 22px rgba(23, 107, 135, 0.20);
-}
-
-.brand-mark-small {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
-  font-size: 14px;
-  box-shadow: none;
-}
-
 .brand-word {
   font-family: ui-rounded, Inter, ui-sans-serif, system-ui, sans-serif;
   font-size: 31px;
@@ -186,6 +163,20 @@ p {
   margin-bottom: 12px;
 }
 
+.panel-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.inline-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
 form {
   display: grid;
   gap: 14px;
@@ -277,6 +268,30 @@ button:hover,
 .delete-button:hover {
   background: #fff0f0;
   color: #7d2424;
+}
+
+.secondary-button {
+  border-color: #176b87;
+  background: #ffffff;
+  color: #135c74;
+}
+
+.secondary-button:hover {
+  background: #eaf7fa;
+  color: #104f63;
+}
+
+button:disabled {
+  border-color: var(--line);
+  background: #f1f4f7;
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+button:disabled:hover {
+  background: #f1f4f7;
+  color: var(--muted);
 }
 
 .table-wrap {

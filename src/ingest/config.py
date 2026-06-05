@@ -64,8 +64,8 @@ class IngestConfig:
 
     overfetch_factor: int = 4
     max_discovery_pages: int = 5
-    max_resolution_bytes: int = 20 * 1024 * 1024
-    min_full_text_chars: int = 1200
+    max_resolution_bytes: int = 30 * 1024 * 1024
+    min_full_text_chars: int = 600
 
     def with_overrides(self, *, mailto: str = "") -> "IngestConfig":
         if not mailto:
@@ -107,6 +107,6 @@ def get_ingest_config() -> IngestConfig:
         min_host_interval=_float("BULK_IMPORT_MIN_HOST_INTERVAL", 0.15),
         overfetch_factor=_int("BULK_IMPORT_OVERFETCH_FACTOR", 4),
         max_discovery_pages=_int("BULK_IMPORT_MAX_PAGES", 5),
-        max_resolution_bytes=_int("BULK_IMPORT_MAX_BYTES", 20 * 1024 * 1024),
-        min_full_text_chars=_int("BULK_IMPORT_MIN_FULLTEXT_CHARS", 1200),
+        max_resolution_bytes=_int("BULK_IMPORT_MAX_BYTES", 30 * 1024 * 1024),
+        min_full_text_chars=_int("BULK_IMPORT_MIN_FULLTEXT_CHARS", 600),
     )

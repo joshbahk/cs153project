@@ -13,7 +13,6 @@
     <header class="topbar">
       <div>
         <a class="brand-link" href="/">
-          <span class="brand-mark brand-mark-small" aria-hidden="true">R</span>
           <span class="brand-word brand-word-small">Replicate</span>
         </a>
         <h1>{{ run.paper.title }}</h1>
@@ -30,18 +29,43 @@
     </header>
 
     <main class="detail-grid">
+      {% if page_message %}
+        <section class="wide-panel">
+          <div class="alert alert-ok">{{ page_message }}</div>
+        </section>
+      {% endif %}
+      {% if page_error %}
+        <section class="wide-panel">
+          <div class="alert alert-error">{{ page_error }}</div>
+        </section>
+      {% endif %}
+
       <section class="wide-panel monitor-panel">
         <div class="panel-heading">
           <h2>Run Monitor</h2>
-          {% if run.status in ["queued", "running"] %}
-            <form class="action-form" action="/runs/{{ run.id }}/skip" method="post">
-              <button class="danger-button" type="submit">{{ "Skip Requested" if summary.skip_requested else "Skip Paper" }}</button>
-            </form>
-          {% else %}
-            <form class="action-form" action="/runs/{{ run.id }}/delete" method="post">
-              <button class="delete-button" type="submit">Delete Run</button>
-            </form>
-          {% endif %}
+          <div class="panel-actions">
+            {% if run_backend != "llm" %}
+              <form class="action-form" action="/runs/{{ run.id }}/llm" method="post">
+                <button class="secondary-button" type="submit" {% if not llm_ready %}disabled{% endif %}>Queue LLM Study</button>
+              </form>
+              <span class="inline-note">
+                {% if llm_ready %}
+                  est. ${{ "%.2f"|format(llm_reservation_usd) }}
+                {% else %}
+                  add GRADIENT_MODEL_ACCESS_KEY
+                {% endif %}
+              </span>
+            {% endif %}
+            {% if run.status in ["queued", "running"] %}
+              <form class="action-form" action="/runs/{{ run.id }}/skip" method="post">
+                <button class="danger-button" type="submit">{{ "Skip Requested" if summary.skip_requested else "Skip Paper" }}</button>
+              </form>
+            {% else %}
+              <form class="action-form" action="/runs/{{ run.id }}/delete" method="post">
+                <button class="delete-button" type="submit">Delete Run</button>
+              </form>
+            {% endif %}
+          </div>
         </div>
         <div class="progress-track progress-track-large"><span style="width: {{ summary.progress_percent }}%"></span></div>
         <dl class="stats-grid">

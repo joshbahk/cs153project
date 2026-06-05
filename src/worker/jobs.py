@@ -42,8 +42,16 @@ def _budget_for_run(settings: AppSettings) -> BudgetState:
     return state
 
 
-def _pipeline_config(settings: AppSettings, seed: int) -> PipelineConfig:
-    if not settings.llm_simulation_enabled:
+def _run_backend(settings: AppSettings, run: Run | None = None) -> str:
+    if run is not None:
+        backend = (run.budget_json or {}).get("simulation_backend")
+        if backend in {"llm", "transparent"}:
+            return str(backend)
+    return "llm" if settings.llm_simulation_enabled else "transparent"
+
+
+def _pipeline_config(settings: AppSettings, seed: int, run: Run | None = None) -> PipelineConfig:
+    if _run_backend(settings, run) != "llm":
         return PipelineConfig(seed=seed, max_sample_size=settings.max_sample_size)
 
     effective_max_sample_size = min(settings.max_sample_size, settings.llm_sample_size)
@@ -70,8 +78,9 @@ def _pipeline_config(settings: AppSettings, seed: int) -> PipelineConfig:
     )
 
 
-def _run_reservation(settings: AppSettings, seed: int) -> float:
-    return estimate_run_cost(settings.max_sample_size, _pipeline_config(settings, seed))
+def _run_reservation(settings: AppSettings, seed: int, run: Run | None = None) -> float:
+    config = _pipeline_config(settings, seed, run)
+    return estimate_run_cost(config.max_sample_size, config)
 
 
 def _metadata_only_text(text: str) -> bool:
@@ -112,7 +121,7 @@ def _hydrate_fetchable_source(session: Session, run: Run, settings: AppSettings)
 def execute_run(session: Session, run: Run, settings: AppSettings) -> None:
     try:
         update_run_progress(session, run, stage="starting", message="Starting run.", percent=1.0)
-        reservation = float((run.budget_json or {}).get("reserved_usd") or _run_reservation(settings, run.seed))
+        reservation = float((run.budget_json or {}).get("reserved_usd") or _run_reservation(settings, run.seed, run))
         if total_recorded_spend(session) + reservation > settings.max_total_usd:
             raise ValueError(
                 f"Budget cap reached before execution. This run reserves up to ${reservation:.2f}, "
@@ -149,7 +158,7 @@ def execute_run(session: Session, run: Run, settings: AppSettings) -> None:
             budget_state=_budget_for_run(settings),
             credits=load_credits(settings.credits_path),
             cache=JsonCache(settings.cache_dir),
-            config=_pipeline_config(settings, run.seed),
+            config=_pipeline_config(settings, run.seed, run),
             require_credit_validation=settings.require_credit_validation,
             progress_callback=report_progress,
             should_cancel=lambda: is_skip_requested(session, run.id),
