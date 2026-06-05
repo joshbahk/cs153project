@@ -12,11 +12,10 @@ This project assumes DigitalOcean is the only outside resource provider.
 ## Runtime Guardrails
 - Keep `MAX_TOTAL_USD=250`.
 - Keep `MAX_SAMPLE_SIZE=500` unless the budget file is deliberately updated.
-- Keep `MAX_QUEUED_JOBS=3` to avoid accidental batch spikes.
+- Keep `MAX_QUEUED_JOBS=50` and `MAX_BATCH_IMPORT=50` for the course-scale batch workflow.
 - Use the checked-in `.do/app.yaml` for one web service, one worker, and one dev PostgreSQL database.
 
 ## Governance
 - Re-check billing before any non-demo batch.
 - Stop the worker if recorded spend approaches the cap.
 - Store run artifacts in PostgreSQL, not the App Platform local filesystem.
-

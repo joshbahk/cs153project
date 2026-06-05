@@ -6,6 +6,7 @@ import tempfile
 import unittest
 import warnings
 from datetime import datetime, timedelta, timezone
+from unittest.mock import patch
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
@@ -17,6 +18,7 @@ from pypdf import PdfWriter
 from contracts.study_spec import BudgetState, CreditStatus
 from db.repository import create_paper_run, get_run
 from db.session import create_app_engine, create_session_factory, init_database
+from ingest.batch_importer import ImportCandidate, candidates_to_paper_inputs, discover_openalex
 from ingest.paper_ingest import PaperIngestError, build_paper_input, extract_pdf_text
 from ingest.study_loader import StudyDocument
 from pipeline.service import PipelineConfig, execute_documents
@@ -143,6 +145,62 @@ class IngestWebStorageTest(unittest.TestCase):
             api = client.get("/api/runs")
             self.assertEqual(api.status_code, 200)
             self.assertEqual(len(api.json()["items"]), 1)
+
+    def test_openalex_discovery_reconstructs_candidates(self) -> None:
+        payload = {
+            "results": [
+                {
+                    "id": "https://openalex.org/W1",
+                    "doi": "https://doi.org/10.123/example",
+                    "display_name": "Norm Message Field Experiment",
+                    "publication_year": 2024,
+                    "open_access": {"oa_url": "https://example.org/paper"},
+                    "primary_location": {},
+                    "locations": [],
+                    "abstract_inverted_index": {
+                        "Hypothesis": [0],
+                        "participants": [1],
+                        "control": [2],
+                        "treatment": [3],
+                    },
+                }
+            ]
+        }
+        with patch("ingest.batch_importer._request_json", return_value=payload):
+            candidates = discover_openalex("social norms", limit=1)
+        self.assertEqual(len(candidates), 1)
+        self.assertIn("Norm Message", candidates[0].title)
+        self.assertIn("Hypothesis participants control treatment", candidates[0].text)
+
+    def test_batch_route_queues_multiple_runs(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            settings = AppSettings(
+                database_url=f"sqlite:///{tmpdir}/batch.db",
+                max_sample_size=120,
+                max_queued_jobs=50,
+                max_batch_import=50,
+                auto_process_on_submit=False,
+            )
+            app = create_app(settings)
+            client = TestClient(app)
+            candidate = ImportCandidate(
+                title="Batch Norm Study",
+                source_uri="https://example.org/batch",
+                text=PAPER_TEXT,
+                source_kind="openalex",
+            )
+
+            with patch("web.app.discover_openalex", return_value=[candidate, candidate]), patch(
+                "web.app.hydrate_candidates", side_effect=lambda candidates, **_: candidates
+            ):
+                response = client.post(
+                    "/batch",
+                    data={"batch_query": "social norms", "batch_limit": "2", "batch_sources": ""},
+                    follow_redirects=False,
+                )
+            self.assertEqual(response.status_code, 303)
+            api = client.get("/api/runs")
+            self.assertEqual(len(api.json()["items"]), 2)
 
 
 if __name__ == "__main__":

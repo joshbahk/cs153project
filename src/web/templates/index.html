@@ -20,30 +20,51 @@
     </header>
 
     <main class="dashboard-grid">
-      <section class="tool-panel">
-        <h2>Run Paper</h2>
-        {% if error %}
-          <div class="alert alert-error">{{ error }}</div>
-        {% endif %}
-        {% if message %}
-          <div class="alert alert-ok">{{ message }}</div>
-        {% endif %}
-        <form action="/runs" method="post" enctype="multipart/form-data">
-          <label>
-            Title
-            <input name="title" type="text" placeholder="Paper or experiment title">
-          </label>
-          <label>
-            PDF
-            <input name="paper_pdf" type="file" accept="application/pdf">
-          </label>
-          <label>
-            Paper text
-            <textarea name="paper_text" rows="13" placeholder="Paste abstract, method, conditions, hypothesis, and outcome details"></textarea>
-          </label>
-          <button type="submit">Create Run</button>
-        </form>
-      </section>
+      <div class="left-stack">
+        <section class="tool-panel">
+          <h2>Run Paper</h2>
+          {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+          {% endif %}
+          {% if message %}
+            <div class="alert alert-ok">{{ message }}</div>
+          {% endif %}
+          <form action="/runs" method="post" enctype="multipart/form-data">
+            <label>
+              Title
+              <input name="title" type="text" placeholder="Paper or experiment title">
+            </label>
+            <label>
+              PDF
+              <input name="paper_pdf" type="file" accept="application/pdf">
+            </label>
+            <label>
+              Paper text
+              <textarea name="paper_text" rows="13" placeholder="Paste abstract, method, conditions, hypothesis, and outcome details"></textarea>
+            </label>
+            <button type="submit">Create Run</button>
+          </form>
+        </section>
+
+        <section class="tool-panel">
+          <h2>Batch Import</h2>
+          <form action="/batch" method="post">
+            <label>
+              OpenAlex search query
+              <input name="batch_query" type="text" value="social norm field experiment" placeholder="social norm field experiment">
+            </label>
+            <label>
+              Max papers
+              <input name="batch_limit" type="number" min="1" max="{{ settings.max_batch_import }}" value="{{ settings.max_batch_import }}">
+            </label>
+            <label>
+              URLs or DOIs
+              <textarea name="batch_sources" rows="8" placeholder="Optional: one DOI, PDF URL, or article URL per line"></textarea>
+            </label>
+            <button type="submit">Queue Batch</button>
+          </form>
+        </section>
+      </div>
 
       <section class="runs-panel">
         <div class="panel-heading">
@@ -88,4 +109,3 @@
     </main>
   </body>
 </html>
-

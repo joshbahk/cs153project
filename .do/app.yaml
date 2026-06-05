@@ -24,7 +24,10 @@ services:
         value: "15"
         scope: RUN_TIME
       - key: MAX_QUEUED_JOBS
-        value: "3"
+        value: "50"
+        scope: RUN_TIME
+      - key: MAX_BATCH_IMPORT
+        value: "50"
         scope: RUN_TIME
       - key: CACHE_DIR
         value: /tmp/replication-cache
@@ -53,7 +56,10 @@ workers:
         value: "15"
         scope: RUN_TIME
       - key: MAX_QUEUED_JOBS
-        value: "3"
+        value: "50"
+        scope: RUN_TIME
+      - key: MAX_BATCH_IMPORT
+        value: "50"
         scope: RUN_TIME
       - key: CACHE_DIR
         value: /tmp/replication-cache

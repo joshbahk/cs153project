@@ -99,6 +99,12 @@ p {
   grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
 }
 
+.left-stack {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
 .detail-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }

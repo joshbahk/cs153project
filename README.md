@@ -4,6 +4,7 @@ Simulation-based triage for text-first behavioral studies. The app helps priorit
 
 ## What This Builds
 - FastAPI dashboard for uploading PDFs or pasting paper text.
+- Batch importer for up to 50 open-access papers via OpenAlex search or pasted URL/DOI lists.
 - SQLite locally, PostgreSQL on DigitalOcean App Platform.
 - DB-backed run queue with a worker process.
 - Deterministic synthetic-participant simulator with unique agents per run.
@@ -44,10 +45,20 @@ This project is designed for DigitalOcean App Platform because the available cre
 2. In DigitalOcean, create an App Platform app from the repo.
 3. Use `.do/app.yaml` as the app spec.
 4. Bind the included dev PostgreSQL database.
-5. Keep `MAX_TOTAL_USD=250`, `MAX_SAMPLE_SIZE=500`, `MAX_UPLOAD_MB=15`, and `MAX_QUEUED_JOBS=3`.
+5. Keep `MAX_TOTAL_USD=250`, `MAX_SAMPLE_SIZE=500`, `MAX_UPLOAD_MB=15`, `MAX_QUEUED_JOBS=50`, and `MAX_BATCH_IMPORT=50`.
 6. Before production batches, copy `configs/credits.example.json` to `configs/credits.local.json` and set `validated=true` only after checking the DigitalOcean billing dashboard.
 
 Cloudflare, GPU inference, and paid third-party inference are intentionally disabled.
+
+## Batch Import
+The dashboard can queue large batches with very little manual work:
+
+1. Open the home page.
+2. In **Batch Import**, leave the default OpenAlex query or enter a query such as `social norm field experiment`.
+3. Set **Max papers** to `50`.
+4. Click **Queue Batch**.
+
+The importer uses OpenAlex open-access metadata, tries to extract full text from OA links/PDFs, and falls back to title/abstract metadata when full text is blocked. You can also paste one DOI, article URL, or PDF URL per line.
 
 ## Tests
 ```bash
@@ -56,4 +67,3 @@ PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"
 
 ## AI Use And Integrity
 AI tools were used to help design, implement, test, and document the software. The simulation itself is transparent and deterministic: it uses synthetic demographic priors plus a response model, not hidden LLM calls. Results are triage evidence only. A real replication decision still requires human participants, domain expertise, and careful study design.
-

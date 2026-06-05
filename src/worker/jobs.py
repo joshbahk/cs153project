@@ -58,6 +58,14 @@ def process_run_by_id(session_factory: sessionmaker[Session], run_id: str, setti
         return True
 
 
+def process_run_batch_by_ids(session_factory: sessionmaker[Session], run_ids: list[str], settings: AppSettings) -> int:
+    processed = 0
+    for run_id in run_ids:
+        if process_run_by_id(session_factory, run_id, settings):
+            processed += 1
+    return processed
+
+
 def process_next_run(session_factory: sessionmaker[Session], settings: AppSettings) -> bool:
     with session_factory() as session:
         run = claim_next_run(session)
