@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ run.paper.title }} · Replication Triage</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <a class="backlink" href="/">Back to dashboard</a>
+        <h1>{{ run.paper.title }}</h1>
+        <p>{{ run.paper.source_kind }} · {{ run.id }}</p>
+      </div>
+      <div class="metrics">
+        <span><strong>{{ run.status }}</strong> status</span>
+        <span><strong>{{ run.sample_size_target or "pending" }}</strong> target n</span>
+        <span><strong>${{ "%.2f"|format((run.budget_json or {}).get("spent_total_usd", 0)) }}</strong> run cost</span>
+      </div>
+    </header>
+
+    <main class="detail-grid">
+      <section class="tool-panel">
+        <h2>Primary Result</h2>
+        {% if run.status == "failed" %}
+          <div class="alert alert-error">{{ run.error_message }}</div>
+        {% elif run.status != "succeeded" %}
+          <div class="alert alert-ok">Run is {{ run.status }}.</div>
+        {% else %}
+          <dl class="stats-grid">
+            <div><dt>Risk</dt><dd>{{ "%.3f"|format(ranking.get("replication_risk", 0)) }}</dd></div>
+            <div><dt>Uncertainty</dt><dd>{{ "%.3f"|format(ranking.get("uncertainty", 0)) }}</dd></div>
+            <div><dt>Effect</dt><dd>{{ "%.3f"|format(primary.get("effect_size", 0)) }}</dd></div>
+            <div><dt>p-value</dt><dd>{{ "%.4f"|format(primary.get("p_value", 0)) }}</dd></div>
+            <div><dt>Control n</dt><dd>{{ primary.get("n_control", 0) }}</dd></div>
+            <div><dt>Treatment n</dt><dd>{{ primary.get("n_treatment", 0) }}</dd></div>
+          </dl>
+          <p class="callout">CI {{ "%.3f"|format(primary.get("ci_low", 0)) }} to {{ "%.3f"|format(primary.get("ci_high", 0)) }}. This is triage evidence, not a human replication.</p>
+        {% endif %}
+      </section>
+
+      <section class="tool-panel">
+        <h2>Run Evidence</h2>
+        <dl class="stats-grid">
+          <div><dt>Trials</dt><dd>{{ trial_summary["count"] }}</dd></div>
+          <div><dt>Unique agents</dt><dd>{{ trial_summary["unique_agents"] }}</dd></div>
+          <div><dt>Control</dt><dd>{{ trial_summary.arms.get("control", 0) }}</dd></div>
+          <div><dt>Treatment</dt><dd>{{ trial_summary.arms.get("treatment", 0) }}</dd></div>
+        </dl>
+        <div class="artifact-links">
+          <a href="/api/runs/{{ run.id }}/artifacts/extraction">Extraction JSON</a>
+          <a href="/api/runs/{{ run.id }}/artifacts/analysis">Analysis JSON</a>
+          <a href="/api/runs/{{ run.id }}/artifacts/ranking">Ranking JSON</a>
+          <a href="/api/runs/{{ run.id }}/artifacts/trials">Trials JSON</a>
+        </div>
+      </section>
+
+      <section class="wide-panel">
+        <h2>Sensitivity</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Shift</th>
+                <th>Effect</th>
+                <th>CI</th>
+                <th>p</th>
+                <th>Replicated</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for name, item in sensitivity.items() %}
+                <tr>
+                  <td>{{ name }}</td>
+                  <td>{{ "%.2f"|format(item.treatment_shift) }}</td>
+                  <td>{{ "%.3f"|format(item.effect_size) }}</td>
+                  <td>{{ "%.3f"|format(item.ci_low) }} to {{ "%.3f"|format(item.ci_high) }}</td>
+                  <td>{{ "%.4f"|format(item.p_value) }}</td>
+                  <td>{{ item.replicated }}</td>
+                </tr>
+              {% else %}
+                <tr><td colspan="6" class="empty">Sensitivity results pending.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="wide-panel">
+        <h2>Extracted Text</h2>
+        <pre class="paper-text">{{ run.paper.extracted_text[:4000] }}</pre>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,33 +1,21 @@
 {
   "providers": [
     {
-      "provider": "cloudflare",
-      "validated": false,
-      "expires_at": "2027-05-15T00:00:00+00:00",
-      "eligible_products": [
-        "workers",
-        "workers_ai",
-        "queues",
-        "d1",
-        "r2"
-      ],
-      "blocked_products": [],
-      "notes": "Update with actual awarded tier and cap details from billing."
-    },
-    {
       "provider": "digitalocean",
       "validated": false,
       "expires_at": "2027-05-15T00:00:00+00:00",
       "eligible_products": [
-        "droplets_cpu",
-        "managed_database",
+        "app_platform",
+        "dev_postgresql",
+        "cpu_droplets",
         "spaces"
       ],
       "blocked_products": [
         "gpu_droplets",
+        "paperspace_gpu",
         "third_party_inference"
       ],
-      "notes": "Core credits often exclude GPU and third-party inference."
+      "notes": "Set validated=true only after checking the DigitalOcean billing dashboard."
     }
   ]
 }

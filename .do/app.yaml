@@ -1,0 +1,65 @@
+name: replication-triage
+services:
+  - name: web
+    source_dir: /
+    environment_slug: python
+    instance_size_slug: basic-xs
+    instance_count: 1
+    http_port: 8080
+    run_command: PYTHONPATH=src uvicorn web.app:app --host 0.0.0.0 --port $PORT
+    envs:
+      - key: DATABASE_URL
+        value: ${replication-db.DATABASE_URL}
+        scope: RUN_TIME
+      - key: AUTO_PROCESS_ON_SUBMIT
+        value: "0"
+        scope: RUN_TIME
+      - key: MAX_TOTAL_USD
+        value: "250"
+        scope: RUN_TIME
+      - key: MAX_SAMPLE_SIZE
+        value: "500"
+        scope: RUN_TIME
+      - key: MAX_UPLOAD_MB
+        value: "15"
+        scope: RUN_TIME
+      - key: MAX_QUEUED_JOBS
+        value: "3"
+        scope: RUN_TIME
+      - key: CACHE_DIR
+        value: /tmp/replication-cache
+        scope: RUN_TIME
+workers:
+  - name: worker
+    source_dir: /
+    environment_slug: python
+    instance_size_slug: basic-xs
+    instance_count: 1
+    run_command: PYTHONPATH=src python -m worker.main
+    envs:
+      - key: DATABASE_URL
+        value: ${replication-db.DATABASE_URL}
+        scope: RUN_TIME
+      - key: AUTO_PROCESS_ON_SUBMIT
+        value: "0"
+        scope: RUN_TIME
+      - key: MAX_TOTAL_USD
+        value: "250"
+        scope: RUN_TIME
+      - key: MAX_SAMPLE_SIZE
+        value: "500"
+        scope: RUN_TIME
+      - key: MAX_UPLOAD_MB
+        value: "15"
+        scope: RUN_TIME
+      - key: MAX_QUEUED_JOBS
+        value: "3"
+        scope: RUN_TIME
+      - key: CACHE_DIR
+        value: /tmp/replication-cache
+        scope: RUN_TIME
+databases:
+  - name: replication-db
+    engine: PG
+    version: "16"
+    production: false

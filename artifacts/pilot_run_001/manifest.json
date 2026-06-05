@@ -1,9 +1,9 @@
 {
   "run_id": "pilot_run_001",
-  "created_at": "2026-05-18T06:21:43+00:00",
-  "git_commit": "57f381e",
+  "created_at": "2026-06-05T04:07:23+00:00",
+  "git_commit": "9193463",
   "random_seed": 153,
-  "model_tier": "credit_first_mixed",
+  "model_tier": "digitalocean_cpu_transparent_simulator",
   "study_ids": [
     "study_prompt_framing_001",
     "study_social_norms_002"
@@ -17,54 +17,43 @@
       "analysis": 25.0,
       "reporting": 25.0
     },
-    "spent_total_usd": 1.3800000000000008,
+    "spent_total_usd": 3.3999999999999027,
     "spent_by_study_usd": {
-      "study_prompt_framing_001": 0.6400000000000003,
-      "study_social_norms_002": 0.5400000000000004,
+      "study_prompt_framing_001": 1.7800000000000014,
+      "study_social_norms_002": 1.420000000000001,
       "global": 0.2
     },
     "spent_by_stage_usd": {
       "extraction": 0.08,
-      "simulation": 0.9000000000000007,
-      "analysis": 0.2,
+      "simulation": 2.519999999999944,
+      "analysis": 0.6,
       "reporting": 0.2
     }
   },
   "credit_status": [
     {
-      "provider": "cloudflare",
-      "validated": true,
-      "expires_at": "2027-05-15T00:00:00+00:00",
-      "eligible_products": [
-        "workers",
-        "workers_ai",
-        "queues",
-        "r2"
-      ],
-      "blocked_products": [],
-      "notes": "Demo file for local tests only."
-    },
-    {
       "provider": "digitalocean",
       "validated": true,
       "expires_at": "2027-05-15T00:00:00+00:00",
       "eligible_products": [
-        "droplets_cpu",
-        "managed_database",
+        "app_platform",
+        "dev_postgresql",
+        "cpu_droplets",
         "spaces"
       ],
       "blocked_products": [
         "gpu_droplets",
+        "paperspace_gpu",
         "third_party_inference"
       ],
-      "notes": "Demo file for local tests only."
+      "notes": "Demo validation for local/test runs. Replace with billing-verified values before production batches."
     }
   ],
   "artifacts": [
-    "artifacts/pilot_run_001/manifest.json",
-    "artifacts/pilot_run_001/extraction.json",
-    "artifacts/pilot_run_001/analysis.json",
-    "artifacts/pilot_run_001/ranking.json",
-    "artifacts/pilot_run_001/trials.json"
+    "manifest.json",
+    "extraction.json",
+    "analysis.json",
+    "ranking.json",
+    "trials.json"
   ]
 }

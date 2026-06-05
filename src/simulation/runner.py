@@ -16,6 +16,7 @@ class TrialResult:
     arm: str
     agent_id: str
     response_score: float
+    scenario: str = "primary"
 
 
 @dataclass(slots=True)
@@ -26,15 +27,17 @@ class SimulationBatch:
 
 
 class SimulationRunner:
-    def __init__(self, seed: int) -> None:
+    def __init__(self, seed: int, treatment_shift: float = 3.0, scenario: str = "primary") -> None:
         self._rng = random.Random(seed)
+        self._treatment_shift = treatment_shift
+        self._scenario = scenario
 
     def _assign_arm(self, spec: StudySpec) -> str:
         return self._rng.choice([arm.arm_id for arm in spec.arms])
 
     def _simulate_response(self, agent: SyntheticAgent, arm_id: str) -> float:
         base = 50.0 + 8.0 * agent.latent_trait
-        treatment_shift = 3.0 if arm_id == "treatment" else 0.0
+        treatment_shift = self._treatment_shift if arm_id == "treatment" else 0.0
         demographic_shift = {
             "high_school": -1.0,
             "college": 0.0,
@@ -56,11 +59,14 @@ class SimulationRunner:
                     arm=arm_id,
                     agent_id=agent.agent_id,
                     response_score=response,
+                    scenario=self._scenario,
                 )
             )
             by_arm.setdefault(arm_id, []).append(response)
-        control_mean = mean(by_arm.get("control", [0.0]))
-        treatment_mean = mean(by_arm.get("treatment", [0.0]))
+        control_scores = by_arm.get("control", [])
+        treatment_scores = by_arm.get("treatment", [])
+        control_mean = mean(control_scores) if control_scores else 0.0
+        treatment_mean = mean(treatment_scores) if treatment_scores else 0.0
         return SimulationBatch(
             results=results,
             sampled_n=len(picked),
@@ -78,8 +84,12 @@ class SimulationRunner:
     ) -> list[TrialResult]:
         all_results: list[TrialResult] = []
         consumed = 0
-        while consumed < max_n:
-            batch = self.run_batch(spec, agents, batch_size=batch_size)
+        remaining = list(agents)
+        while consumed < max_n and remaining:
+            batch_n = min(batch_size, max_n - consumed, len(remaining))
+            batch = self.run_batch(spec, remaining, batch_size=batch_n)
+            used_agent_ids = {row.agent_id for row in batch.results}
+            remaining = [agent for agent in remaining if agent.agent_id not in used_agent_ids]
             all_results.extend(batch.results)
             consumed += batch.sampled_n
             if consumed >= batch_size * 2:

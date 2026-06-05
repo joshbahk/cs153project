@@ -1,16 +1,16 @@
 {
   "items": [
     {
-      "study_id": "study_prompt_framing_001",
-      "replication_risk": 0.35359691400977045,
-      "uncertainty": 0.6020111923450253,
-      "rationale": "p=0.0166, effect=3.211, CI=[0.846, 5.662]"
+      "study_id": "study_social_norms_002",
+      "replication_risk": 0.8158721776266726,
+      "uncertainty": 0.8293608881333627,
+      "rationale": "p=0.2729, effect=1.750, CI=[-1.826, 4.809]"
     },
     {
-      "study_id": "study_social_norms_002",
-      "replication_risk": 0.30141408577447315,
-      "uncertainty": 0.6738757533316004,
-      "rationale": "p=0.0033, effect=4.006, CI=[1.267, 6.658]"
+      "study_id": "study_prompt_framing_001",
+      "replication_risk": 0.2976405179506223,
+      "uncertainty": 0.6966052519827288,
+      "rationale": "p=0.0017, effect=4.958, CI=[2.159, 7.732]"
     }
   ]
 }

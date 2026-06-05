@@ -3,12 +3,18 @@
     {
       "study_id": "study_prompt_framing_001",
       "tier_used": "local_heuristic",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "notes": [],
+      "sample_size_target": 240,
+      "source_sha256": "9f18a57343c2523aa0a0d1364045e86895593b657811f3cd6af6574eea99e682"
     },
     {
       "study_id": "study_social_norms_002",
       "tier_used": "local_heuristic",
-      "confidence": 0.95
+      "confidence": 0.95,
+      "notes": [],
+      "sample_size_target": 180,
+      "source_sha256": "eb20238bd6f498eeef141226b430a86afc4624af50fdd20dbfb37c7a5a9c1c52"
     }
   ]
 }

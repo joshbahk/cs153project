@@ -2,6 +2,10 @@
 __pycache__/
 *.py[codz]
 *$py.class
+.DS_Store
+artifacts/local.db
+artifacts/latest/
+artifacts/cache/*.json
 
 # C extensions
 *.so

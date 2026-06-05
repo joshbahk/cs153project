@@ -1,29 +1,22 @@
-# Credit Validation Playbook
+# DigitalOcean Credit Playbook
 
-This checklist must be completed before running any non-trivial batch.
+This project assumes DigitalOcean is the only outside resource provider.
 
-## 1) Verify account-level entitlements
-- Confirm Cloudflare startup credit balance, tier, and expiration date in billing.
-- Confirm DigitalOcean startup credit balance, monthly ceiling, and expiration date.
-- Record proof (screenshot or billing export) in private ops notes.
-
-## 2) Verify product eligibility
-- Cloudflare: confirm Workers AI and required data products are credit-eligible for the current tier.
-- DigitalOcean: confirm core-credit eligible services and explicitly verify GPU exclusions.
-- Track any temporary promotions separately from program credits.
-
-## 3) Update runtime config
+## Pre-Run Checklist
+- Confirm the DigitalOcean credit balance, expiration date, and monthly billing ceiling.
+- Confirm App Platform, dev PostgreSQL, CPU Droplets, and Spaces eligibility.
+- Confirm GPU Droplets, Paperspace GPU resources, and third-party inference are not used.
 - Copy `configs/credits.example.json` to `configs/credits.local.json`.
-- Set `validated=true` for each provider only after manual billing verification.
-- Fill `eligible_products`, `blocked_products`, and `expires_at` using exact account values.
+- Set `validated=true` only after checking the billing dashboard.
 
-## 4) Enforce pre-run guardrail
-- Pipeline must fail fast if any provider in active routing has:
-  - `validated=false`
-  - expired credits
-  - empty `eligible_products`
+## Runtime Guardrails
+- Keep `MAX_TOTAL_USD=250`.
+- Keep `MAX_SAMPLE_SIZE=500` unless the budget file is deliberately updated.
+- Keep `MAX_QUEUED_JOBS=3` to avoid accidental batch spikes.
+- Use the checked-in `.do/app.yaml` for one web service, one worker, and one dev PostgreSQL database.
 
-## 5) Monthly governance
-- Re-validate credits at least once per month.
-- Re-validate immediately after provider policy updates.
-- Keep a changelog entry when routing policy changes due to credit restrictions.
+## Governance
+- Re-check billing before any non-demo batch.
+- Stop the worker if recorded spend approaches the cap.
+- Store run artifacts in PostgreSQL, not the App Platform local filesystem.
+

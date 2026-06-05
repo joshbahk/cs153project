@@ -1,44 +1,43 @@
 # Pilot Efficacy Report (`pilot_run_001`)
 
-## Run metadata
+## Run Metadata
 - Run ID: `pilot_run_001`
 - Seed: `153`
-- Studies: 2 (`study_prompt_framing_001`, `study_social_norms_002`)
+- Studies: 2 synthetic pilot studies
 - Artifacts folder: `artifacts/pilot_run_001`
+- Model tier: `digitalocean_cpu_transparent_simulator`
 
-## Budget results
-- Global budget cap: **$250.00**
-- Actual pilot spend: **$1.38**
+## Budget Results
+- Global cap: `$250.00`
+- Recorded pilot spend: `$3.40`
 - Spend by stage:
-  - Extraction: $0.08
-  - Simulation: $0.90
-  - Analysis: $0.20
-  - Reporting: $0.20
-- Estimated equivalent runs under $250 at this scale: ~181 runs (`250 / 1.38`)
+  - Extraction: `$0.08`
+  - Simulation: `$2.52`
+  - Analysis: `$0.60`
+  - Reporting: `$0.20`
+- Estimated equivalent pilot batches under `$250`: about `73`.
 
-## Statistical outputs
+## Primary Statistical Outputs
 - `study_prompt_framing_001`
-  - Effect size: `3.211`
-  - 95% bootstrap CI: `[0.846, 5.662]`
-  - Permutation p-value: `0.0166`
+  - Effect size: `4.958`
+  - 95% bootstrap CI: `[2.159, 7.732]`
+  - Permutation p-value: `0.0017`
   - Replicated in simulation: `true`
 - `study_social_norms_002`
-  - Effect size: `4.006`
-  - 95% bootstrap CI: `[1.267, 6.658]`
-  - Permutation p-value: `0.0033`
-  - Replicated in simulation: `true`
+  - Effect size: `1.750`
+  - 95% bootstrap CI: `[-1.826, 4.809]`
+  - Permutation p-value: `0.2729`
+  - Replicated in simulation: `false`
 
-## Risk ranking output
-1. `study_prompt_framing_001` (risk `0.3536`, uncertainty `0.6020`)
-2. `study_social_norms_002` (risk `0.3014`, uncertainty `0.6739`)
+## Risk Ranking
+1. `study_social_norms_002` risk `0.8159`, uncertainty `0.8294`
+2. `study_prompt_framing_001` risk `0.2976`, uncertainty `0.6966`
 
-## Reproducibility artifacts generated
-- `artifacts/pilot_run_001/manifest.json`
-- `artifacts/pilot_run_001/extraction.json`
-- `artifacts/pilot_run_001/analysis.json`
-- `artifacts/pilot_run_001/ranking.json`
-- `artifacts/pilot_run_001/trials.json`
+## Integrity Checks
+- `study_prompt_framing_001`: `240` trial rows, `240` unique agent IDs.
+- `study_social_norms_002`: `180` trial rows, `180` unique agent IDs.
+- Sensitivity scenarios are included in `analysis.json`.
+- Credit status is DigitalOcean-only.
 
-## Notes
-- This pilot used `configs/credits.demo.json` for local validation testing.
-- Before production runs, replace with a manually verified credit file per `docs/credit_playbook.md`.
+## Interpretation
+The pilot demonstrates a reproducible triage workflow. It does not validate the original studies with humans. The strongest result is that the system can surface a high-risk candidate (`study_social_norms_002`) for follow-up replication while keeping cost and artifacts transparent.

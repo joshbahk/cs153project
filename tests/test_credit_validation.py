@@ -16,10 +16,10 @@ class CreditValidationTest(unittest.TestCase):
         future = (datetime.now(timezone.utc) + timedelta(days=10)).isoformat()
         statuses = [
             CreditStatus(
-                provider="cloudflare",
+                provider="digitalocean",
                 validated=False,
                 expires_at=future,
-                eligible_products=["workers_ai"],
+                eligible_products=["app_platform"],
                 blocked_products=[],
             )
         ]

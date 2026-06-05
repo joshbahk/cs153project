@@ -1,32 +1,21 @@
 {
   "providers": [
     {
-      "provider": "cloudflare",
-      "validated": true,
-      "expires_at": "2027-05-15T00:00:00+00:00",
-      "eligible_products": [
-        "workers",
-        "workers_ai",
-        "queues",
-        "r2"
-      ],
-      "blocked_products": [],
-      "notes": "Demo file for local tests only."
-    },
-    {
       "provider": "digitalocean",
       "validated": true,
       "expires_at": "2027-05-15T00:00:00+00:00",
       "eligible_products": [
-        "droplets_cpu",
-        "managed_database",
+        "app_platform",
+        "dev_postgresql",
+        "cpu_droplets",
         "spaces"
       ],
       "blocked_products": [
         "gpu_droplets",
+        "paperspace_gpu",
         "third_party_inference"
       ],
-      "notes": "Demo file for local tests only."
+      "notes": "Demo validation for local/test runs. Replace with billing-verified values before production batches."
     }
   ]
 }

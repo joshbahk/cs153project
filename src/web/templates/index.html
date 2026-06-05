@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Replication Triage</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Replication Triage</h1>
+        <p>Simulation-based prioritization for text-first studies.</p>
+      </div>
+      <div class="metrics">
+        <span><strong>${{ "%.2f"|format(total_spend) }}</strong> recorded</span>
+        <span><strong>{{ active_runs }}</strong> active</span>
+        <span><strong>{{ settings.max_sample_size }}</strong> max n</span>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="tool-panel">
+        <h2>Run Paper</h2>
+        {% if error %}
+          <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+        {% if message %}
+          <div class="alert alert-ok">{{ message }}</div>
+        {% endif %}
+        <form action="/runs" method="post" enctype="multipart/form-data">
+          <label>
+            Title
+            <input name="title" type="text" placeholder="Paper or experiment title">
+          </label>
+          <label>
+            PDF
+            <input name="paper_pdf" type="file" accept="application/pdf">
+          </label>
+          <label>
+            Paper text
+            <textarea name="paper_text" rows="13" placeholder="Paste abstract, method, conditions, hypothesis, and outcome details"></textarea>
+          </label>
+          <button type="submit">Create Run</button>
+        </form>
+      </section>
+
+      <section class="runs-panel">
+        <div class="panel-heading">
+          <h2>Previous Runs</h2>
+          <form class="search" action="/" method="get">
+            <input name="q" type="search" value="{{ query }}" placeholder="Search papers">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Paper</th>
+                <th>Status</th>
+                <th>Risk</th>
+                <th>p</th>
+                <th>Effect</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for run in runs %}
+                <tr>
+                  <td>
+                    <a href="/runs/{{ run.id }}">{{ run.title }}</a>
+                    <span class="muted">{{ run.source_kind }} · {{ run.created_at[:10] }}</span>
+                  </td>
+                  <td><span class="badge badge-{{ run.status }}">{{ run.status }}</span></td>
+                  <td>{{ "%.3f"|format(run.risk) if run.risk is not none else "pending" }}</td>
+                  <td>{{ "%.4f"|format(run.p_value) if run.p_value is not none else "pending" }}</td>
+                  <td>{{ "%.3f"|format(run.effect_size) if run.effect_size is not none else "pending" }}</td>
+                </tr>
+              {% else %}
+                <tr>
+                  <td colspan="5" class="empty">No runs yet.</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+

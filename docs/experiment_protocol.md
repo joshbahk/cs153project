@@ -1,25 +1,33 @@
 # Experiment Protocol
 
 ## Scope
-- Text-only studies that can be represented as prompt/condition/outcome pipelines.
-- Goal is triage: identify likely replication failures for prioritization in human studies.
+- Text-first studies representable as condition prompts and continuous response outcomes.
+- The system prioritizes likely replication risks; it does not verify scientific truth.
+- PDF uploads are supported when text is extractable. Scanned PDFs should be OCRed and pasted.
 
-## Reproducibility rules
-- Every run must define `run_id`, `random_seed`, and config snapshot.
-- Cache all extraction results and model responses keyed by study hash + settings.
-- Store trial-level outputs and aggregate stats under `artifacts/<run_id>/`.
+## Run Rules
+- Every run records a run ID, seed, source hash, budget ledger, extraction metadata, and JSON artifacts.
+- Local persistence uses SQLite at `artifacts/local.db`; production persistence uses DigitalOcean PostgreSQL.
+- The maximum extracted text length is 120,000 characters.
+- The maximum simulated sample size is 500 participants per study.
+- Each participant ID appears at most once in the primary trial output for a study.
 
-## Statistical workflow
-- Sequential sampling in fixed batches (default 50).
-- Stop early if CI width is below threshold to avoid unnecessary spend.
-- Compute effect size, bootstrap CI, and permutation p-value.
+## Statistical Workflow
+- Extract a `StudySpec` from paper text with confidence and fallback notes.
+- Run the primary simulation with a treatment shift of `3.0`.
+- Run sensitivity scenarios with treatment shifts of `1.0` and `0.0`.
+- Compute mean effect, bootstrap confidence interval, permutation p-value, and replicated-in-simulation flag.
+- Rank studies by p-value, effect magnitude, and uncertainty.
 
-## Budget workflow
-- Global cap: $250.
-- Per-study cap and per-stage caps enforced before each spend event.
-- Abort pipeline immediately when any cap is exceeded.
+## Budget Workflow
+- Global cap: `$250`.
+- Per-study and per-stage caps are enforced before charges are recorded.
+- DigitalOcean App Platform, dev PostgreSQL, and CPU resources are allowed.
+- Cloudflare, GPU resources, and paid third-party inference are blocked.
 
-## Quality gates
-- Extraction confidence must exceed threshold, otherwise fallback extraction is used.
-- Runs with missing control or treatment samples are invalid.
-- All outputs include manifest metadata and budget ledger.
+## Limitations
+- Synthetic participants are not people.
+- The response model is transparent but simplified.
+- Training-data leakage is avoided by not using external LLM agents in v1, but the simulator is also less realistic.
+- Results should guide follow-up human replication, not replace it.
+
