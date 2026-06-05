@@ -48,8 +48,12 @@ def _ensure_lightweight_migrations(engine: Engine) -> None:
     with engine.begin() as connection:
         if "agents_json" not in columns:
             connection.execute(text("ALTER TABLE runs ADD COLUMN agents_json JSON"))
+        if "llm_json" not in columns:
+            connection.execute(text("ALTER TABLE runs ADD COLUMN llm_json JSON"))
         if "progress_json" not in columns:
             connection.execute(text("ALTER TABLE runs ADD COLUMN progress_json JSON"))
+        if "hidden_at" not in columns:
+            connection.execute(text("ALTER TABLE runs ADD COLUMN hidden_at TIMESTAMP"))
 
 
 def create_session_factory(engine: Engine) -> sessionmaker[Session]:

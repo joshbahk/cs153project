@@ -32,6 +32,36 @@ services:
       - key: CACHE_DIR
         value: /tmp/replication-cache
         scope: RUN_TIME
+      - key: BULK_IMPORT_RESOLVE
+        value: "1"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MULTISOURCE
+        value: "1"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_OVERFETCH_FACTOR
+        value: "4"
+        scope: RUN_TIME
+      - key: LLM_SIMULATION_ENABLED
+        value: "0"
+        scope: RUN_TIME
+      - key: LLM_BASE_URL
+        value: https://inference.do-ai.run
+        scope: RUN_TIME
+      - key: LLM_MODEL
+        value: llama3.3-70b-instruct
+        scope: RUN_TIME
+      - key: LLM_SAMPLE_SIZE
+        value: "40"
+        scope: RUN_TIME
+      - key: LLM_PRIMARY_ONLY
+        value: "1"
+        scope: RUN_TIME
+      - key: LLM_MAX_TOKENS
+        value: "180"
+        scope: RUN_TIME
+      - key: LLM_TIMEOUT_SECONDS
+        value: "60"
+        scope: RUN_TIME
 workers:
   - name: worker
     source_dir: /
@@ -63,6 +93,36 @@ workers:
         scope: RUN_TIME
       - key: CACHE_DIR
         value: /tmp/replication-cache
+        scope: RUN_TIME
+      - key: BULK_IMPORT_RESOLVE
+        value: "1"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_MULTISOURCE
+        value: "1"
+        scope: RUN_TIME
+      - key: BULK_IMPORT_OVERFETCH_FACTOR
+        value: "4"
+        scope: RUN_TIME
+      - key: LLM_SIMULATION_ENABLED
+        value: "0"
+        scope: RUN_TIME
+      - key: LLM_BASE_URL
+        value: https://inference.do-ai.run
+        scope: RUN_TIME
+      - key: LLM_MODEL
+        value: llama3.3-70b-instruct
+        scope: RUN_TIME
+      - key: LLM_SAMPLE_SIZE
+        value: "40"
+        scope: RUN_TIME
+      - key: LLM_PRIMARY_ONLY
+        value: "1"
+        scope: RUN_TIME
+      - key: LLM_MAX_TOKENS
+        value: "180"
+        scope: RUN_TIME
+      - key: LLM_TIMEOUT_SECONDS
+        value: "60"
         scope: RUN_TIME
 databases:
   - name: replication-db

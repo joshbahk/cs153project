@@ -109,14 +109,23 @@ def get_run(session: Session, run_id: str) -> Run | None:
 
 
 def list_runs(session: Session, query: str = "", limit: int = 50) -> list[Run]:
-    stmt = select(Run).options(joinedload(Run.paper)).order_by(Run.created_at.desc()).limit(limit)
+    stmt = (
+        select(Run)
+        .options(joinedload(Run.paper))
+        .where(Run.hidden_at.is_(None))
+        .order_by(Run.created_at.desc())
+        .limit(limit)
+    )
     if query:
         pattern = f"%{query.lower()}%"
         stmt = (
             select(Run)
             .join(Run.paper)
             .options(joinedload(Run.paper))
-            .where(or_(func.lower(Paper.title).like(pattern), func.lower(Paper.extracted_text).like(pattern)))
+            .where(
+                Run.hidden_at.is_(None),
+                or_(func.lower(Paper.title).like(pattern), func.lower(Paper.extracted_text).like(pattern)),
+            )
             .order_by(Run.created_at.desc())
             .limit(limit)
         )
@@ -124,14 +133,14 @@ def list_runs(session: Session, query: str = "", limit: int = 50) -> list[Run]:
 
 
 def count_active_runs(session: Session) -> int:
-    stmt = select(func.count()).select_from(Run).where(Run.status.in_(ACTIVE_STATUSES))
+    stmt = select(func.count()).select_from(Run).where(Run.status.in_(ACTIVE_STATUSES), Run.hidden_at.is_(None))
     return int(session.scalar(stmt) or 0)
 
 
 def claim_next_run(session: Session) -> Run | None:
     stmt = (
         select(Run.id)
-        .where(Run.status == "queued")
+        .where(Run.status == "queued", Run.hidden_at.is_(None))
         .order_by(Run.created_at.asc())
         .limit(1)
     )
@@ -192,6 +201,7 @@ def mark_run_succeeded(session: Session, run: Run, artifacts: dict[str, Any]) ->
     run.ranking_json = artifacts["ranking"]
     run.trials_json = artifacts["trials"]
     run.agents_json = artifacts.get("agents", {})
+    run.llm_json = artifacts.get("llm_responses", {})
     run.budget_json = artifacts["manifest"].get("budget", {})
     run.progress_json = {
         **(run.progress_json or {}),
@@ -299,6 +309,23 @@ def request_run_skip(session: Session, run_id: str) -> Run | None:
     return run
 
 
+def hide_run_from_view(session: Session, run_id: str) -> Run | None:
+    run = get_run(session, run_id)
+    if run is None:
+        return None
+    if run.status in ACTIVE_STATUSES:
+        raise ValueError("Queued or running runs must be skipped before they can be deleted from view.")
+    run.hidden_at = utc_now()
+    progress = run.progress_json or _initial_progress()
+    run.progress_json = {
+        **progress,
+        "hidden_at": run.hidden_at.isoformat(),
+        "updated_at": _iso_now(),
+    }
+    session.commit()
+    return run
+
+
 def _primary_analysis(run: Run) -> dict[str, Any]:
     if not run.analysis_json:
         return {}
@@ -361,7 +388,9 @@ def total_recorded_spend(session: Session) -> float:
 
 def total_reserved_spend(session: Session) -> float:
     total = 0.0
-    for run in session.scalars(select(Run).where(Run.status.in_(ACTIVE_STATUSES), Run.budget_json.is_not(None))):
+    for run in session.scalars(
+        select(Run).where(Run.status.in_(ACTIVE_STATUSES), Run.hidden_at.is_(None), Run.budget_json.is_not(None))
+    ):
         total += float((run.budget_json or {}).get("reserved_usd", 0.0))
     return total
 

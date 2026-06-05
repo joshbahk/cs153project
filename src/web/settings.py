@@ -31,6 +31,37 @@ class AppSettings:
     auto_process_on_submit: bool = field(default_factory=lambda: _bool_env("AUTO_PROCESS_ON_SUBMIT", True))
     require_credit_validation: bool = field(default_factory=lambda: _bool_env("REQUIRE_CREDIT_VALIDATION", True))
     worker_poll_seconds: float = field(default_factory=lambda: float(os.getenv("WORKER_POLL_SECONDS", "2")))
+    llm_simulation_enabled: bool = field(default_factory=lambda: _bool_env("LLM_SIMULATION_ENABLED", False))
+    llm_api_key: str = field(
+        default_factory=lambda: (
+            os.getenv("GRADIENT_MODEL_ACCESS_KEY")
+            or os.getenv("DIGITALOCEAN_INFERENCE_KEY")
+            or os.getenv("DIGITALOCEAN_TOKEN")
+            or os.getenv("DIGITALOCEAN_ACCESS_TOKEN")
+            or os.getenv("LLM_API_KEY")
+            or ""
+        )
+    )
+    llm_base_url: str = field(default_factory=lambda: os.getenv("LLM_BASE_URL", "https://inference.do-ai.run"))
+    llm_model: str = field(default_factory=lambda: os.getenv("LLM_MODEL", "llama3.3-70b-instruct"))
+    llm_sample_size: int = field(default_factory=lambda: int(os.getenv("LLM_SAMPLE_SIZE", "40")))
+    llm_temperature: float = field(default_factory=lambda: float(os.getenv("LLM_TEMPERATURE", "0.2")))
+    llm_max_tokens: int = field(default_factory=lambda: int(os.getenv("LLM_MAX_TOKENS", "180")))
+    llm_max_retries: int = field(default_factory=lambda: int(os.getenv("LLM_MAX_RETRIES", "2")))
+    llm_primary_only: bool = field(default_factory=lambda: _bool_env("LLM_PRIMARY_ONLY", True))
+    llm_timeout_seconds: float = field(default_factory=lambda: float(os.getenv("LLM_TIMEOUT_SECONDS", "60")))
+    llm_estimated_input_tokens_per_trial: int = field(
+        default_factory=lambda: int(os.getenv("LLM_ESTIMATED_INPUT_TOKENS", "900"))
+    )
+    llm_estimated_output_tokens_per_trial: int = field(
+        default_factory=lambda: int(os.getenv("LLM_ESTIMATED_OUTPUT_TOKENS", "160"))
+    )
+    llm_input_cost_per_1m_tokens: float = field(
+        default_factory=lambda: float(os.getenv("LLM_INPUT_COST_PER_1M", "0.50"))
+    )
+    llm_output_cost_per_1m_tokens: float = field(
+        default_factory=lambda: float(os.getenv("LLM_OUTPUT_COST_PER_1M", "0.50"))
+    )
 
 
 def get_settings() -> AppSettings:

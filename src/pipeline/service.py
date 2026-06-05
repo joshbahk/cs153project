@@ -16,6 +16,12 @@ from ingest.study_loader import StudyDocument, load_study_document
 from ranking.risk_ranker import rank_replication_risk
 from simulation.agent_factory import AgentFactory
 from simulation.agent_factory import SyntheticAgent
+from simulation.llm_runner import (
+    ChatCompletionClient,
+    LLMParticipantRunner,
+    LLMScenarioOutput,
+    records_to_dicts,
+)
 from simulation.runner import SimulationRunner, TrialResult
 from stats.analyzer import AnalysisResult, analyze_for_study, bootstrap_ci
 from storage.cache import JsonCache
@@ -42,6 +48,18 @@ class PipelineConfig:
     cost_analysis: float = 0.10
     cost_reporting: float = 0.20
     model_tier: str = "digitalocean_cpu_transparent_simulator"
+    simulation_backend: str = "transparent"
+    llm_client: ChatCompletionClient | None = None
+    llm_model: str = "llama3.3-70b-instruct"
+    llm_sample_size: int = 40
+    llm_temperature: float = 0.2
+    llm_max_tokens: int = 180
+    llm_max_retries: int = 2
+    llm_primary_only: bool = True
+    llm_estimated_input_tokens_per_trial: int = 900
+    llm_estimated_output_tokens_per_trial: int = 160
+    llm_input_cost_per_1m_tokens: float = 0.50
+    llm_output_cost_per_1m_tokens: float = 0.50
     sensitivity_shifts: dict[str, float] = field(
         default_factory=lambda: {
             "primary": 3.0,
@@ -59,6 +77,7 @@ class PipelineOutput:
     ranking: dict[str, Any]
     trials: dict[str, list[dict[str, Any]]]
     agents: dict[str, list[dict[str, Any]]]
+    llm_responses: dict[str, list[dict[str, Any]]]
 
     def artifacts(self) -> dict[str, Any]:
         return {
@@ -68,12 +87,23 @@ class PipelineOutput:
             "ranking": self.ranking,
             "trials": self.trials,
             "agents": self.agents,
+            "llm_responses": self.llm_responses,
         }
 
 
 def estimate_run_cost(max_sample_size: int, config: PipelineConfig | None = None) -> float:
     config = config or PipelineConfig(max_sample_size=max_sample_size)
-    scenario_count = len(config.sensitivity_shifts)
+    scenario_count = len(_scenario_items(config))
+    if config.simulation_backend == "llm":
+        llm_trials = min(max_sample_size, config.llm_sample_size) * scenario_count
+        llm_estimated_cost = (
+            (llm_trials * config.llm_estimated_input_tokens_per_trial / 1_000_000)
+            * config.llm_input_cost_per_1m_tokens
+        ) + (
+            (llm_trials * config.llm_estimated_output_tokens_per_trial / 1_000_000)
+            * config.llm_output_cost_per_1m_tokens
+        )
+        return config.cost_extract + llm_estimated_cost + (config.cost_analysis * scenario_count) + config.cost_reporting
     return (
         config.cost_extract
         + (max_sample_size * config.cost_per_trial * scenario_count)
@@ -146,6 +176,21 @@ def _cap_sample_size(spec: StudySpec, max_sample_size: int) -> StudySpec:
     return spec
 
 
+def _scenario_items(config: PipelineConfig) -> list[tuple[str, float]]:
+    items = list(config.sensitivity_shifts.items())
+    if config.simulation_backend == "llm" and config.llm_primary_only:
+        return [item for item in items if item[0] == "primary"] or items[:1]
+    return items
+
+
+def _llm_trial_cost(usage: dict[str, int], config: PipelineConfig) -> float:
+    return (
+        (float(usage.get("prompt_tokens", 0)) / 1_000_000) * config.llm_input_cost_per_1m_tokens
+    ) + (
+        (float(usage.get("completion_tokens", 0)) / 1_000_000) * config.llm_output_cost_per_1m_tokens
+    )
+
+
 def _run_one_scenario(
     spec: StudySpec,
     agents: list[SyntheticAgent],
@@ -186,6 +231,54 @@ def _run_one_scenario(
     )
     _checkpoint(should_cancel)
     return results, analyze_for_study(spec, results, seed=analysis_seed)
+
+
+def _run_llm_scenario(
+    spec: StudySpec,
+    agents: list[SyntheticAgent],
+    simulation_seed: int,
+    analysis_seed: int,
+    scenario: str,
+    progress_callback: ProgressCallback | None,
+    should_cancel: CancelCheck | None,
+    progress_start: float,
+    progress_end: float,
+    config: PipelineConfig,
+) -> tuple[list[TrialResult], AnalysisResult, LLMScenarioOutput]:
+    if config.llm_client is None:
+        raise ValueError("LLM simulation is enabled but no LLM client is configured.")
+    runner = LLMParticipantRunner(
+        client=config.llm_client,
+        model=config.llm_model,
+        seed=simulation_seed,
+        scenario=scenario,
+        temperature=config.llm_temperature,
+        max_tokens=config.llm_max_tokens,
+        max_retries=config.llm_max_retries,
+    )
+
+    def report_agent(consumed: int, total: int) -> None:
+        _checkpoint(should_cancel)
+        fraction = consumed / total if total else 0.0
+        _emit_progress(
+            progress_callback,
+            stage="llm_simulating",
+            message=f"Calling LLM agents for {scenario} scenario ({consumed}/{total}).",
+            percent=progress_start + ((progress_end - progress_start) * fraction),
+            current=consumed,
+            total=total,
+            scenario=scenario,
+            model=config.llm_model,
+        )
+
+    output = runner.run_sequential(
+        spec=spec,
+        agents=agents,
+        max_n=min(spec.sample_size_target, config.llm_sample_size),
+        progress_callback=report_agent,
+    )
+    _checkpoint(should_cancel)
+    return output.trials, analyze_for_study(spec, output.trials, seed=analysis_seed), output
 
 
 def _has_blocking_methodology_gap(spec: StudySpec) -> bool:
@@ -238,6 +331,13 @@ def execute_documents(
         raise ValueError("at least one study document is required")
 
     config = config or PipelineConfig()
+    if config.simulation_backend not in {"transparent", "llm"}:
+        raise ValueError(f"unknown simulation backend: {config.simulation_backend}")
+    if config.simulation_backend == "llm" and config.llm_sample_size < 2:
+        raise ValueError("LLM simulation requires LLM_SAMPLE_SIZE >= 2")
+    if config.simulation_backend == "llm" and config.model_tier == "digitalocean_cpu_transparent_simulator":
+        config.model_tier = f"digitalocean_serverless_llm_agents:{config.llm_model}"
+
     _emit_progress(progress_callback, stage="validating", message="Validating credits and budget.", percent=2.0)
     _checkpoint(should_cancel)
     if require_credit_validation:
@@ -284,7 +384,10 @@ def execute_documents(
                     },
                 )
 
-        spec = _cap_sample_size(spec, config.max_sample_size)
+        effective_max_sample_size = config.max_sample_size
+        if config.simulation_backend == "llm":
+            effective_max_sample_size = min(config.max_sample_size, config.llm_sample_size)
+        spec = _cap_sample_size(spec, effective_max_sample_size)
         _emit_progress(
             progress_callback,
             stage="checking_methodology",
@@ -316,15 +419,18 @@ def execute_documents(
     analysis_payload: dict[str, Any] = {}
     all_trials: dict[str, list[dict[str, Any]]] = {}
     all_agents: dict[str, list[dict[str, Any]]] = {}
+    all_llm_responses: dict[str, list[dict[str, Any]]] = {}
 
     for idx, spec in enumerate(studies):
         scenario_payload: dict[str, Any] = {}
         primary_trials: list[TrialResult] = []
+        study_llm_records: list[dict[str, Any]] = []
         base_seed = config.seed + (idx * 1000)
+        participant_label = "LLM participant agents" if config.simulation_backend == "llm" else "stratified synthetic agents"
         _emit_progress(
             progress_callback,
             stage="generating_agents",
-            message=f"Generating {spec.sample_size_target} stratified synthetic agents.",
+            message=f"Generating {spec.sample_size_target} {participant_label}.",
             percent=18.0,
             current=0,
             total=spec.sample_size_target,
@@ -334,14 +440,16 @@ def execute_documents(
             spec.sample_size_target
         )
         agent_profiles = [agent.to_dict() for agent in agents]
-        scenario_items = list(config.sensitivity_shifts.items())
+        all_agents[spec.study_id] = agent_profiles
+        scenario_items = _scenario_items(config)
         scenario_count = len(scenario_items)
         for scenario_idx, (scenario, shift) in enumerate(scenario_items):
             scenario_start = 20.0 + (60.0 * (scenario_idx / scenario_count))
             scenario_end = 20.0 + (60.0 * ((scenario_idx + 1) / scenario_count))
+            stage = "llm_simulating" if config.simulation_backend == "llm" else "simulating"
             _emit_progress(
                 progress_callback,
-                stage="simulating",
+                stage=stage,
                 message=f"Starting {scenario} sensitivity scenario.",
                 percent=scenario_start,
                 current=0,
@@ -349,42 +457,74 @@ def execute_documents(
                 scenario=scenario,
             )
             _checkpoint(should_cancel)
-            trials, analyzed = _run_one_scenario(
-                spec=spec,
-                agents=agents,
-                simulation_seed=base_seed + 1,
-                analysis_seed=base_seed + 2 + scenario_idx,
-                batch_size=config.batch_size,
-                stop_width_threshold=config.stop_width_threshold,
-                scenario=scenario,
-                treatment_shift=shift,
-                progress_callback=progress_callback,
-                should_cancel=should_cancel,
-                progress_start=scenario_start,
-                progress_end=scenario_end,
-            )
-            for _ in trials:
+            llm_usage: dict[str, int] | None = None
+            if config.simulation_backend == "llm":
+                trials, analyzed, llm_output = _run_llm_scenario(
+                    spec=spec,
+                    agents=agents,
+                    simulation_seed=base_seed + 1,
+                    analysis_seed=base_seed + 2 + scenario_idx,
+                    scenario=scenario,
+                    progress_callback=progress_callback,
+                    should_cancel=should_cancel,
+                    progress_start=scenario_start,
+                    progress_end=scenario_end,
+                    config=config,
+                )
+                llm_usage = llm_output.usage.to_dict()
                 budget.charge(
                     BudgetEvent(
                         study_id=spec.study_id,
                         stage="simulation",
-                        cost_usd=config.cost_per_trial,
-                        reason=scenario,
+                        cost_usd=_llm_trial_cost(llm_usage, config),
+                        reason=f"{scenario}: {llm_usage}",
                     )
                 )
+                study_llm_records.extend(records_to_dicts(llm_output.records))
+            else:
+                trials, analyzed = _run_one_scenario(
+                    spec=spec,
+                    agents=agents,
+                    simulation_seed=base_seed + 1,
+                    analysis_seed=base_seed + 2 + scenario_idx,
+                    batch_size=config.batch_size,
+                    stop_width_threshold=config.stop_width_threshold,
+                    scenario=scenario,
+                    treatment_shift=shift,
+                    progress_callback=progress_callback,
+                    should_cancel=should_cancel,
+                    progress_start=scenario_start,
+                    progress_end=scenario_end,
+                )
+                for _ in trials:
+                    budget.charge(
+                        BudgetEvent(
+                            study_id=spec.study_id,
+                            stage="simulation",
+                            cost_usd=config.cost_per_trial,
+                            reason=scenario,
+                        )
+                    )
             budget.charge(BudgetEvent(study_id=spec.study_id, stage="analysis", cost_usd=config.cost_analysis))
-            scenario_payload[scenario] = {
+            scenario_result = {
                 **_analysis_to_dict(analyzed),
                 "treatment_shift": shift,
+                "simulation_backend": config.simulation_backend,
             }
-            if scenario == "primary":
+            if llm_usage is not None:
+                scenario_result["llm_model"] = config.llm_model
+                scenario_result["llm_usage"] = llm_usage
+            scenario_payload[scenario] = scenario_result
+            if scenario == "primary" or not primary_trials:
                 analysis_by_study[spec.study_id] = analyzed
                 primary_trials = trials
-                all_agents[spec.study_id] = agent_profiles
             _checkpoint(should_cancel)
 
+        if study_llm_records:
+            all_llm_responses[spec.study_id] = study_llm_records
+        primary_key = "primary" if "primary" in scenario_payload else next(iter(scenario_payload))
         analysis_payload[spec.study_id] = {
-            "primary": scenario_payload["primary"],
+            "primary": scenario_payload[primary_key],
             "sensitivity": scenario_payload,
             "methodology": asdict(spec.methodology),
             "interpretation": "Simulation-based triage result; not evidence that the original human study replicated.",
@@ -414,6 +554,7 @@ def execute_documents(
         "ranking.json",
         "trials.json",
         "agents.json",
+        "llm_responses.json",
     ]
 
     output = PipelineOutput(
@@ -423,6 +564,7 @@ def execute_documents(
         ranking={"items": [asdict(item) for item in ranked]},
         trials=all_trials,
         agents=all_agents,
+        llm_responses=all_llm_responses,
     )
     _emit_progress(progress_callback, stage="saving_results", message="Saving completed results.", percent=98.0)
     return output

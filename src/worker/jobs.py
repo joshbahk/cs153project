@@ -20,6 +20,7 @@ from db.repository import (
 from ingest.batch_importer import extract_url_text
 from ingest.paper_ingest import normalize_paper_text, sha256_text
 from ingest.study_loader import StudyDocument
+from llm.client import DigitalOceanLLMClient
 from pipeline.service import PipelineCancelled, PipelineConfig, estimate_run_cost, execute_documents, load_budget, load_credits
 from storage.cache import JsonCache
 from web.settings import AppSettings
@@ -42,7 +43,31 @@ def _budget_for_run(settings: AppSettings) -> BudgetState:
 
 
 def _pipeline_config(settings: AppSettings, seed: int) -> PipelineConfig:
-    return PipelineConfig(seed=seed, max_sample_size=settings.max_sample_size)
+    if not settings.llm_simulation_enabled:
+        return PipelineConfig(seed=seed, max_sample_size=settings.max_sample_size)
+
+    effective_max_sample_size = min(settings.max_sample_size, settings.llm_sample_size)
+    return PipelineConfig(
+        seed=seed,
+        max_sample_size=effective_max_sample_size,
+        model_tier=f"digitalocean_serverless_llm_agents:{settings.llm_model}",
+        simulation_backend="llm",
+        llm_client=DigitalOceanLLMClient(
+            api_key=settings.llm_api_key,
+            base_url=settings.llm_base_url,
+            timeout_seconds=settings.llm_timeout_seconds,
+        ),
+        llm_model=settings.llm_model,
+        llm_sample_size=settings.llm_sample_size,
+        llm_temperature=settings.llm_temperature,
+        llm_max_tokens=settings.llm_max_tokens,
+        llm_max_retries=settings.llm_max_retries,
+        llm_primary_only=settings.llm_primary_only,
+        llm_estimated_input_tokens_per_trial=settings.llm_estimated_input_tokens_per_trial,
+        llm_estimated_output_tokens_per_trial=settings.llm_estimated_output_tokens_per_trial,
+        llm_input_cost_per_1m_tokens=settings.llm_input_cost_per_1m_tokens,
+        llm_output_cost_per_1m_tokens=settings.llm_output_cost_per_1m_tokens,
+    )
 
 
 def _run_reservation(settings: AppSettings, seed: int) -> float:

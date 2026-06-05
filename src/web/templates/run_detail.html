@@ -6,13 +6,16 @@
     {% if auto_refresh %}
       <meta http-equiv="refresh" content="5">
     {% endif %}
-    <title>{{ run.paper.title }} · Replication Triage</title>
+    <title>{{ run.paper.title }} · Replicate</title>
     <link rel="stylesheet" href="/static/styles.css">
   </head>
   <body>
     <header class="topbar">
       <div>
-        <a class="backlink" href="/">Back to dashboard</a>
+        <a class="brand-link" href="/">
+          <span class="brand-mark brand-mark-small" aria-hidden="true">R</span>
+          <span class="brand-word brand-word-small">Replicate</span>
+        </a>
         <h1>{{ run.paper.title }}</h1>
         <p>{{ run.paper.source_kind }} · {{ run.id }}</p>
       </div>
@@ -34,6 +37,10 @@
             <form class="action-form" action="/runs/{{ run.id }}/skip" method="post">
               <button class="danger-button" type="submit">{{ "Skip Requested" if summary.skip_requested else "Skip Paper" }}</button>
             </form>
+          {% else %}
+            <form class="action-form" action="/runs/{{ run.id }}/delete" method="post">
+              <button class="delete-button" type="submit">Delete Run</button>
+            </form>
           {% endif %}
         </div>
         <div class="progress-track progress-track-large"><span style="width: {{ summary.progress_percent }}%"></span></div>
@@ -50,6 +57,60 @@
         {% endif %}
       </section>
 
+      {% if llm_study_summary.available %}
+        <section class="wide-panel llm-summary-panel">
+          <div class="panel-heading">
+            <h2>LLM Study Summary</h2>
+            <span class="summary-kicker">Abstract, method, results</span>
+          </div>
+          <p class="abstract-text">{{ llm_study_summary.abstract }}</p>
+
+          <div class="summary-columns">
+            <div>
+              <h3>Methodology</h3>
+              <ul class="summary-list">
+                {% for item in llm_study_summary.methodology_points %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div>
+              <h3>Results</h3>
+              <ul class="summary-list">
+                {% for item in llm_study_summary.result_points %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div>
+              <h3>LLM Response Signal</h3>
+              <ul class="summary-list">
+                {% for item in llm_study_summary.response_points %}
+                  {% if item %}
+                    <li>{{ item }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          {% if llm_study_summary.reasons %}
+            <div class="reason-strip">
+              {% for reason in llm_study_summary.reasons %}
+                <blockquote>{{ reason }}</blockquote>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="summary-audit">
+            {% for item in llm_study_summary.audit_points %}
+              <span>{{ item }}</span>
+            {% endfor %}
+          </div>
+          <p class="callout">{{ llm_study_summary.caveat }}</p>
+        </section>
+      {% endif %}
+
       <section class="tool-panel">
         <h2>Primary Result</h2>
         {% if run.status in ["failed", "skipped"] %}
@@ -64,6 +125,8 @@
             <div><dt>p-value</dt><dd>{{ "%.4f"|format(primary.get("p_value", 0)) }}</dd></div>
             <div><dt>Control n</dt><dd>{{ primary.get("n_control", 0) }}</dd></div>
             <div><dt>Treatment n</dt><dd>{{ primary.get("n_treatment", 0) }}</dd></div>
+            <div><dt>Backend</dt><dd>{{ primary.get("simulation_backend", "transparent") }}</dd></div>
+            <div><dt>Model</dt><dd>{{ primary.get("llm_model", "deterministic simulator") }}</dd></div>
           </dl>
           <p class="callout">CI {{ "%.3f"|format(primary.get("ci_low", 0)) }} to {{ "%.3f"|format(primary.get("ci_high", 0)) }}. This is triage evidence, not a human replication.</p>
           <p class="callout">{{ primary.get("method_note", "Standardized triage analysis.") }}</p>
@@ -84,6 +147,7 @@
           <a href="/api/runs/{{ run.id }}/artifacts/ranking">Ranking JSON</a>
           <a href="/api/runs/{{ run.id }}/artifacts/trials">Trials JSON</a>
           <a href="/api/runs/{{ run.id }}/artifacts/agents">Agents JSON</a>
+          <a href="/api/runs/{{ run.id }}/artifacts/llm_responses">LLM Responses JSON</a>
         </div>
       </section>
 
@@ -147,11 +211,11 @@
               {% for name, item in sensitivity.items() %}
                 <tr>
                   <td>{{ name }}</td>
-                  <td>{{ "%.2f"|format(item.treatment_shift) }}</td>
-                  <td>{{ "%.3f"|format(item.effect_size) }}</td>
-                  <td>{{ "%.3f"|format(item.ci_low) }} to {{ "%.3f"|format(item.ci_high) }}</td>
-                  <td>{{ "%.4f"|format(item.p_value) }}</td>
-                  <td>{{ item.replicated }}</td>
+                  <td>{{ "%.2f"|format(item.get("treatment_shift", 0)) }}</td>
+                  <td>{{ "%.3f"|format(item.get("effect_size", 0)) }}</td>
+                  <td>{{ "%.3f"|format(item.get("ci_low", 0)) }} to {{ "%.3f"|format(item.get("ci_high", 0)) }}</td>
+                  <td>{{ "%.4f"|format(item.get("p_value", 0)) }}</td>
+                  <td>{{ item.get("replicated", false) }}</td>
                 </tr>
               {% else %}
                 <tr><td colspan="6" class="empty">Sensitivity results pending.</td></tr>

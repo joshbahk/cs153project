@@ -6,20 +6,24 @@
     {% if active_runs > 0 %}
       <meta http-equiv="refresh" content="5">
     {% endif %}
-    <title>Replication Triage</title>
+    <title>Replicate</title>
     <link rel="stylesheet" href="/static/styles.css">
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <h1>Replication Triage</h1>
-        <p>Simulation-based prioritization for text-first studies.</p>
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">R</div>
+        <div>
+          <h1 class="brand-word">Replicate</h1>
+          <p>Simulation-based prioritization for text-first studies.</p>
+        </div>
       </div>
       <div class="metrics">
         <span><strong>${{ "%.2f"|format(total_spend) }}</strong> recorded</span>
         <span><strong>${{ "%.2f"|format(projected_spend) }}</strong> projected</span>
         <span><strong>{{ active_runs }}</strong> active</span>
-        <span><strong>{{ settings.max_sample_size }}</strong> max n</span>
+        <span><strong>{{ "LLM" if settings.llm_simulation_enabled else "transparent" }}</strong> backend</span>
+        <span><strong>{{ settings.llm_sample_size if settings.llm_simulation_enabled else settings.max_sample_size }}</strong> max n</span>
       </div>
     </header>
 
@@ -122,7 +126,9 @@
                         <button class="danger-button" type="submit">{{ "Requested" if run.skip_requested else "Skip" }}</button>
                       </form>
                     {% else %}
-                      <span class="muted">-</span>
+                      <form class="action-form" action="/runs/{{ run.id }}/delete" method="post">
+                        <button class="delete-button" type="submit">Delete</button>
+                      </form>
                     {% endif %}
                   </td>
                 </tr>

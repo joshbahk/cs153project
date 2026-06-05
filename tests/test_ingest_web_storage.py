@@ -5,6 +5,7 @@ import sys
 import tempfile
 import unittest
 import warnings
+import json
 from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 
@@ -16,11 +17,12 @@ from fastapi.testclient import TestClient
 from pypdf import PdfWriter
 
 from contracts.study_spec import BudgetState, CreditStatus
-from db.repository import create_paper_run, get_run
+from db.repository import create_paper_run, get_run, mark_run_succeeded
 from db.session import create_app_engine, create_session_factory, init_database
 from ingest.batch_importer import ImportCandidate, _request_bytes, candidates_to_paper_inputs, discover_openalex
 from ingest.paper_ingest import PaperIngestError, build_paper_input, extract_pdf_text
 from ingest.study_loader import StudyDocument
+from llm.client import LLMChatResult, LLMUsage
 from pipeline.service import PipelineCancelled, PipelineConfig, execute_documents
 from web.app import create_app
 from web.settings import AppSettings
@@ -111,6 +113,66 @@ class IngestWebStorageTest(unittest.TestCase):
         self.assertIn("income_bucket", first.agents["study_a"][0])
         self.assertIn("methodology", first.analysis["study_a"])
         self.assertIn("matched_original_method", first.analysis["study_a"]["primary"])
+
+    def test_pipeline_can_use_llm_agents_with_stored_responses(self) -> None:
+        class FakeLLMClient:
+            def __init__(self) -> None:
+                self.calls = []
+
+            def chat_completion(self, *, messages, model, temperature, max_tokens):
+                self.calls.append(messages)
+                prompt = messages[-1]["content"]
+                is_treatment = "Condition treatment prompt" in prompt
+                score = 72 if is_treatment else 45
+                return LLMChatResult(
+                    content=json.dumps(
+                        {
+                            "response_score": score,
+                            "response_label": "would comply" if is_treatment else "somewhat unsure",
+                            "brief_reason": "The profile and condition imply this score.",
+                        }
+                    ),
+                    model=model,
+                    usage=LLMUsage(prompt_tokens=100, completion_tokens=20, total_tokens=120),
+                )
+
+        doc = StudyDocument(
+            study_id="study_llm",
+            title="Study LLM",
+            source_uri="test://study-llm",
+            text=PAPER_TEXT,
+            source_sha256="hash-llm",
+        )
+        fake = FakeLLMClient()
+        output = execute_documents(
+            docs=[doc],
+            run_id="run_llm",
+            budget_state=BudgetState(250.0, 25.0, {"extraction": 50.0, "simulation": 150.0, "analysis": 25.0, "reporting": 25.0}),
+            credits=[_credit()],
+            config=PipelineConfig(
+                seed=19,
+                max_sample_size=500,
+                simulation_backend="llm",
+                llm_client=fake,
+                llm_model="fake-digitalocean-model",
+                llm_sample_size=20,
+            ),
+        )
+        rows = output.trials["study_llm"]
+        ids = [row["agent_id"] for row in rows]
+        primary = output.analysis["study_llm"]["primary"]
+
+        self.assertEqual(len(fake.calls), 20)
+        self.assertEqual(len(rows), 20)
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(output.extraction["items"][0]["sample_size_target"], 20)
+        self.assertEqual(primary["simulation_backend"], "llm")
+        self.assertEqual(primary["llm_model"], "fake-digitalocean-model")
+        self.assertEqual(primary["llm_usage"]["total_tokens"], 2400)
+        self.assertIn("study_llm", output.llm_responses)
+        self.assertEqual(len(output.llm_responses["study_llm"]), 20)
+        self.assertEqual(output.llm_responses["study_llm"][0]["model"], "fake-digitalocean-model")
+        self.assertIn("digitalocean_serverless_llm_agents", output.manifest["model_tier"])
 
     def test_pipeline_reports_progress_and_can_cancel(self) -> None:
         doc = StudyDocument(
@@ -205,7 +267,7 @@ class IngestWebStorageTest(unittest.TestCase):
             with TestClient(app) as client:
                 home = client.get("/")
                 self.assertEqual(home.status_code, 200)
-                self.assertIn("Replication Triage", home.text)
+                self.assertIn("Replicate", home.text)
 
                 created = client.post(
                     "/runs",
@@ -234,6 +296,77 @@ class IngestWebStorageTest(unittest.TestCase):
                 skipped_api = client.get(f"/api/runs/{run_id}")
                 self.assertEqual(skipped_api.json()["status"], "skipped")
                 self.assertEqual(skipped_api.json()["progress"]["progress_stage"], "skipped")
+
+                deleted = client.post(f"/runs/{run_id}/delete", follow_redirects=False)
+                self.assertEqual(deleted.status_code, 303)
+                after_delete = client.get("/api/runs")
+                self.assertEqual(after_delete.status_code, 200)
+                self.assertEqual(after_delete.json()["items"], [])
+                hidden_detail = client.get(run_path)
+                self.assertEqual(hidden_detail.status_code, 404)
+
+    def test_completed_llm_run_detail_shows_study_summary(self) -> None:
+        class FakeLLMClient:
+            def chat_completion(self, *, messages, model, temperature, max_tokens):
+                prompt = messages[-1]["content"]
+                is_treatment = "Condition treatment prompt" in prompt
+                return LLMChatResult(
+                    content=json.dumps(
+                        {
+                            "response_score": 72 if is_treatment else 45,
+                            "response_label": "would comply" if is_treatment else "hesitant",
+                            "brief_reason": "The assigned condition changes the participant-like response.",
+                        }
+                    ),
+                    model=model,
+                    usage=LLMUsage(prompt_tokens=100, completion_tokens=20, total_tokens=120),
+                )
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            settings = AppSettings(database_url=f"sqlite:///{tmpdir}/llm-summary.db", auto_process_on_submit=False)
+            app = create_app(settings)
+            with TestClient(app) as client:
+                with app.state.session_factory() as session:
+                    paper = build_paper_input("LLM Summary Study", PAPER_TEXT, None, "")
+                    run = create_paper_run(session, paper, seed=153)
+                    run_id = run.id
+
+                output = execute_documents(
+                    docs=[
+                        StudyDocument(
+                            study_id=run_id,
+                            title="LLM Summary Study",
+                            source_uri="test://summary",
+                            text=PAPER_TEXT,
+                            source_sha256="hash-summary",
+                        )
+                    ],
+                    run_id=run_id,
+                    budget_state=BudgetState(250.0, 25.0, {"extraction": 50.0, "simulation": 150.0, "analysis": 25.0, "reporting": 25.0}),
+                    credits=[_credit()],
+                    config=PipelineConfig(
+                        seed=21,
+                        max_sample_size=500,
+                        simulation_backend="llm",
+                        llm_client=FakeLLMClient(),
+                        llm_model="fake-digitalocean-model",
+                        llm_sample_size=20,
+                    ),
+                )
+
+                with app.state.session_factory() as session:
+                    run = get_run(session, run_id)
+                    self.assertIsNotNone(run)
+                    mark_run_succeeded(session, run, output.artifacts())
+
+                detail = client.get(f"/runs/{run_id}")
+                self.assertEqual(detail.status_code, 200)
+                self.assertIn("LLM Study Summary", detail.text)
+                self.assertIn("Abstract, method, results", detail.text)
+                self.assertIn("Treatment responses were higher", detail.text)
+                self.assertIn("fake-digitalocean-model", detail.text)
+                self.assertIn("Stored LLM response records: 20", detail.text)
+                self.assertIn("Most common response labels", detail.text)
 
     def test_fastapi_upload_and_budget_caps(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -304,13 +437,16 @@ class IngestWebStorageTest(unittest.TestCase):
             )
 
             with TestClient(app) as client:
-                with patch("web.app.discover_openalex", return_value=[candidate, candidate]):
+                with patch("web.app.discover_openalex", return_value=[candidate] * 8) as mock_discover:
                     response = client.post(
                         "/batch",
                         data={"batch_query": "social norms", "batch_limit": "2", "batch_sources": ""},
                         follow_redirects=False,
                     )
                 self.assertEqual(response.status_code, 303)
+                self.assertGreater(mock_discover.call_args.kwargs["limit"], 2)
+                self.assertIn("batch_discovered=8", response.headers["location"])
+                self.assertIn("batch_suitable=8", response.headers["location"])
                 api = client.get("/api/runs")
                 self.assertEqual(len(api.json()["items"]), 2)
 
